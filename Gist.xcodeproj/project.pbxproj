@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5411CC42201FAAE300D49258 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC41201FAAE300D49258 /* PopoverView.swift */; };
+		5411CC44201FB11500D49258 /* GistButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC43201FB11500D49258 /* GistButton.swift */; };
+		5411CC46201FC59E00D49258 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC45201FC59E00D49258 /* BasicButton.swift */; };
+		5411CC48201FC9B800D49258 /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC47201FC9B800D49258 /* SwitchButton.swift */; };
+		5411CC4A201FCBD200D49258 /* GistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC49201FCBD100D49258 /* GistManager.swift */; };
 		54ABA0832005E10600FCC1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABA0822005E10600FCC1F8 /* AppDelegate.swift */; };
 		54ABA0852005E10600FCC1F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABA0842005E10600FCC1F8 /* ViewController.swift */; };
 		54ABA0872005E10600FCC1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54ABA0862005E10600FCC1F8 /* Assets.xcassets */; };
 		54ABA08A2005E10600FCC1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54ABA0882005E10600FCC1F8 /* Main.storyboard */; };
 		54ABA0962005E10600FCC1F8 /* GistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABA0952005E10600FCC1F8 /* GistTests.swift */; };
 		54ABA0A12005E10600FCC1F8 /* GistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABA0A02005E10600FCC1F8 /* GistUITests.swift */; };
+		54B0A7D3201E75DF00184069 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B0A7D2201E75DF00184069 /* GistViewController.swift */; };
+		54B0A7D5201E7BD300184069 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B0A7D4201E7BD300184069 /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5411CC41201FAAE300D49258 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		5411CC43201FB11500D49258 /* GistButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistButton.swift; sourceTree = "<group>"; };
+		5411CC45201FC59E00D49258 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		5411CC47201FC9B800D49258 /* SwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButton.swift; sourceTree = "<group>"; };
+		5411CC49201FCBD100D49258 /* GistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistManager.swift; sourceTree = "<group>"; };
 		54ABA07F2005E10600FCC1F8 /* Gist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54ABA0822005E10600FCC1F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54ABA0842005E10600FCC1F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +58,8 @@
 		54ABA09C2005E10600FCC1F8 /* GistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54ABA0A02005E10600FCC1F8 /* GistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistUITests.swift; sourceTree = "<group>"; };
 		54ABA0A22005E10600FCC1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54B0A7D2201E75DF00184069 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
+		54B0A7D4201E7BD300184069 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +116,13 @@
 				54ABA0882005E10600FCC1F8 /* Main.storyboard */,
 				54ABA08B2005E10600FCC1F8 /* Info.plist */,
 				54ABA08C2005E10600FCC1F8 /* Gist.entitlements */,
+				54B0A7D2201E75DF00184069 /* GistViewController.swift */,
+				54B0A7D4201E7BD300184069 /* EventMonitor.swift */,
+				5411CC41201FAAE300D49258 /* PopoverView.swift */,
+				5411CC43201FB11500D49258 /* GistButton.swift */,
+				5411CC45201FC59E00D49258 /* BasicButton.swift */,
+				5411CC49201FCBD100D49258 /* GistManager.swift */,
+				5411CC47201FC9B800D49258 /* SwitchButton.swift */,
 			);
 			path = Gist;
 			sourceTree = "<group>";
@@ -257,8 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5411CC46201FC59E00D49258 /* BasicButton.swift in Sources */,
 				54ABA0852005E10600FCC1F8 /* ViewController.swift in Sources */,
+				54B0A7D3201E75DF00184069 /* GistViewController.swift in Sources */,
+				5411CC48201FC9B800D49258 /* SwitchButton.swift in Sources */,
 				54ABA0832005E10600FCC1F8 /* AppDelegate.swift in Sources */,
+				5411CC42201FAAE300D49258 /* PopoverView.swift in Sources */,
+				5411CC4A201FCBD200D49258 /* GistManager.swift in Sources */,
+				5411CC44201FB11500D49258 /* GistButton.swift in Sources */,
+				54B0A7D5201E7BD300184069 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

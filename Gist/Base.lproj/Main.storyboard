@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,45 +674,73 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Gist" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="R2V-B0-nI4">
-            <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-			<connections>
-                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
-                    </connections>
-                </windowController>
-                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="75" y="250"/>
-        </scene>
-        <!--View Controller-->
+        <!--Gist View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController storyboardIdentifier="GistViewController" id="XfG-lQ-9wD" customClass="GistViewController" customModule="Gist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="PopoverView" customModule="Gist" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="224" height="278"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Gist" customModuleProvider="target">
+                                <rect key="frame" x="156" y="207" width="62" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="Lah-JF-dhi"/>
+                                </constraints>
+                                <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" inset="2" id="qqZ-om-TyV">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Gist" customModuleProvider="target">
+                                <rect key="frame" x="75" y="188" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="YxG-3Y-kzZ"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSShareTemplate" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buttonPress:" target="XfG-lQ-9wD" id="rM0-lk-QiM"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD">
+                                <rect key="frame" x="10" y="152" width="205" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="t6v-21-Oj8"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="left" title="Description" drawsBackground="YES" id="9gD-7a-avm">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="15" id="3iZ-yn-lWf"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="centerX" secondItem="rSx-P3-cCD" secondAttribute="centerX" id="3u4-fq-oZG"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="6vc-s1-rDI"/>
+                            <constraint firstItem="jVV-fY-2uM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="55" id="9Id-gt-tEs"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="XWa-cM-5kt"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="jVV-fY-2uM" secondAttribute="bottom" constant="29" id="e5v-bJ-ibB"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="fo9-uv-L3A" secondAttribute="bottom" constant="8" symbolic="YES" id="x1e-Fe-hp1"/>
+                            <constraint firstItem="jVV-fY-2uM" firstAttribute="leading" secondItem="fo9-uv-L3A" secondAttribute="trailing" constant="8" symbolic="YES" id="y8H-tq-oBP"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="85" y="661"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSShareTemplate" width="11" height="16"/>
+    </resources>
 </document>
