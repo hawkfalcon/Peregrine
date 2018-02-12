@@ -22,11 +22,14 @@ class PopoverView: NSView {
             return
         }
         
-        let backgroundView = NSView(frame: frameView.bounds)
+        let frame = frameView.bounds
+        let height: CGFloat = 150.0
+        let newFrame = NSRect(x: frame.minX, y: frame.minY + height + 15, width: frame.width, height: frame.height - height)
+        let backgroundView = NSView(frame: newFrame)
         backgroundView.wantsLayer = true
         let color = CGColor.init(red: 36.0 / 255.0, green: 41.0 / 255.0, blue: 46.0 / 255.0, alpha: 1.0)
         backgroundView.layer?.backgroundColor = color
-        backgroundView.layer?.borderColor = color
+        backgroundView.layer?.borderColor = .clear
         backgroundView.autoresizingMask = [.width, .height]
         
         frameView.addSubview(backgroundView, positioned: .below, relativeTo: frameView)

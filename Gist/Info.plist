@@ -30,5 +30,18 @@
 	<true/>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>owl</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>owl</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
