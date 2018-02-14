@@ -21,7 +21,20 @@ class GistViewController: NSViewController {
     @IBOutlet var textField: NSTextView!
     
     override func viewDidLoad() {
+        
+        let area = NSTrackingArea.init(rect: loginButton.bounds, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
+        loginButton.addTrackingArea(area)
+        
         super.viewDidLoad()
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        print("Entered")
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        loginButton.title = ""
+        print("Exited")
     }
     
     override func viewWillAppear() {
@@ -35,8 +48,30 @@ class GistViewController: NSViewController {
         }
     }
     
+    func paste(content: String) {
+        let paste = NSPasteboard.general
+        paste.clearContents()
+        paste.setString(content, forType: .string)
+    }
+    
     @IBAction func buttonPress(_ sender: NSButton) {
-            gistManager.createGist(content: textField.string)
+        print("?")
+        loader.postGist(content: textField.string, name: "gist") { dict, error in
+            if let error = error {
+                switch error {
+                case OAuth2Error.requestCancelled:
+                    self.label?.stringValue = "Cancelled. Try Again."
+                default:
+                    self.label?.stringValue = "Failed. Try Again."
+                }
+            }
+            else {
+                if let htmlUrl = dict?["html_url"] as? String {
+                    self.paste(content: htmlUrl)
+                }
+            }
+        }
+         //  gistManager.createGist(content: textField.string)
     }
     
     let OAuth2AppDidReceiveCallbackNotification = NSNotification.Name(rawValue: "OAuth2AppDidReceiveCallback")

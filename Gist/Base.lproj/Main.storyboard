@@ -724,7 +724,7 @@
                                             <size key="minSize" width="300" height="129"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
-                                                <fragment content="Write some text here please">
+                                                <fragment content="Hello I am some text I want to share please share me">
                                                     <attributes>
                                                         <font key="NSFont" metaFont="system" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
