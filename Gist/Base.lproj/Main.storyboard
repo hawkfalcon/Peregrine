@@ -810,6 +810,15 @@
                                     <color key="backgroundColor" red="0.23477604990000001" green="0.25075703859999998" blue="0.26741927859999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Gist" customModuleProvider="target">
+                                <rect key="frame" x="2" y="405" width="66" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="wGE-Ae-Oi8">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="rSx-P3-cCD" firstAttribute="centerX" secondItem="ome-rW-50L" secondAttribute="centerX" id="B8M-th-Ear"/>
@@ -840,6 +849,7 @@
                         <outlet property="box" destination="PZg-hf-NUO" id="O9W-Hv-Oto"/>
                         <outlet property="label" destination="C9f-01-mIq" id="D8I-bn-dX0"/>
                         <outlet property="loginButton" destination="vGX-hc-rH8" id="qpH-dL-Zy0"/>
+                        <outlet property="loginLabel" destination="aGe-6s-phM" id="WUV-6r-oG4"/>
                         <outlet property="pasteButton" destination="Hk9-rn-Tpy" id="Lkf-9c-PUY"/>
                         <outlet property="textField" destination="yuT-Ju-fST" id="wDf-Mp-Q6W"/>
                     </connections>

@@ -16,6 +16,7 @@
 		5411CC52202537C200D49258 /* GitHubLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC50202537C200D49258 /* GitHubLoader.swift */; };
 		5430D77D202F9E350045CDEE /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5430D77C202F9E350045CDEE /* LinkButton.swift */; };
 		546B2F5E202A4BF90027F50D /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546B2F54202A4BC80027F50D /* OAuth2.framework */; };
+		547A10322034D25900ECCDFD /* BasicText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A10312034D25900ECCDFD /* BasicText.swift */; };
 		54ABA0832005E10600FCC1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABA0822005E10600FCC1F8 /* AppDelegate.swift */; };
 		54ABA0872005E10600FCC1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54ABA0862005E10600FCC1F8 /* Assets.xcassets */; };
 		54ABA08A2005E10600FCC1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54ABA0882005E10600FCC1F8 /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		5411CC50202537C200D49258 /* GitHubLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubLoader.swift; sourceTree = "<group>"; };
 		5430D77C202F9E350045CDEE /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		546B2F4C202A4BC80027F50D /* OAuth2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuth2.xcodeproj; path = OAuth2/OAuth2.xcodeproj; sourceTree = "<group>"; };
+		547A10312034D25900ECCDFD /* BasicText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicText.swift; sourceTree = "<group>"; };
 		54ABA07F2005E10600FCC1F8 /* Gist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54ABA0822005E10600FCC1F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54ABA0862005E10600FCC1F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				5411CC45201FC59E00D49258 /* BasicButton.swift */,
 				5411CC47201FC9B800D49258 /* SwitchButton.swift */,
 				5411CC49201FCBD100D49258 /* GistManager.swift */,
+				547A10312034D25900ECCDFD /* BasicText.swift */,
 			);
 			path = Gist;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				54B0A7D3201E75DF00184069 /* GistViewController.swift in Sources */,
 				5411CC48201FC9B800D49258 /* SwitchButton.swift in Sources */,
 				54ABA0832005E10600FCC1F8 /* AppDelegate.swift in Sources */,
+				547A10322034D25900ECCDFD /* BasicText.swift in Sources */,
 				5411CC52202537C200D49258 /* GitHubLoader.swift in Sources */,
 				5411CC42201FAAE300D49258 /* PopoverView.swift in Sources */,
 				5411CC4A201FCBD200D49258 /* GistManager.swift in Sources */,

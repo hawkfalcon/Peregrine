@@ -17,10 +17,12 @@ class GistViewController: NSViewController {
     @IBOutlet weak var loginButton: NSButton!
     @IBOutlet var box: NSView!
     @IBOutlet weak var pasteButton: NSButton!
+    @IBOutlet weak var loginLabel: NSTextField!
     
     @IBOutlet var textField: NSTextView!
     
     override func viewDidLoad() {
+        loginLabel.stringValue = ""
         
         let area = NSTrackingArea.init(rect: loginButton.bounds, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
         loginButton.addTrackingArea(area)
@@ -29,11 +31,12 @@ class GistViewController: NSViewController {
     }
     
     override func mouseEntered(with event: NSEvent) {
+        loginLabel.stringValue = "Log In"
         print("Entered")
     }
     
     override func mouseExited(with event: NSEvent) {
-        loginButton.title = ""
+        loginLabel.stringValue = ""
         print("Exited")
     }
     

@@ -1,7 +1,6 @@
 import Cocoa
 
-class BasicButton: NSButton {
-
+class BasicText: NSTextField {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
@@ -13,11 +12,6 @@ class BasicButton: NSButton {
         self.wantsLayer = true
         self.layer?.masksToBounds = true
         self.layer?.backgroundColor = .clear
-
-        setupButton()
+        self.textColor = .white
     }
-    
-    func setupButton() {
-    }
-
 }
