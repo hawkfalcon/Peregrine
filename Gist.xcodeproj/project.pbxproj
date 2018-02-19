@@ -11,7 +11,6 @@
 		5411CC44201FB11500D49258 /* GistButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC43201FB11500D49258 /* GistButton.swift */; };
 		5411CC46201FC59E00D49258 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC45201FC59E00D49258 /* BasicButton.swift */; };
 		5411CC48201FC9B800D49258 /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC47201FC9B800D49258 /* SwitchButton.swift */; };
-		5411CC4A201FCBD200D49258 /* GistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC49201FCBD100D49258 /* GistManager.swift */; };
 		5411CC51202537C200D49258 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC4F202537C200D49258 /* DataLoader.swift */; };
 		5411CC52202537C200D49258 /* GitHubLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC50202537C200D49258 /* GitHubLoader.swift */; };
 		5430D77D202F9E350045CDEE /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5430D77C202F9E350045CDEE /* LinkButton.swift */; };
@@ -83,7 +82,6 @@
 		5411CC43201FB11500D49258 /* GistButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistButton.swift; sourceTree = "<group>"; };
 		5411CC45201FC59E00D49258 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
 		5411CC47201FC9B800D49258 /* SwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButton.swift; sourceTree = "<group>"; };
-		5411CC49201FCBD100D49258 /* GistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistManager.swift; sourceTree = "<group>"; };
 		5411CC4F202537C200D49258 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		5411CC50202537C200D49258 /* GitHubLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubLoader.swift; sourceTree = "<group>"; };
 		5430D77C202F9E350045CDEE /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				5430D77C202F9E350045CDEE /* LinkButton.swift */,
 				5411CC45201FC59E00D49258 /* BasicButton.swift */,
 				5411CC47201FC9B800D49258 /* SwitchButton.swift */,
-				5411CC49201FCBD100D49258 /* GistManager.swift */,
 				547A10312034D25900ECCDFD /* BasicText.swift */,
 			);
 			path = Gist;
@@ -391,7 +388,6 @@
 				547A10322034D25900ECCDFD /* BasicText.swift in Sources */,
 				5411CC52202537C200D49258 /* GitHubLoader.swift in Sources */,
 				5411CC42201FAAE300D49258 /* PopoverView.swift in Sources */,
-				5411CC4A201FCBD200D49258 /* GistManager.swift in Sources */,
 				5411CC44201FB11500D49258 /* GistButton.swift in Sources */,
 				5430D77D202F9E350045CDEE /* LinkButton.swift in Sources */,
 				54B0A7D5201E7BD300184069 /* EventMonitor.swift in Sources */,

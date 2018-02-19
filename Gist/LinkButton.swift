@@ -2,7 +2,7 @@ import Cocoa
 
 class LinkButton: BasicButton {
     
-    override func setupButton() {
+    override func customize() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         

@@ -704,8 +704,8 @@
                                     <constraint firstAttribute="height" constant="75" id="EXA-bn-eCc"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" title="Create Gist" bezelStyle="shadowlessSquare" alignment="center" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="26"/>
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="buttonPress:" target="XfG-lQ-9wD" id="rM0-lk-QiM"/>
@@ -814,7 +814,7 @@
                                 <rect key="frame" x="2" y="405" width="66" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="wGE-Ae-Oi8">
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>

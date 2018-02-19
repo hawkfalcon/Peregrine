@@ -9,8 +9,6 @@
 import Cocoa
 import OAuth2
 
-let gistManager = GistManager()
-
 class GistViewController: NSViewController {
     var loader = GitHubLoader()
     @IBOutlet weak var label: NSTextField!
@@ -21,6 +19,8 @@ class GistViewController: NSViewController {
     
     @IBOutlet var textField: NSTextView!
     
+    var loggedIn = false
+
     override func viewDidLoad() {
         loginLabel.stringValue = ""
         
@@ -31,7 +31,7 @@ class GistViewController: NSViewController {
     }
     
     override func mouseEntered(with event: NSEvent) {
-        loginLabel.stringValue = "Log In"
+        loginLabel.stringValue = "Log " + (loggedIn ? "Out" : "In")
         print("Entered")
     }
     
@@ -74,15 +74,13 @@ class GistViewController: NSViewController {
                 }
             }
         }
-         //  gistManager.createGist(content: textField.string)
     }
     
     let OAuth2AppDidReceiveCallbackNotification = NSNotification.Name(rawValue: "OAuth2AppDidReceiveCallback")
-    var nextActionForgetsTokens = false
     
     @IBAction func login(_ sender: NSButton?) {
-        if nextActionForgetsTokens {
-            nextActionForgetsTokens = false
+        if self.loggedIn {
+            self.loggedIn = false
             forgetTokens(sender)
             return
         }
@@ -120,7 +118,7 @@ class GistViewController: NSViewController {
                     self.label?.stringValue = "Failed to fetch your name"
                     NSLog("Fetched: \(String(describing: dict))")
                 }
-                self.nextActionForgetsTokens = true
+                self.loggedIn = true
             }
             self.loginButton?.isEnabled = true
             self.label?.isHidden = false

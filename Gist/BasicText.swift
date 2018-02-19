@@ -1,6 +1,6 @@
 import Cocoa
 
-class BasicText: NSTextField {
+class BasicText: NSTextField, ClearControl {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
@@ -8,10 +8,11 @@ class BasicText: NSTextField {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.appearance = NSAppearance(named: NSAppearance.Name.aqua)
-        self.wantsLayer = true
-        self.layer?.masksToBounds = true
-        self.layer?.backgroundColor = .clear
         self.textColor = .white
+        applyClear()
+    }
+    
+    override func hitTest(_ point: NSPoint) -> NSView? {
+        return nil
     }
 }
