@@ -13,7 +13,6 @@ class GistViewController: NSViewController {
     var loader = GitHubLoader()
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var loginButton: NSButton!
-    @IBOutlet var box: NSView!
     @IBOutlet weak var pasteButton: NSButton!
     @IBOutlet weak var loginLabel: NSTextField!
     
@@ -41,7 +40,7 @@ class GistViewController: NSViewController {
     }
     
     override func viewWillAppear() {
-        box.wantsLayer = true
+        //box.wantsLayer = true
         //box.layer?.backgroundColor = CGColor.init(red: 250.0/255.0, green: 251.0/255.0, blue: 252.0/255.0, alpha: 1.0)
     }
     @IBAction func pasteClipboard(_ sender: Any) {
