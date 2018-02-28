@@ -15,14 +15,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
     
-    let OAuth2AppDidReceiveCallbackNotification = NSNotification.Name(rawValue: "OAuth2AppDidReceiveCallback")
-    
+    let OAuthCallback = NSNotification.Name(rawValue: "OAuthCallback")
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named: icon)
             button.action = #selector(togglePopover(_:))
         }
-        popover.contentViewController = GistViewController.freshController()
+        popover.contentViewController = SplitViewController.freshController()
         
         //constructMenu()
         /* Any clicks outside of the popup close it. Weak to prevent a reference counting cycle */
@@ -48,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if let url = URL(string: urlString), "owl" == url.scheme && "oauth" == url.host {
             showPopover(nil)
-            NotificationCenter.default.post(name: OAuth2AppDidReceiveCallbackNotification, object: url)
+            NotificationCenter.default.post(name: OAuthCallback, object: url)
         }
     }
     

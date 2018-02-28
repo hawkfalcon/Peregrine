@@ -2,7 +2,7 @@
 //  GitHubLoader.swift
 //  OAuth2App
 //
-//  Created by Pascal Pfiffner on 11/12/14.
+//  Modified from Pascal Pfiffner on 11/12/14.
 //  CC0, Public Domain
 //
 
@@ -24,7 +24,7 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 			"authorize_uri": "https://github.com/login/oauth/authorize",
 			"token_uri": "https://github.com/login/oauth/access_token",
 			"scope": "read:user gist",
-			"redirect_uris": ["owl://oauth/callback"],            // app has registered this scheme
+			"redirect_uris": ["owl://oauth/callback"], // app has registered this scheme
 			"secret_in_body": true,
 			"verbose": true,
 		])
@@ -33,9 +33,9 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 	
 	
 	/** Perform a request against the GitHub API and return decoded JSON or an NSError. */
-    func request(path: String, body: Data, type: String, callback: @escaping ((OAuth2JSON?, Error?) -> Void)) {
-		oauth2.logger = OAuth2DebugLogger(.trace)
-		let url = baseURL.appendingPathComponent(path)
+    func request(path: String, body: Data, type: String,
+        callback: @escaping ((OAuth2JSON?, Error?) -> Void)) {
+        let url = baseURL.appendingPathComponent(path)
 		var request = oauth2.request(forURL: url)
         
         request.httpMethod = type
@@ -57,7 +57,8 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 		}
 	}
     
-    func postGist(content: String, name: String, callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
+    func postGist(content: String, name: String,
+        callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
 
         let params = ["files": [name: ["content": content]]]
         let paramsJson = try! JSONSerialization.data(withJSONObject: params, options: [])
@@ -65,7 +66,8 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
         request(path: "gists", body: paramsJson, type: "POST", callback: callback)
     }
 	
-	func requestUserdata(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
+	func requestUserdata(
+        callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
         request(path: "user", body: Data(), type: "GET", callback: callback)
 	}
 }

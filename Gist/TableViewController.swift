@@ -5,13 +5,14 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     @IBOutlet weak var tableView: NSTableView!
     var objects: [String] = []
     
+    @IBOutlet var scrollView: NSScrollView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.objects.append("one")
-        self.objects.append("two")
-        self.objects.append("three")
-        self.objects.append("four")
+        for i in 1...100 {
+            self.objects.append(String(i))
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,7 +36,6 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
             tableView.deselectRow(row)
         }
     }
-    
     
     override var representedObject: Any? {
         didSet {

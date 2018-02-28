@@ -1,11 +1,3 @@
-//
-//  DataLoader.swift
-//  OAuth2App
-//
-//  Created by Pascal Pfiffner on 11/6/15.
-//  Copyright © 2015 Ossus. All rights reserved.
-//
-
 import Cocoa
 import OAuth2
 
