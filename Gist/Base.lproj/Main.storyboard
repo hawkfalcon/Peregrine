@@ -826,10 +826,12 @@
                     </view>
                     <connections>
                         <outlet property="background" destination="m2S-Jp-Qdl" id="6Eh-4D-OiJ"/>
+                        <outlet property="descriptionField" destination="rSx-P3-cCD" id="8Ht-xz-h1o"/>
                         <outlet property="label" destination="C9f-01-mIq" id="D8I-bn-dX0"/>
                         <outlet property="loginButton" destination="vGX-hc-rH8" id="qpH-dL-Zy0"/>
                         <outlet property="loginLabel" destination="aGe-6s-phM" id="WUV-6r-oG4"/>
                         <outlet property="pasteButton" destination="Hk9-rn-Tpy" id="Lkf-9c-PUY"/>
+                        <outlet property="secretButton" destination="jVV-fY-2uM" id="b6O-3B-ZPL"/>
                         <outlet property="textField" destination="yuT-Ju-fST" id="wDf-Mp-Q6W"/>
                     </connections>
                 </viewController>

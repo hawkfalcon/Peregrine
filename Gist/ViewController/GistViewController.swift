@@ -5,9 +5,12 @@ class GistViewController: NSViewController {
     
     @IBOutlet weak var label: NSTextField!
     @IBOutlet weak var loginButton: NSButton!
-    @IBOutlet weak var pasteButton: NSButton!
     @IBOutlet weak var loginLabel: NSTextField!
     
+    @IBOutlet weak var descriptionField: NSTextField!
+    @IBOutlet weak var secretButton: SwitchButton!
+    @IBOutlet weak var pasteButton: NSButton!
+
     @IBOutlet var textField: NSTextView!
     @IBOutlet var background: NSView!
     
@@ -79,7 +82,12 @@ class GistViewController: NSViewController {
     }
     
     func createGist() {
-        loader.postGist(content: textField.string, name: "gist") { dict, error in
+        let content = textField.string
+        let filename = "gist"
+        let description = descriptionField.stringValue
+        let secret = secretButton.state == .on
+        loader.postGist(content: content, filename: filename,
+            description: description, secret: secret) { dict, error in
             if let _ = error {
                 self.label?.stringValue = "Error"
             }

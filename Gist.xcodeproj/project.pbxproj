@@ -180,25 +180,15 @@
 		54ABA0812005E10600FCC1F8 /* Gist */ = {
 			isa = PBXGroup;
 			children = (
-				5411CC4F202537C200D49258 /* DataLoader.swift */,
-				5411CC50202537C200D49258 /* GitHubLoader.swift */,
 				54ABA0822005E10600FCC1F8 /* AppDelegate.swift */,
+				54B0A7D4201E7BD300184069 /* EventMonitor.swift */,
 				54ABA0862005E10600FCC1F8 /* Assets.xcassets */,
 				54ABA0882005E10600FCC1F8 /* Main.storyboard */,
 				54ABA08B2005E10600FCC1F8 /* Info.plist */,
 				54ABA08C2005E10600FCC1F8 /* Gist.entitlements */,
-				54B0A7D2201E75DF00184069 /* GistViewController.swift */,
-				54B0A7D4201E7BD300184069 /* EventMonitor.swift */,
-				5411CC43201FB11500D49258 /* GistButton.swift */,
-				5430D77C202F9E350045CDEE /* LinkButton.swift */,
-				5411CC45201FC59E00D49258 /* BasicButton.swift */,
-				5411CC47201FC9B800D49258 /* SwitchButton.swift */,
-				547A10312034D25900ECCDFD /* BasicText.swift */,
-				54C76CD12044CBC300010441 /* TableViewController.swift */,
-				54C76CD62045EE0B00010441 /* SplitViewController.swift */,
-				54C76CD82045F36300010441 /* SplitView.swift */,
-				54C76CDA2046072100010441 /* CollapseViewController.swift */,
-				54C76CDC2046181A00010441 /* TriangleView.swift */,
+				54C76CE0204770CA00010441 /* Data */,
+				54C76CDE2047708100010441 /* View */,
+				54C76CDF2047709E00010441 /* ViewController */,
 			);
 			path = Gist;
 			sourceTree = "<group>";
@@ -219,6 +209,40 @@
 				54ABA0A22005E10600FCC1F8 /* Info.plist */,
 			);
 			path = GistUITests;
+			sourceTree = "<group>";
+		};
+		54C76CDE2047708100010441 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54C76CD82045F36300010441 /* SplitView.swift */,
+				54C76CDC2046181A00010441 /* TriangleView.swift */,
+				5411CC43201FB11500D49258 /* GistButton.swift */,
+				5430D77C202F9E350045CDEE /* LinkButton.swift */,
+				5411CC45201FC59E00D49258 /* BasicButton.swift */,
+				5411CC47201FC9B800D49258 /* SwitchButton.swift */,
+				547A10312034D25900ECCDFD /* BasicText.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54C76CDF2047709E00010441 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				54B0A7D2201E75DF00184069 /* GistViewController.swift */,
+				54C76CD12044CBC300010441 /* TableViewController.swift */,
+				54C76CD62045EE0B00010441 /* SplitViewController.swift */,
+				54C76CDA2046072100010441 /* CollapseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		54C76CE0204770CA00010441 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5411CC4F202537C200D49258 /* DataLoader.swift */,
+				5411CC50202537C200D49258 /* GitHubLoader.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

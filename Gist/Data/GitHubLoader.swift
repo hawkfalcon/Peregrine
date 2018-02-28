@@ -57,10 +57,14 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 		}
 	}
     
-    func postGist(content: String, name: String,
+    func postGist(content: String, filename: String, description: String, secret: Bool,
         callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
 
-        let params = ["files": [name: ["content": content]]]
+        let params: [String : Any] = [
+            "description": description,
+            "public": !secret,
+            "files": [filename: ["content": content]]
+            ]
         let paramsJson = try! JSONSerialization.data(withJSONObject: params, options: [])
        
         request(path: "gists", body: paramsJson, type: "POST", callback: callback)
