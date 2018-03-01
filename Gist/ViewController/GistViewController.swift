@@ -17,7 +17,14 @@ class GistViewController: NSViewController {
     var loader = GitHubLoader()
     
     let OAuthCallback = NSNotification.Name(rawValue: "OAuthCallback")
-    var loggedIn = false
+
+    var loggedIn = UserDefaults.standard.bool(forKey: "loggedInKey") {
+        didSet {
+            DispatchQueue.main.async {
+                UserDefaults.standard.set(self.loggedIn, forKey: "loggedInKey")
+            }
+        }
+    }
 
     override func viewDidLoad() {
         setupView()
@@ -39,6 +46,10 @@ class GistViewController: NSViewController {
         loginButton.addTrackingArea(area)
         
         background.layer?.backgroundColor = CGColor.gistGray
+        
+        if loggedIn {
+            login()
+        }
     }
     
     override func mouseEntered(with event: NSEvent) {
@@ -98,7 +109,7 @@ class GistViewController: NSViewController {
     }
     
     func login() {
-        label?.stringValue = "Opening GitHub"
+        label?.stringValue = "Fetching GitHub"
         loginButton?.isEnabled = false
         
         // Configure OAuth2 callback
