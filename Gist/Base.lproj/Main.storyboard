@@ -690,9 +690,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="230" y="256" width="62" height="18"/>
+                                <rect key="frame" x="229" y="256" width="62" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="VQS-R3-aPT"/>
+                                    <constraint firstAttribute="width" constant="58" id="wcX-eC-s7T"/>
                                 </constraints>
                                 <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" focusRingType="none" inset="2" id="qqZ-om-TyV">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -700,9 +700,9 @@
                                 </buttonCell>
                             </button>
                             <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="75"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="66"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="pC6-17-Tbc"/>
+                                    <constraint firstAttribute="height" constant="66" id="EBn-fX-q6J"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" title="Create Gist" bezelStyle="shadowlessSquare" alignment="center" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -713,22 +713,61 @@
                                 </connections>
                             </button>
                             <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
-                                <rect key="frame" x="0.0" y="75" width="300" height="129"/>
-                                <clipView key="contentView" copiesOnScroll="NO" id="qSO-ba-55L">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
+                                <rect key="frame" x="0.0" y="67" width="300" height="137"/>
+                                <clipView key="contentView" focusRingType="none" copiesOnScroll="NO" id="qSO-ba-55L">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="137"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
+                                        <textView focusRingType="none" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST" customClass="TextView" customModule="Gist" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="137"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="300" height="129"/>
+                                            <size key="minSize" width="300" height="137"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Hello I am some text I want to share please share me">
                                                     <attributes>
                                                         <font key="NSFont" metaFont="system" size="14"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                            <tabStops>
+                                                                <textTab alignment="left" location="28">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="56">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="84">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="112">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="140">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="168">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="196">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="224">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="252">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="280">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="308">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="336">
+                                                                    <options/>
+                                                                </textTab>
+                                                            </tabStops>
+                                                        </paragraphStyle>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -741,15 +780,15 @@
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="SaR-Se-0yp">
-                                    <rect key="frame" x="284" y="0.0" width="16" height="129"/>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="SaR-Se-0yp">
+                                    <rect key="frame" x="284" y="0.0" width="16" height="137"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8">
                                 <rect key="frame" x="10" y="240" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="7Nm-tP-gEA"/>
+                                    <constraint firstAttribute="width" constant="50" id="nZo-q3-QmY"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="GitHub-White" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="FOQ-pK-Cp1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -760,32 +799,22 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C9f-01-mIq">
-                                <rect key="frame" x="66" y="256" width="123" height="18"/>
+                                <rect key="frame" x="66" y="256" width="122" height="18"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Log In" id="A6S-np-Xbb">
                                     <font key="font" metaFont="system" size="14"/>
                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rn-Tpy">
-                                <rect key="frame" x="114" y="122" width="74" height="32"/>
-                                <buttonCell key="cell" type="push" title="Paste" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j3J-4S-fno">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="pasteClipboard:" target="XfG-lQ-9wD" id="ZkU-Pj-nWJ"/>
-                                </connections>
-                            </button>
                             <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD">
-                                <rect key="frame" x="11" y="212" width="279" height="20"/>
+                                <rect key="frame" x="11" y="212" width="278" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="XA3-jJ-o2I"/>
+                                    <constraint firstAttribute="height" constant="20" id="CKV-tY-cBd"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" title="Description" drawsBackground="YES" id="9gD-7a-avm">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Description" drawsBackground="YES" id="9gD-7a-avm">
                                     <font key="font" metaFont="system" size="14"/>
-                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="backgroundColor" red="0.23477604990000001" green="0.25075703859999998" blue="0.26741927859999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textColor" red="0.23529411759999999" green="0.25098039220000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Gist" customModuleProvider="target">
@@ -796,32 +825,57 @@
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
+                            <button focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="mzP-Y2-HfO" customClass="BasicButton" customModule="Gist" customModuleProvider="target">
+                                <rect key="frame" x="165" y="241" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="bwE-8O-YPI"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="visible" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="f60-6s-zIb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rn-Tpy">
+                                <rect key="frame" x="100" y="85" width="101" height="101"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="document" imagePosition="overlaps" alignment="center" enabled="NO" imageScaling="proportionallyUpOrDown" inset="2" id="j3J-4S-fno">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pasteClipboard:" target="XfG-lQ-9wD" id="ZkU-Pj-nWJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="aGe-6s-phM" firstAttribute="top" secondItem="C9f-01-mIq" secondAttribute="top" id="7A9-jU-VVQ"/>
-                            <constraint firstItem="aGe-6s-phM" firstAttribute="centerX" secondItem="vGX-hc-rH8" secondAttribute="centerX" id="7DU-6d-pRj"/>
-                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="top" secondItem="rSx-P3-cCD" secondAttribute="bottom" constant="62" id="9pI-on-elV"/>
-                            <constraint firstAttribute="trailing" secondItem="ome-rW-50L" secondAttribute="trailing" id="Gfa-0u-6LK"/>
-                            <constraint firstItem="ome-rW-50L" firstAttribute="centerY" secondItem="Hk9-rn-Tpy" secondAttribute="centerY" id="KL8-Yq-32m"/>
-                            <constraint firstItem="vGX-hc-rH8" firstAttribute="centerY" secondItem="C9f-01-mIq" secondAttribute="centerY" id="KR8-q9-Ueu"/>
-                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="vGX-hc-rH8" secondAttribute="bottom" constant="8" symbolic="YES" id="PWx-Kd-W17"/>
-                            <constraint firstItem="ome-rW-50L" firstAttribute="top" secondItem="rSx-P3-cCD" secondAttribute="bottom" constant="8" symbolic="YES" id="XBo-Pq-gVu"/>
-                            <constraint firstItem="ome-rW-50L" firstAttribute="trailing" secondItem="fo9-uv-L3A" secondAttribute="trailing" id="XXK-rf-42d"/>
-                            <constraint firstItem="jVV-fY-2uM" firstAttribute="leading" secondItem="C9f-01-mIq" secondAttribute="trailing" constant="45" id="aLG-8a-Log"/>
-                            <constraint firstItem="C9f-01-mIq" firstAttribute="leading" secondItem="vGX-hc-rH8" secondAttribute="trailing" constant="8" symbolic="YES" id="evI-1Q-6p2"/>
-                            <constraint firstItem="aGe-6s-phM" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="g4J-Pt-fNE"/>
-                            <constraint firstItem="fo9-uv-L3A" firstAttribute="top" secondItem="Hk9-rn-Tpy" secondAttribute="bottom" constant="54" id="gu3-a1-pbu"/>
-                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="aGe-6s-phM" secondAttribute="bottom" constant="23" id="h9X-vk-5AC"/>
-                            <constraint firstItem="jVV-fY-2uM" firstAttribute="trailing" secondItem="rSx-P3-cCD" secondAttribute="trailing" id="hqA-2d-ztp"/>
-                            <constraint firstItem="vGX-hc-rH8" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="iG3-yX-eIR"/>
-                            <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="11" id="iZx-X0-V2D"/>
-                            <constraint firstItem="C9f-01-mIq" firstAttribute="centerY" secondItem="jVV-fY-2uM" secondAttribute="centerY" id="jyl-6n-4Mc"/>
-                            <constraint firstItem="C9f-01-mIq" firstAttribute="leading" secondItem="aGe-6s-phM" secondAttribute="trailing" constant="2" id="lHf-2H-0Xm"/>
-                            <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="mXu-Lr-cHw"/>
-                            <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="fo9-uv-L3A" secondAttribute="leading" id="orh-92-dmy"/>
-                            <constraint firstItem="aGe-6s-phM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="4" id="qTD-8r-i9w"/>
-                            <constraint firstItem="rSx-P3-cCD" firstAttribute="centerX" secondItem="Hk9-rn-Tpy" secondAttribute="centerX" id="sLJ-oR-nt4"/>
-                            <constraint firstItem="rSx-P3-cCD" firstAttribute="centerX" secondItem="ome-rW-50L" secondAttribute="centerX" id="tJG-eZ-hxg"/>
+                            <constraint firstItem="aGe-6s-phM" firstAttribute="top" secondItem="C9f-01-mIq" secondAttribute="top" id="342-m1-wlT"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" constant="1" id="4a6-0v-INV"/>
+                            <constraint firstItem="jVV-fY-2uM" firstAttribute="trailing" secondItem="rSx-P3-cCD" secondAttribute="trailing" id="8n2-Jw-8Ov"/>
+                            <constraint firstItem="C9f-01-mIq" firstAttribute="leading" secondItem="vGX-hc-rH8" secondAttribute="trailing" constant="8" symbolic="YES" id="DUE-bu-9kT"/>
+                            <constraint firstAttribute="trailing" secondItem="Hk9-rn-Tpy" secondAttribute="trailing" constant="99" id="DWL-0l-f9K"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="top" secondItem="Hk9-rn-Tpy" secondAttribute="bottom" constant="19" id="Ibm-gQ-BPm"/>
+                            <constraint firstItem="aGe-6s-phM" firstAttribute="centerX" secondItem="vGX-hc-rH8" secondAttribute="centerX" id="KTT-9h-rbz"/>
+                            <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="fo9-uv-L3A" secondAttribute="leading" id="NDH-nz-DET"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="vGX-hc-rH8" secondAttribute="bottom" constant="8" symbolic="YES" id="NEF-hO-fLS"/>
+                            <constraint firstItem="jVV-fY-2uM" firstAttribute="leading" secondItem="mzP-Y2-HfO" secondAttribute="trailing" constant="18" id="Nru-To-3R9"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="mzP-Y2-HfO" secondAttribute="bottom" constant="9" id="RGI-NC-JfR"/>
+                            <constraint firstItem="vGX-hc-rH8" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="WC0-di-BUB"/>
+                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="centerY" secondItem="ome-rW-50L" secondAttribute="centerY" id="Wgw-XQ-TN8"/>
+                            <constraint firstAttribute="trailing" secondItem="ome-rW-50L" secondAttribute="trailing" id="Wpt-qW-8oW"/>
+                            <constraint firstItem="C9f-01-mIq" firstAttribute="centerY" secondItem="mzP-Y2-HfO" secondAttribute="centerY" id="WtD-XL-Nkm"/>
+                            <constraint firstItem="vGX-hc-rH8" firstAttribute="centerY" secondItem="C9f-01-mIq" secondAttribute="centerY" id="Xp0-hQ-V1W"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="aGe-6s-phM" secondAttribute="bottom" constant="23" id="ZYC-Du-OI4"/>
+                            <constraint firstItem="jVV-fY-2uM" firstAttribute="leading" secondItem="C9f-01-mIq" secondAttribute="trailing" constant="45" id="bzd-vN-g4e"/>
+                            <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="d3C-75-8iV"/>
+                            <constraint firstItem="C9f-01-mIq" firstAttribute="leading" secondItem="aGe-6s-phM" secondAttribute="trailing" constant="2" id="eLF-Pj-i5z"/>
+                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="centerX" secondItem="ome-rW-50L" secondAttribute="centerX" id="k6v-Mt-6Vu"/>
+                            <constraint firstItem="ome-rW-50L" firstAttribute="trailing" secondItem="fo9-uv-L3A" secondAttribute="trailing" id="kqS-qf-GvC"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="11" id="oOY-25-q8f"/>
+                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="centerX" secondItem="rSx-P3-cCD" secondAttribute="centerX" id="p9r-Gn-rpP"/>
+                            <constraint firstItem="aGe-6s-phM" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="q5g-PI-Czj"/>
+                            <constraint firstItem="mzP-Y2-HfO" firstAttribute="centerY" secondItem="jVV-fY-2uM" secondAttribute="centerY" id="sob-lr-4ZE"/>
+                            <constraint firstItem="aGe-6s-phM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="4" id="tZk-WF-fIe"/>
+                            <constraint firstAttribute="bottom" secondItem="fo9-uv-L3A" secondAttribute="bottom" id="u79-KJ-lbC"/>
+                            <constraint firstItem="ome-rW-50L" firstAttribute="top" secondItem="rSx-P3-cCD" secondAttribute="bottom" constant="8" symbolic="YES" id="uf8-u7-tKp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -845,7 +899,7 @@
                     <splitViewItems>
                         <splitViewItem holdingPriority="1000" id="s4E-4V-I5e"/>
                         <splitViewItem holdingPriority="750" id="ZRL-8B-S86"/>
-                        <splitViewItem canCollapse="YES" collapsed="YES" holdingPriority="255" behavior="contentList" id="kBN-pM-9he"/>
+                        <splitViewItem collapsed="YES" holdingPriority="255" behavior="contentList" id="kBN-pM-9he"/>
                     </splitViewItems>
                     <splitView key="splitView" focusRingType="none" misplaced="YES" dividerStyle="thin" id="kp9-53-Sc1" customClass="SplitView" customModule="Gist" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -912,7 +966,7 @@
                                     <tableColumns>
                                         <tableColumn identifier="" editable="NO" width="300" minWidth="40" maxWidth="1000" id="mNu-rA-ALE">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Link">
-                                                <font key="font" metaFont="system" size="11"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -1099,5 +1153,7 @@ BRwKHBgcHBwjHCgcNRw4HEUcShxSHFUcWhxiHGUcdxx6HH8AAAAAAAACAQAAAAAAAABZAAAAAAAAAAAA
 AAAAAAAcgQ
 </mutableData>
         </image>
+        <image name="document" width="30" height="30"/>
+        <image name="visible" width="30" height="30"/>
     </resources>
 </document>

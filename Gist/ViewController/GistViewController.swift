@@ -27,6 +27,7 @@ class GistViewController: NSViewController {
     }
 
     override func viewDidLoad() {
+        textField.delegate = self
         setupView()
         
         super.viewDidLoad()
@@ -39,13 +40,14 @@ class GistViewController: NSViewController {
         loginLabel.stringValue = ""
         
         let area = NSTrackingArea.init(rect: loginButton.bounds,
-            options: [
-                NSTrackingArea.Options.mouseEnteredAndExited,
-                NSTrackingArea.Options.activeAlways
-            ], owner: self, userInfo: nil)
+            options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
         loginButton.addTrackingArea(area)
         
-        background.layer?.backgroundColor = CGColor.gistGray
+        background.layer?.backgroundColor = .gistGray
+        pasteButton.layer?.backgroundColor = .gistGray
+        pasteButton.bezelColor = .gistGray
+        
+        textField.font = NSFont.systemFont(ofSize: 14)
         
         if loggedIn {
             login()
@@ -192,6 +194,30 @@ class GistViewController: NSViewController {
             NSLog("Error authorizing: \(error.description)")
         }
     }
+}
+
+extension GistViewController: NSTextViewDelegate {
+//    func textViewDidChangeSelection(_ notification: Notification) {
+//        print("SELECTION")
+//    }
+//
+    func textDidBeginEditing(_ notification: Notification) {
+        pasteButton.isHidden = true
+        print("Began editing")
+    }
+    
+    func textDidEndEditing(_ notification: Notification) {
+        guard let textView = notification.object as? TextView else { return }
+        if textView.string == textView.placeholderText {
+            pasteButton.isHidden = false
+        }
+        print("Left editing")
+    }
+    
+//    func textDidChange(_ notification: Notification) {
+//        guard let textView = notification.object as? NSTextView else { return }
+//        print("textView.string")
+//    }
 }
 
 extension CGColor {
