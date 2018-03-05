@@ -831,9 +831,12 @@
                             <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Gist" customModuleProvider="target">
                                 <rect key="frame" x="66" y="254" width="163" height="22"/>
                                 <buttonCell key="cell" type="square" title="Log in" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="usernamePress:" target="XfG-lQ-9wD" id="4bE-y0-zP0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

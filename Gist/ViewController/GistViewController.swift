@@ -65,6 +65,9 @@ class GistViewController: NSViewController {
             login()
         }
     }
+    @IBAction func usernamePress(_ sender: UsernameButton) {
+        sender.selected = !sender.selected
+    }
     
     @IBAction func pasteClipboard(_ sender: Any) {
         textField.string = getClipboard()
