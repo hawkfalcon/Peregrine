@@ -16,6 +16,22 @@ class BasicButton: NSButton, ClearControl {
         customize()
     }
     
+    func createAttributedString(color: NSColor, size: CGFloat, title: String) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = self.alignment
+        
+        let attributes: [NSAttributedStringKey : Any] = [
+            .foregroundColor: color,
+            .font: NSFont.systemFont(ofSize: size),
+            .paragraphStyle: paragraphStyle]
+        
+        return NSAttributedString(string: title, attributes: attributes)
+    }
+    
+    func createAttributedString(color: NSColor, size: CGFloat) -> NSAttributedString {
+        return createAttributedString(color: color, size: size, title: self.title)
+    }
+    
     func customize() {}
 }
 

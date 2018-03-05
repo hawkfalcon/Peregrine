@@ -1,25 +1,14 @@
 import Cocoa
 
-class GistButton: TrackedButton {
+class GistButton: TrackedButton, HoverableDelegate {
     
-    lazy var whiteTitle = createAttributedString(color: .white)
-    lazy var blackTitle = createAttributedString(color: .black)
-    lazy var grayTitle = createAttributedString(color: .gistGray)
+    lazy var whiteTitle = createAttributedString(color: .white, size: 24)
+    lazy var blackTitle = createAttributedString(color: .black, size: 24)
+    lazy var grayTitle = createAttributedString(color: .gistGray, size: 24)
 
-    func createAttributedString(color: NSColor) -> NSAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = self.alignment
-        
-        let attributes: [NSAttributedStringKey : Any] = [
-            .foregroundColor: color,
-            .font: NSFont.systemFont(ofSize: 24),
-            .paragraphStyle: paragraphStyle]
-        
-        return NSAttributedString(string: self.title, attributes: attributes)
-    }
-    
     override func customize() {
         self.attributedTitle = whiteTitle
+        self.delegate = self
 
         super.customize()
     }
@@ -34,29 +23,13 @@ class GistButton: TrackedButton {
         }
     }
     
-    override func hoverOver() {
+    func hoverStart() {
         self.layer?.backgroundColor = .gistMediumGray
         //self.attributedTitle = grayTitle
     }
     
-    override func hoverOff() {
+    func hoverStop() {
         self.layer?.backgroundColor = .gistGray
         self.attributedTitle = whiteTitle
     }
-}
-
-extension NSColor {
-    static let gistLightGray = NSColor.init(
-        red: 90.0 / 255.0, green: 94.0 / 255.0, blue: 98.0 / 255.0,
-        alpha: 1.0
-    )
-    
-    static let gistGray = NSColor.init(cgColor: .gistGray)!
-}
-
-extension CGColor {
-    static let gistMediumGray = CGColor.init(
-        red: 60 / 255.0, green: 64 / 255.0, blue: 68 / 255.0,
-        alpha: 1.0
-    )
 }

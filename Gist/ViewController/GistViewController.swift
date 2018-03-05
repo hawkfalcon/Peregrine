@@ -3,8 +3,8 @@ import OAuth2
 
 class GistViewController: NSViewController {
     
-    @IBOutlet weak var label: NSTextField!
-    @IBOutlet weak var loginButton: NSButton!
+    @IBOutlet weak var username: NSButton!
+    @IBOutlet weak var loginButton: TrackedButton!
     @IBOutlet weak var loginLabel: NSTextField!
     
     @IBOutlet weak var descriptionField: NSTextField!
@@ -28,6 +28,8 @@ class GistViewController: NSViewController {
 
     override func viewDidLoad() {
         textField.delegate = self
+        loginButton.delegate = self
+        
         setupView()
         
         super.viewDidLoad()
@@ -39,10 +41,6 @@ class GistViewController: NSViewController {
     func setupView() {
         loginLabel.stringValue = ""
         
-        let area = NSTrackingArea.init(rect: loginButton.bounds,
-            options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
-        loginButton.addTrackingArea(area)
-        
         background.layer?.backgroundColor = .gistGray
         pasteButton.layer?.backgroundColor = .gistGray
         pasteButton.bezelColor = .gistGray
@@ -52,14 +50,6 @@ class GistViewController: NSViewController {
         if loggedIn {
             login()
         }
-    }
-    
-    override func mouseEntered(with event: NSEvent) {
-        loginLabel.stringValue = "Log " + (loggedIn ? "Out" : "In")
-    }
-    
-    override func mouseExited(with event: NSEvent) {
-        loginLabel.stringValue = ""
     }
     
     @IBAction func buttonPress(_ sender: NSButton) {
@@ -102,7 +92,7 @@ class GistViewController: NSViewController {
         loader.postGist(content: content, filename: filename,
             description: description, secret: secret) { dict, error in
             if let _ = error {
-                self.label?.stringValue = "Error"
+                self.username?.title = "Error"
             }
             else if let gistUrl = dict?["html_url"] as? String {
                 self.setClipboard(content: gistUrl)
@@ -111,7 +101,7 @@ class GistViewController: NSViewController {
     }
     
     func login() {
-        label?.stringValue = "Fetching GitHub"
+        username?.title = "Fetching GitHub"
         loginButton?.isEnabled = false
         
         // Configure OAuth2 callback
@@ -122,7 +112,7 @@ class GistViewController: NSViewController {
         // Request user data
         loader.requestUserdata() { dict, error in
             if let error = error {
-                self.label?.stringValue = "Error"
+                self.username?.title = "Error"
                 self.show(error)
             }
             else {
@@ -132,12 +122,12 @@ class GistViewController: NSViewController {
                     }
                 }
                 if let username = dict?["name"] as? String {
-                    self.label?.stringValue = "\(username)"
+                    self.username?.title = "\(username)"
                 }
                 
                 self.loggedIn = true
                 self.loginButton?.isEnabled = true
-                self.label?.isHidden = false
+                self.username?.isHidden = false
             }
         }
     }
@@ -146,16 +136,16 @@ class GistViewController: NSViewController {
         self.loggedIn = false
 
         loader.oauth2.forgetTokens()
-        label?.stringValue = "Log In"
+        self.username?.title = "Log In"
         
         loginButton.image = NSImage(named: NSImage.Name("GitHub-White"))
-        label?.isHidden = false
+        self.username?.isHidden = false
     }
     
     // MARK: - Authorization
     @objc func handleRedirect(_ notification: Notification) {
         if let url = notification.object as? URL {
-            label?.stringValue = "Loading"
+            self.username?.title = "Loading"
             do {
                 try loader.oauth2.handleRedirectURL(url)
             }
@@ -196,6 +186,16 @@ class GistViewController: NSViewController {
     }
 }
 
+extension GistViewController: HoverableDelegate {
+    func hoverStart() {
+        loginLabel.stringValue = "Log " + (loggedIn ? "Out" : "In")
+    }
+    
+    func hoverStop() {
+        loginLabel.stringValue = ""
+    }
+}
+
 extension GistViewController: NSTextViewDelegate {
 //    func textViewDidChangeSelection(_ notification: Notification) {
 //        print("SELECTION")
@@ -218,11 +218,4 @@ extension GistViewController: NSTextViewDelegate {
 //        guard let textView = notification.object as? NSTextView else { return }
 //        print("textView.string")
 //    }
-}
-
-extension CGColor {
-    static let gistGray = CGColor.init(
-        red: 36.0 / 255.0, green: 41.0 / 255.0, blue: 46.0 / 255.0,
-        alpha: 1.0
-    )
 }
