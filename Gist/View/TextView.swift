@@ -20,7 +20,6 @@ class TextView: NSTextView {
     }
     
     func enteredTextView() {
-        //self.string
         if self.string == placeholderText {
             self.string = ""
         }
@@ -32,5 +31,4 @@ class TextView: NSTextView {
         }
         
     }
-    
 }

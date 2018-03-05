@@ -3,7 +3,7 @@ import OAuth2
 
 class GistViewController: NSViewController {
     
-    @IBOutlet weak var username: NSButton!
+    @IBOutlet weak var username: UsernameButton!
     @IBOutlet weak var loginButton: TrackedButton!
     @IBOutlet weak var loginLabel: NSTextField!
     
@@ -45,7 +45,7 @@ class GistViewController: NSViewController {
         pasteButton.layer?.backgroundColor = .gistGray
         pasteButton.bezelColor = .gistGray
         
-        textField.font = NSFont.systemFont(ofSize: 14)
+        textField.font = .systemFont(ofSize: 14)
         
         if loggedIn {
             login()
@@ -65,6 +65,7 @@ class GistViewController: NSViewController {
             login()
         }
     }
+    
     @IBAction func usernamePress(_ sender: UsernameButton) {
         sender.selected = !sender.selected
     }
@@ -92,8 +93,8 @@ class GistViewController: NSViewController {
         let filename = "gist"
         let description = descriptionField.stringValue
         let secret = secretButton.state == .on
-        loader.postGist(content: content, filename: filename,
-            description: description, secret: secret) { dict, error in
+        loader.postGist(content: content, filename: filename, description: description,
+            secret: secret, oauth: !username.selected) { dict, error in
             if let _ = error {
                 self.username?.title = "Error"
             }

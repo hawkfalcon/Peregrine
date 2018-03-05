@@ -1,9 +1,11 @@
 import Cocoa
 
 class SwitchButton: BasicButton {
+    let size: CGFloat = 16
+    
     override func customize() {
         super.customize()
-        self.attributedTitle = NSAttributedString(string: "Secret", attributes: [
-            NSAttributedStringKey.foregroundColor : NSColor.white])
+        
+        self.attributedTitle = createAttributedString(color: .white, size: size)
     }
 }
