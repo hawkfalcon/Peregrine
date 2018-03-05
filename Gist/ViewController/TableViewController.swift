@@ -1,6 +1,7 @@
 import Cocoa
 
 class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+    let key = "links"
     
     @IBOutlet weak var tableView: NSTableView!
     var objects: [String] = []
@@ -16,6 +17,16 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        let defaults = UserDefaults.standard
+        objects = defaults.object(forKey: key) as? [String] ?? [String]()
+        tableView.reloadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addTableViewItem(_:)), name: Notification.Name.addItem, object: nil)
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -37,8 +48,18 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         }
     }
     
+    @objc func addTableViewItem(_ not: Notification) {
+        let defaults = UserDefaults.standard
+        objects = defaults.object(forKey: key) as? [String] ?? [String]()
+        tableView.reloadData()
+    }
+    
     override var representedObject: Any? {
         didSet {
         }
     }
+}
+
+extension Notification.Name {
+    static let addItem = Notification.Name("addTableViewItem")
 }

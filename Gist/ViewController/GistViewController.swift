@@ -17,7 +17,8 @@ class GistViewController: NSViewController {
     var loader = GitHubLoader()
     
     let OAuthCallback = NSNotification.Name(rawValue: "OAuthCallback")
-
+    let key = "links"
+    
     var loggedIn = UserDefaults.standard.bool(forKey: "loggedInKey") {
         didSet {
             DispatchQueue.main.async {
@@ -86,6 +87,17 @@ class GistViewController: NSViewController {
         let clipboard = NSPasteboard.general
         clipboard.clearContents()
         clipboard.setString(content, forType: .string)
+        
+        addLinkToTable(link: content)
+    }
+    
+    func addLinkToTable(link: String) {
+        let defaults = UserDefaults.standard
+        var links = defaults.object(forKey: key) as? [String] ?? [String]()
+        links.append(link)
+        defaults.set(links, forKey: key)
+
+        NotificationCenter.default.post(name: Notification.Name.addItem, object: nil, userInfo: nil)
     }
     
     func createGist() {
