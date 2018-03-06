@@ -29,7 +29,7 @@ class TrackedButton: BasicButton, Hoverable {
     }
 }
 
-extension Hoverable where Self: NSControl {
+extension Hoverable where Self: NSView {
     func setupHover() {
         let area = NSTrackingArea.init(rect: self.bounds,
             options: [.mouseEnteredAndExited, .activeAlways],

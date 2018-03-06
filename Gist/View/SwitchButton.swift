@@ -1,6 +1,6 @@
 import Cocoa
 
-class SwitchButton: BasicButton {
+class SwitchButton: TrackedButton {
     let size: CGFloat = 16
     
     override func customize() {

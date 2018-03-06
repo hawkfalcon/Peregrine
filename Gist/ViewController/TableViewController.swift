@@ -33,12 +33,19 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         return self.objects.count
     }
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? NSTableCellView
-        cell?.textField?.stringValue = self.objects[row]
-        
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? TableRowView
+        cell?.text.stringValue = self.objects[row]
+
         return cell
     }
+    
+//    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+//        let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? NSTableCellView
+//        cell?.textField?.stringValue = self.objects[row]
+//
+//        return cell
+//    }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let row = tableView.selectedRow

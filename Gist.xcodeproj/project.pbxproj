@@ -18,6 +18,7 @@
 		54915D05204CA7FE0092FE70 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54915D04204CA7FE0092FE70 /* TextView.swift */; };
 		54915D09204CCFC00092FE70 /* UsernameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54915D08204CCFC00092FE70 /* UsernameButton.swift */; };
 		54915D0B204CD9640092FE70 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54915D0A204CD9640092FE70 /* Colors.swift */; };
+		54915D0D204D0AE70092FE70 /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54915D0C204D0AE70092FE70 /* TableRowView.swift */; };
 		54ABA0832005E10600FCC1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABA0822005E10600FCC1F8 /* AppDelegate.swift */; };
 		54ABA0872005E10600FCC1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54ABA0862005E10600FCC1F8 /* Assets.xcassets */; };
 		54ABA08A2005E10600FCC1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54ABA0882005E10600FCC1F8 /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		54915D04204CA7FE0092FE70 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		54915D08204CCFC00092FE70 /* UsernameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameButton.swift; sourceTree = "<group>"; };
 		54915D0A204CD9640092FE70 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		54915D0C204D0AE70092FE70 /* TableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
 		54ABA07F2005E10600FCC1F8 /* Gist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54ABA0822005E10600FCC1F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54ABA0862005E10600FCC1F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				54915D04204CA7FE0092FE70 /* TextView.swift */,
 				547A10312034D25900ECCDFD /* BasicText.swift */,
 				54915D0A204CD9640092FE70 /* Colors.swift */,
+				54915D0C204D0AE70092FE70 /* TableRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				54915D0B204CD9640092FE70 /* Colors.swift in Sources */,
 				5411CC46201FC59E00D49258 /* BasicButton.swift in Sources */,
 				54C76CD22044CBC300010441 /* TableViewController.swift in Sources */,
+				54915D0D204D0AE70092FE70 /* TableRowView.swift in Sources */,
 				54B0A7D3201E75DF00184069 /* GistViewController.swift in Sources */,
 				5411CC48201FC9B800D49258 /* SwitchButton.swift in Sources */,
 				54ABA0832005E10600FCC1F8 /* AppDelegate.swift in Sources */,
