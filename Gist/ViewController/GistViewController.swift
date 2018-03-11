@@ -75,6 +75,11 @@ class GistViewController: NSViewController {
         textField.string = getClipboard()
     }
     
+    @IBAction func filebuttonPressed(_ sender: FileButton) {
+        sender.layer?.borderColor = .gistGray
+    }
+    
+    
     func getClipboard() -> String {
         let clipboard = NSPasteboard.general
         guard let content = clipboard.string(forType: .string) else {

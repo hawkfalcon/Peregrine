@@ -8,7 +8,7 @@ class TableRowView: NSTableRowView, Hoverable {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         
-        setupHover()
+        trackHover()
     }
 
     override func draw(_ dirtyRect: NSRect) {

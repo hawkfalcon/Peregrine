@@ -6,7 +6,8 @@ class UsernameButton: TrackedButton, HoverableDelegate {
     
     var selected: Bool = false {
         didSet {
-            self.attributedTitle = createAttributedString(color: .gistMediumGray, size: size)
+            let color: NSColor = selected ? .gistMediumGray : .white
+            self.attributedTitle = createAttributedString(color: color, size: size)
             self.imagePosition = selected ? .imageLeft : .noImage
         }
     }
@@ -14,7 +15,6 @@ class UsernameButton: TrackedButton, HoverableDelegate {
     override var title: String {
         didSet {
             self.attributedTitle = createAttributedString(color: .white, size: size, title: title)
-            //let textSize = self.attributedTitle.size()
         }
     }
     
@@ -22,7 +22,7 @@ class UsernameButton: TrackedButton, HoverableDelegate {
         self.attributedTitle = whiteLogInTitle
         self.delegate = self
         
-        let image = NSImage(named: NSImage.Name("visible"))
+        let image = NSImage(named: .visible)
         self.image = image
         self.imagePosition = .noImage
         
@@ -41,4 +41,15 @@ class UsernameButton: TrackedButton, HoverableDelegate {
             self.imagePosition = .noImage
         }
     }
+    
+    override func updateTrackingAreas() {
+        super.updateTrackingAreas()
+        
+        self.trackHover()
+    }
 }
+
+extension NSImage.Name {
+    static let visible = NSImage.Name("visible")
+}
+

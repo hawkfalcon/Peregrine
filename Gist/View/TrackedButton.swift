@@ -1,7 +1,7 @@
 import Cocoa
 
 protocol Hoverable {
-    func setupHover()
+    func trackHover()
 }
 
 protocol HoverableDelegate {
@@ -11,9 +11,10 @@ protocol HoverableDelegate {
 
 class TrackedButton: BasicButton, Hoverable {
     var delegate: HoverableDelegate?
+    var trackingArea: NSTrackingArea?
     
     override func customize() {
-        setupHover()
+        trackHover()
     }
     
     override func mouseEntered(with event: NSEvent) {
@@ -25,14 +26,19 @@ class TrackedButton: BasicButton, Hoverable {
     }
     
     override func resetCursorRects() {
+        discardCursorRects()
         self.addCursorRect(self.bounds, cursor: .pointingHand)
     }
 }
 
 extension Hoverable where Self: NSView {
-    func setupHover() {
+    func trackHover() {
+        if let trackingArea = self.trackingAreas.first {
+            self.removeTrackingArea(trackingArea)
+        }
+        
         let area = NSTrackingArea.init(rect: self.bounds,
-            options: [.mouseEnteredAndExited, .activeAlways],
+            options: [.mouseEnteredAndExited, .activeInKeyWindow],
             owner: self, userInfo: nil)
         self.addTrackingArea(area)
     }

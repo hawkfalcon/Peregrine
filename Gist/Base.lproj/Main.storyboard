@@ -2,7 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -29,9 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Gist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
                                 <buttonCell key="cell" type="square" title="Create Gist" bezelStyle="shadowlessSquare" alignment="center" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -40,18 +42,17 @@
                                     <action selector="buttonPress:" target="XfG-lQ-9wD" id="rM0-lk-QiM"/>
                                 </connections>
                             </button>
-                            <scrollView focusRingType="none" fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
-                                <rect key="frame" x="0.0" y="67" width="300" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" focusRingType="none" ambiguous="YES" copiesOnScroll="NO" id="qSO-ba-55L">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="137"/>
+                            <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
+                                <rect key="frame" x="0.0" y="72" width="300" height="120"/>
+                                <clipView key="contentView" focusRingType="none" copiesOnScroll="NO" id="qSO-ba-55L">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView focusRingType="none" ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST" customClass="TextView" customModule="Gist" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="137"/>
+                                        <textView focusRingType="none" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST" customClass="TextView" customModule="Gist" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="300" height="137"/>
+                                            <size key="minSize" width="300" height="120"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Hello I am some text I want to share please share me">
@@ -71,70 +72,116 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="SaR-Se-0yp">
-                                    <rect key="frame" x="284" y="0.0" width="16" height="137"/>
+                                    <rect key="frame" x="284" y="0.0" width="16" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8" customClass="TrackedButton" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="10" y="240" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="GitHub-White" imagePosition="overlaps" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="FOQ-pK-Cp1">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="login:" target="XfG-lQ-9wD" id="3Hc-eJ-a8O"/>
-                                </connections>
-                            </button>
-                            <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD">
-                                <rect key="frame" x="10" y="212" width="280" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-df-xK4">
+                                <rect key="frame" x="10" y="230" width="280" height="60"/>
+                                <subviews>
+                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8" customClass="TrackedButton" customModule="Gist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vGX-hc-rH8" secondAttribute="height" multiplier="1:1" id="GhL-cd-TIZ"/>
+                                            <constraint firstAttribute="height" constant="60" id="NC0-Ek-1kR"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="pOx-w5-fP4"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="GitHub-White" imagePosition="overlaps" alignment="center" alternateImage="GitHub-Black" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="FOQ-pK-Cp1">
+                                            <behavior key="behavior" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="login:" target="XfG-lQ-9wD" id="3Hc-eJ-a8O"/>
+                                        </connections>
+                                    </button>
+                                    <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Gist" customModuleProvider="target">
+                                        <rect key="frame" x="68" y="21" width="138" height="19"/>
+                                        <buttonCell key="cell" type="square" title="Log in" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
+                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system" size="16"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="usernamePress:" target="XfG-lQ-9wD" id="4bE-y0-zP0"/>
+                                        </connections>
+                                    </button>
+                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Gist" customModuleProvider="target">
+                                        <rect key="frame" x="212" y="19" width="70" height="23"/>
+                                        <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" alignment="left" focusRingType="none" inset="2" id="qqZ-om-TyV">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system" size="16"/>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="73E-t4-r88" firstAttribute="height" secondItem="jVV-fY-2uM" secondAttribute="height" id="3Ft-0m-mOP"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD">
+                                <rect key="frame" x="10" y="202" width="280" height="18"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Description" drawsBackground="YES" id="9gD-7a-avm">
                                     <font key="font" metaFont="system" size="14"/>
                                     <color key="textColor" red="0.23529411759999999" green="0.25098039220000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="8" y="255" width="54" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Gist" customModuleProvider="target">
+                                <rect key="frame" x="21" y="252" width="39" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="wGE-Ae-Oi8">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
-                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rn-Tpy" customClass="FileButton" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="100" y="85" width="101" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="document" imagePosition="overlaps" alignment="center" enabled="NO" refusesFirstResponder="YES" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="j3J-4S-fno">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rn-Tpy" customClass="FileButton" customModule="Gist" customModuleProvider="target">
+                                <rect key="frame" x="106" y="87" width="89" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hk9-rn-Tpy" secondAttribute="height" multiplier="1:1" id="Kwj-aP-pFZ"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="document-gray" imagePosition="overlaps" alignment="center" alternateImage="document-medium-gray" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="j3J-4S-fno">
+                                    <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="pasteClipboard:" target="XfG-lQ-9wD" id="ZkU-Pj-nWJ"/>
+                                    <action selector="filebuttonPressed:" target="XfG-lQ-9wD" id="3mG-vd-huB"/>
                                 </connections>
-                            </button>
-                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="67" y="255" width="160" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="Log in" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
-                                    <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="usernamePress:" target="XfG-lQ-9wD" id="4bE-y0-zP0"/>
-                                </connections>
-                            </button>
-                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Gist" customModuleProvider="target">
-                                <rect key="frame" x="225" y="255" width="70" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" focusRingType="none" inset="2" id="qqZ-om-TyV">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system" size="16"/>
-                                </buttonCell>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="1Mo-es-Ll0"/>
+                            <constraint firstAttribute="trailing" secondItem="Yfx-df-xK4" secondAttribute="trailing" constant="10" id="5jn-oF-UwA"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" id="5nH-3c-41K"/>
+                            <constraint firstAttribute="trailing" secondItem="ome-rW-50L" secondAttribute="trailing" id="AlE-Cz-20C"/>
+                            <constraint firstAttribute="trailing" secondItem="rSx-P3-cCD" secondAttribute="trailing" constant="10" id="CCq-8X-KNl"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" id="Dbr-wy-VWA"/>
+                            <constraint firstItem="aGe-6s-phM" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="GlO-fv-RSg"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="H5O-kI-Xsv"/>
+                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="height" secondItem="yuT-Ju-fST" secondAttribute="height" multiplier="0.75" id="IFU-pI-d7g"/>
+                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="centerY" secondItem="ome-rW-50L" secondAttribute="centerY" id="JwG-k9-eHc"/>
+                            <constraint firstAttribute="trailing" secondItem="fo9-uv-L3A" secondAttribute="trailing" id="LnE-eq-msK"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="MAl-dc-5Ua"/>
+                            <constraint firstItem="aGe-6s-phM" firstAttribute="centerX" secondItem="vGX-hc-rH8" secondAttribute="centerX" id="Nxp-an-Vqe"/>
+                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="centerY" secondItem="yuT-Ju-fST" secondAttribute="centerY" id="NyU-nS-HZz"/>
+                            <constraint firstAttribute="bottom" secondItem="fo9-uv-L3A" secondAttribute="bottom" id="OQd-o0-Fub"/>
+                            <constraint firstAttribute="bottom" secondItem="fo9-uv-L3A" secondAttribute="bottom" id="TVU-wH-8FA"/>
+                            <constraint firstItem="fo9-uv-L3A" firstAttribute="height" secondItem="Yfx-df-xK4" secondAttribute="height" multiplier="1.2" id="Tsm-hu-dlt"/>
+                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="bottom" constant="10" id="fhf-nB-nny"/>
+                            <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="hWi-DT-BDI"/>
+                            <constraint firstItem="Yfx-df-xK4" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="pIN-ZE-GnF"/>
+                            <constraint firstAttribute="trailing" secondItem="fo9-uv-L3A" secondAttribute="trailing" id="pQm-LY-xdJ"/>
+                            <constraint firstItem="Yfx-df-xK4" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="xTt-OC-y4o"/>
+                            <constraint firstItem="ome-rW-50L" firstAttribute="top" secondItem="rSx-P3-cCD" secondAttribute="bottom" constant="10" id="xrX-6x-NVi"/>
+                            <constraint firstItem="Hk9-rn-Tpy" firstAttribute="centerX" secondItem="ome-rW-50L" secondAttribute="centerX" id="yDz-Vd-KQC"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="background" destination="m2S-Jp-Qdl" id="6Eh-4D-OiJ"/>
@@ -294,6 +341,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GitHub-Black" width="120" height="120"/>
         <image name="GitHub-White" width="120" height="120"/>
         <image name="buttonCell:Cdf-Xy-IeN:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
@@ -425,6 +473,7 @@ BRwKHBgcHBwjHCgcNRw4HEUcShxSHFUcWhxiHGUcdxx6HH8AAAAAAAACAQAAAAAAAABZAAAAAAAAAAAA
 AAAAAAAcgQ
 </mutableData>
         </image>
-        <image name="document" width="30" height="30"/>
+        <image name="document-gray" width="30" height="30"/>
+        <image name="document-medium-gray" width="30" height="30"/>
     </resources>
 </document>
