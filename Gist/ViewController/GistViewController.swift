@@ -218,25 +218,17 @@ extension GistViewController: HoverableDelegate {
 }
 
 extension GistViewController: NSTextViewDelegate {
-//    func textViewDidChangeSelection(_ notification: Notification) {
-//        print("SELECTION")
-//    }
-//
+    /*func textViewDidChangeSelection(_ notification: Notification) {
+    }
+
     func textDidBeginEditing(_ notification: Notification) {
-        pasteButton.isHidden = true
-        print("Began editing")
     }
-    
+ 
     func textDidEndEditing(_ notification: Notification) {
+    }*/
+ 
+    func textDidChange(_ notification: Notification) {
         guard let textView = notification.object as? TextView else { return }
-        if textView.string == textView.placeholderText {
-            pasteButton.isHidden = false
-        }
-        print("Left editing")
+        pasteButton.isHidden = textView.string != ""
     }
-    
-//    func textDidChange(_ notification: Notification) {
-//        guard let textView = notification.object as? NSTextView else { return }
-//        print("textView.string")
-//    }
 }

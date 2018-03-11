@@ -17,15 +17,7 @@ class BasicButton: NSButton, ClearControl {
     }
     
     func createAttributedString(color: NSColor, size: CGFloat, title: String) -> NSAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = self.alignment
-        
-        let attributes: [NSAttributedStringKey : Any] = [
-            .foregroundColor: color,
-            .font: NSFont.systemFont(ofSize: size),
-            .paragraphStyle: paragraphStyle]
-        
-        return NSAttributedString(string: title, attributes: attributes)
+        return NSAttributedString.createAttributedString(color: color, size: size, title: title, alignment: self.alignment)
     }
     
     func createAttributedString(color: NSColor, size: CGFloat) -> NSAttributedString {
@@ -41,5 +33,19 @@ extension ClearControl where Self: NSControl {
         self.wantsLayer = true
         self.layer?.masksToBounds = true
         self.layer?.backgroundColor = .clear
+    }
+}
+
+extension NSAttributedString {
+    class func createAttributedString(color: NSColor, size: CGFloat, title: String, alignment: NSTextAlignment) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = alignment
+        
+        let attributes: [NSAttributedStringKey : Any] = [
+            .foregroundColor: color,
+            .font: NSFont.systemFont(ofSize: size),
+            .paragraphStyle: paragraphStyle]
+        
+        return NSAttributedString(string: title, attributes: attributes)
     }
 }
