@@ -6,9 +6,12 @@ class TextField: NSTextField {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        self.placeholderAttributedString = NSAttributedString.createAttributedString(color: .gistMediumGray, size: 14, title: self.placeholderString!, alignment: .left)
+        self.placeholderAttributedString = NSAttributedString.createAttributedString(color: .gistMediumGray, size: size, title: self.placeholderString!, alignment: .left)
 
         self.textColor = .black
-        self.currentEditor()?.textColor = .black
+    }
+    
+    override func textDidEndEditing(_ notification: Notification) {
+        self.textColor = .black
     }
 }

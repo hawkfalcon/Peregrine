@@ -28,6 +28,7 @@
 		54B0A7D3201E75DF00184069 /* GistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B0A7D2201E75DF00184069 /* GistViewController.swift */; };
 		54B0A7D5201E7BD300184069 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B0A7D4201E7BD300184069 /* EventMonitor.swift */; };
 		54B5DB182054BA27008F4510 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5DB172054BA27008F4510 /* TextField.swift */; };
+		54B6BE132055ED7C006D791C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B6BE122055ED7C006D791C /* Link.swift */; };
 		54C76CD22044CBC300010441 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C76CD12044CBC300010441 /* TableViewController.swift */; };
 		54C76CD72045EE0B00010441 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C76CD62045EE0B00010441 /* SplitViewController.swift */; };
 		54C76CD92045F36300010441 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C76CD82045F36300010441 /* SplitView.swift */; };
@@ -116,6 +117,7 @@
 		54B0A7D2201E75DF00184069 /* GistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewController.swift; sourceTree = "<group>"; };
 		54B0A7D4201E7BD300184069 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		54B5DB172054BA27008F4510 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		54B6BE122055ED7C006D791C /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		54C76CD12044CBC300010441 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		54C76CD62045EE0B00010441 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		54C76CD82045F36300010441 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			children = (
 				5411CC4F202537C200D49258 /* DataLoader.swift */,
 				5411CC50202537C200D49258 /* GitHubLoader.swift */,
+				54B6BE122055ED7C006D791C /* Link.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				54915D032048ABA30092FE70 /* TrackedButton.swift in Sources */,
 				54915D09204CCFC00092FE70 /* UsernameButton.swift in Sources */,
 				54915D05204CA7FE0092FE70 /* TextView.swift in Sources */,
+				54B6BE132055ED7C006D791C /* Link.swift in Sources */,
 				5411CC52202537C200D49258 /* GitHubLoader.swift in Sources */,
 				54C76CDB2046072100010441 /* CollapseViewController.swift in Sources */,
 				54C76CDD2046181A00010441 /* TriangleView.swift in Sources */,

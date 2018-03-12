@@ -15,10 +15,7 @@ class GistViewController: NSViewController {
     @IBOutlet var background: NSView!
     
     var loader = GitHubLoader()
-    
-    let OAuthCallback = NSNotification.Name(rawValue: "OAuthCallback")
-    let key = "links"
-    
+        
     var loggedIn = UserDefaults.standard.bool(forKey: "loggedInKey") {
         didSet {
             DispatchQueue.main.async {
@@ -88,21 +85,19 @@ class GistViewController: NSViewController {
         return content
     }
     
-    func setClipboard(content: String) {
+    func setClipboard(link: String, description: String) {
         let clipboard = NSPasteboard.general
         clipboard.clearContents()
-        clipboard.setString(content, forType: .string)
+        clipboard.setString(link, forType: .string)
         
-        addLinkToTable(link: content)
+        addLinkToTable(link: link, description: description)
     }
     
-    func addLinkToTable(link: String) {
-        let defaults = UserDefaults.standard
-        var links = defaults.object(forKey: key) as? [String] ?? [String]()
-        links.append(link)
-        defaults.set(links, forKey: key)
+    func addLinkToTable(link: String, description: String) {
+        let link = Link(url: URL(string: link)!, description: description)
 
-        NotificationCenter.default.post(name: Notification.Name.addItem, object: nil, userInfo: nil)
+        UserDefaults.standard.addToList(key: Link.key, value: link)
+        NotificationCenter.default.post(name: .AddItem, object: nil)
     }
     
     func createGist() {
@@ -116,7 +111,7 @@ class GistViewController: NSViewController {
                 self.username?.title = "Error"
             }
             else if let gistUrl = dict?["html_url"] as? String {
-                self.setClipboard(content: gistUrl)
+                self.setClipboard(link: gistUrl, description: description)
             }
         }
     }
@@ -127,8 +122,8 @@ class GistViewController: NSViewController {
         
         // Configure OAuth2 callback
         loader.oauth2.authConfig.authorizeContext = view.window
-        NotificationCenter.default.removeObserver(self, name: OAuthCallback, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleRedirect(_:)), name: OAuthCallback, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .OAuthCallback, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRedirect(_:)), name: .OAuthCallback, object: nil)
         
         // Request user data
         loader.requestUserdata() { dict, error in
@@ -204,6 +199,24 @@ class GistViewController: NSViewController {
         else {
             NSLog("Error authorizing: \(error.description)")
         }
+    }
+}
+
+extension UserDefaults {
+    func getList(key: String) -> [Link] {
+        if let data = self.value(forKey: key) as? Data {
+            if let links = try? PropertyListDecoder()
+                .decode(Array<Link>.self, from: data) {
+                return links
+            }
+        }
+        return []
+    }
+    
+    func addToList(key: String, value: Link) {
+        var links = getList(key: key)
+        links.append(value)
+        self.set(try? PropertyListEncoder().encode(links), forKey: key)
     }
 }
 

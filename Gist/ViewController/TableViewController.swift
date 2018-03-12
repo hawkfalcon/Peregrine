@@ -1,19 +1,13 @@
 import Cocoa
 
 class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
-    let key = "links"
-    
     @IBOutlet weak var tableView: NSTableView!
-    var objects: [String] = []
+    var objects: [Link] = []
     
     @IBOutlet var scrollView: NSScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for i in 1...100 {
-            self.objects.append(String(i))
-        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -22,11 +16,10 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        let defaults = UserDefaults.standard
-        objects = defaults.object(forKey: key) as? [String] ?? [String]()
+        objects = UserDefaults.standard.getList(key: Link.key)
         tableView.reloadData()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.addTableViewItem(_:)), name: Notification.Name.addItem, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addTableViewItem(_:)), name: .AddItem, object: nil)
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -35,7 +28,7 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? TableRowView
-        cell?.text.stringValue = self.objects[row]
+        cell?.text.stringValue = self.objects[row].description
 
         return cell
     }
@@ -50,14 +43,14 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     func tableViewSelectionDidChange(_ notification: Notification) {
         let row = tableView.selectedRow
         if row >= 0 {
-            print(self.objects[row])
+            NSWorkspace.shared.open(self.objects[row].url)
+            NotificationCenter.default.post(name: .TogglePopover, object: nil)
             tableView.deselectRow(row)
         }
     }
     
     @objc func addTableViewItem(_ not: Notification) {
-        let defaults = UserDefaults.standard
-        objects = defaults.object(forKey: key) as? [String] ?? [String]()
+        objects = UserDefaults.standard.getList(key: Link.key)
         tableView.reloadData()
     }
     
@@ -68,5 +61,5 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
 }
 
 extension Notification.Name {
-    static let addItem = Notification.Name("addTableViewItem")
+    static let AddItem = Notification.Name("addTableViewItem")
 }

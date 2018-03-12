@@ -8,8 +8,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let menu = NSMenu()
     var eventMonitor: EventMonitor?
     
-    let OAuthCallback = NSNotification.Name(rawValue: "OAuthCallback")
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named: icon)
@@ -22,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /* Any clicks outside of the popup close it. Weak to prevent a reference counting cycle */
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
             if let strongSelf = self, strongSelf.popover.isShown {
-                strongSelf.closePopover(event)
+                strongSelf.closePopover()
             }
         }
         
@@ -32,6 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             forEventClass: AEEventClass(kInternetEventClass),
             andEventID: AEEventID(kAEGetURL)
         )
+        
+        NotificationCenter.default.removeObserver(self, name: .TogglePopover, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(togglePopover), name: .TogglePopover, object: nil)
     }
     
     @objc func clickMenuBar(_ sender: NSButton) {
@@ -42,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             statusItem.popUpMenu(menu)
         }
         else {
-            togglePopover(sender)
+            togglePopover()
         }
     }
     
@@ -53,37 +54,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         if let url = URL(string: urlString), "owl" == url.scheme && "oauth" == url.host {
-            showPopover(nil)
-            NotificationCenter.default.post(name: OAuthCallback, object: url)
+            showPopover()
+            NotificationCenter.default.post(name: .OAuthCallback, object: url)
         }
     }
     
-    func togglePopover(_ sender: Any?) {
-        if popover.isShown {
-            closePopover(sender)
-        } else {
-            showPopover(sender)
-        }
+    @objc func togglePopover() {
+        popover.isShown ? closePopover() : showPopover()
     }
     
-    func showPopover(_ sender: Any?) {
+    func showPopover() {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
         eventMonitor?.start()
     }
     
-    func closePopover(_ sender: Any?) {
-        popover.performClose(sender)
+    func closePopover() {
+        popover.performClose(nil)
         eventMonitor?.stop()
     }
     
     func constructMenu() {
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Clear", action: #selector(clearLinks), keyEquivalent: ""))
+    }
+    
+    @objc func clearLinks() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: Link.key)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+}
+
+extension Notification.Name {
+    static let OAuthCallback = Notification.Name("OAuthCallback")
+    static let TogglePopover = Notification.Name("TogglePopover")
 }
