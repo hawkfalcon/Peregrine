@@ -6,6 +6,7 @@ class CollapseViewController: NSViewController {
         if let parent = self.parent as? SplitViewController {
             if let listViewItem = parent.splitViewItems.last {
                 listViewItem.isCollapsed = !listViewItem.isCollapsed
+                
             }
         }
     }

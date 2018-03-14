@@ -25,11 +25,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         /* Register our app to get notified when launched via URL */
-        NSAppleEventManager.shared().setEventHandler(self,
-            andSelector: #selector(handleURLEvent(_:withReply:)),
-            forEventClass: AEEventClass(kInternetEventClass),
-            andEventID: AEEventID(kAEGetURL)
-        )
+//        NSAppleEventManager.shared().setEventHandler(self,
+//            andSelector: #selector(handleURLEvent(_:withReply:)),
+//            forEventClass: AEEventClass(kInternetEventClass),
+//            andEventID: AEEventID(kAEGetURL)
+//        )
         
         NotificationCenter.default.removeObserver(self, name: .TogglePopover, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(togglePopover), name: .TogglePopover, object: nil)
@@ -47,17 +47,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    /* Gets called when the App launches/opens via URL. */
-    @objc func handleURLEvent(_ event: NSAppleEventDescriptor, withReply reply: NSAppleEventDescriptor) {
-        guard let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue else {
-            NSLog("No valid URL to handle")
-            return
-        }
-        if let url = URL(string: urlString), "owl" == url.scheme && "oauth" == url.host {
-            showPopover()
-            NotificationCenter.default.post(name: .OAuthCallback, object: url)
-        }
-    }
+//    /* Gets called when the App launches/opens via URL. */
+//    @objc func handleURLEvent(_ event: NSAppleEventDescriptor, withReply reply: NSAppleEventDescriptor) {
+//        guard let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue else {
+//            NSLog("No valid URL to handle")
+//            return
+//        }
+//        if let url = URL(string: urlString), "owl" == url.scheme && "oauth" == url.host {
+//            showPopover()
+//            NotificationCenter.default.post(name: .OAuthCallback, object: url)
+//        }
+//    }
     
     @objc func togglePopover() {
         popover.isShown ? closePopover() : showPopover()

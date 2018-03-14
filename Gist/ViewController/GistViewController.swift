@@ -1,7 +1,19 @@
 import Cocoa
 import OAuth2
+import KRActivityIndicatorView
+
 
 class GistViewController: NSViewController {
+    
+/* TODO:
+     - better failure states
+     - add file / drag
+     - file dropdown
+        - set filename
+        - filetype
+     - open share on gist
+     - settings
+ */
     
     @IBOutlet weak var username: UsernameButton!
     @IBOutlet weak var loginButton: TrackedButton!
@@ -10,6 +22,8 @@ class GistViewController: NSViewController {
     @IBOutlet weak var descriptionField: NSTextField!
     @IBOutlet weak var secretButton: SwitchButton!
     @IBOutlet weak var pasteButton: NSButton!
+    @IBOutlet weak var gistButton: GistButton!
+    @IBOutlet weak var activityIndicator: KRActivityIndicatorView!
 
     @IBOutlet var textField: NSTextView!
     @IBOutlet var background: NSView!
@@ -27,7 +41,7 @@ class GistViewController: NSViewController {
     override func viewDidLoad() {
         textField.delegate = self
         loginButton.delegate = self
-        
+
         setupView()
         
         super.viewDidLoad()
@@ -68,14 +82,15 @@ class GistViewController: NSViewController {
         sender.selected = !sender.selected
     }
     
-    @IBAction func pasteClipboard(_ sender: Any) {
-        textField.string = getClipboard()
-    }
-    
     @IBAction func filebuttonPressed(_ sender: FileButton) {
         sender.layer?.borderColor = .gistGray
+        textField.string = getClipboard()
+        
+        loader.getGists() { dict, error in
+            print(dict)
+            // TODO: Remove my gists...
+        }
     }
-    
     
     func getClipboard() -> String {
         let clipboard = NSPasteboard.general
@@ -101,18 +116,28 @@ class GistViewController: NSViewController {
     }
     
     func createGist() {
+        self.gistButton.isEnabled = false
+        self.gistButton.title = ""
+        self.activityIndicator.startAnimating()
+
         let content = textField.string
         let filename = "gist"
         let description = descriptionField.stringValue
         let secret = secretButton.state == .on
         loader.postGist(content: content, filename: filename, description: description,
             secret: secret, oauth: !username.selected) { dict, error in
-            if let _ = error {
-                self.username?.title = "Error"
-            }
-            else if let gistUrl = dict?["html_url"] as? String {
-                self.setClipboard(link: gistUrl, description: description)
-            }
+                if let _ = error {
+                    self.username?.title = "Error"
+                }
+                else if let gistUrl = dict?["html_url"] as? String {
+                    self.setClipboard(link: gistUrl, description: description)
+                }
+                
+                self.activityIndicator.stopAnimating()
+                self.gistButton.isEnabled = true
+                self.textField.string = ""
+                self.descriptionField.stringValue = ""
+                self.gistButton.attributedTitle = self.gistButton.whiteTitle
         }
     }
     
@@ -122,9 +147,9 @@ class GistViewController: NSViewController {
         
         // Configure OAuth2 callback
         loader.oauth2.authConfig.authorizeContext = view.window
-        NotificationCenter.default.removeObserver(self, name: .OAuthCallback, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleRedirect(_:)), name: .OAuthCallback, object: nil)
-        
+//        NotificationCenter.default.removeObserver(self, name: .OAuthCallback, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleRedirect(_:)), name: .OAuthCallback, object: nil)
+//
         // Request user data
         loader.requestUserdata() { dict, error in
             if let error = error {
@@ -159,22 +184,22 @@ class GistViewController: NSViewController {
     }
     
     // MARK: - Authorization
-    @objc func handleRedirect(_ notification: Notification) {
-        if let url = notification.object as? URL {
-            self.username?.title = "Loading"
-            do {
-                try loader.oauth2.handleRedirectURL(url)
-            }
-            catch let error {
-                show(error)
-            }
-        }
-        else {
-            show(NSError(domain: NSCocoaErrorDomain, code: 0, userInfo:
-                [NSLocalizedDescriptionKey: "Invalid URL"]
-            ))
-        }
-    }
+//    @objc func handleRedirect(_ notification: Notification) {
+//        if let url = notification.object as? URL {
+//            self.username?.title = "Loading"
+//            do {
+//                try loader.oauth2.handleRedirectURL(url)
+//            }
+//            catch let error {
+//                show(error)
+//            }
+//        }
+//        else {
+//            show(NSError(domain: NSCocoaErrorDomain, code: 0, userInfo:
+//                [NSLocalizedDescriptionKey: "Invalid URL"]
+//            ))
+//        }
+//    }
     
     // MARK: - Error Handling
     
@@ -215,7 +240,7 @@ extension UserDefaults {
     
     func addToList(key: String, value: Link) {
         var links = getList(key: key)
-        links.append(value)
+        links.insert(value, at: 0)
         self.set(try? PropertyListEncoder().encode(links), forKey: key)
     }
 }

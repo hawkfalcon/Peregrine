@@ -29,6 +29,7 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 			"verbose": true,
 		])
 		super.init(oauth2: oauth)
+        oauth2.authConfig.authorizeEmbedded = true
 	}
 	
 	
@@ -56,6 +57,10 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 			}
 		}
 	}
+    
+    func getGists(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
+        request(path: "gists", body: Data(), type: "GET", oauth: true, callback: callback)
+    }
     
     func postGist(content: String, filename: String, description: String, secret: Bool, oauth: Bool,
         callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {

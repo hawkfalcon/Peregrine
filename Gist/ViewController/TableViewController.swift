@@ -13,6 +13,16 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         tableView.dataSource = self
     }
     
+    @IBAction func shareSheet(_ sender: NSButton) {
+        let sharingPicker:NSSharingServicePicker = NSSharingServicePicker.init(items:
+            [
+                objects[sender.tag].description,
+                objects[sender.tag].url
+            ]
+        )
+        sharingPicker.show(relativeTo: sender.bounds, of: sender, preferredEdge: .minY)
+    }
+    
     override func viewWillAppear() {
         super.viewWillAppear()
         
@@ -29,16 +39,10 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? TableRowView
         cell?.text.stringValue = self.objects[row].description
+        cell?.button.tag = row
 
         return cell
     }
-    
-//    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-//        let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? NSTableCellView
-//        cell?.textField?.stringValue = self.objects[row]
-//
-//        return cell
-//    }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let row = tableView.selectedRow
@@ -52,11 +56,6 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     @objc func addTableViewItem(_ not: Notification) {
         objects = UserDefaults.standard.getList(key: Link.key)
         tableView.reloadData()
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-        }
     }
 }
 

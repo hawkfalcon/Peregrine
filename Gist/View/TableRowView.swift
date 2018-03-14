@@ -8,13 +8,26 @@ class TableRowView: NSTableRowView, Hoverable {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         
-        trackHover()
+        self.trackHover()
+        self.selectionHighlightStyle = .regular
     }
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
     
+    override var isEmphasized: Bool {
+        set {}
+        get {
+            return true
+        }
+    }
+    
+//    override func updateTrackingAreas() {
+//        self.trackHover()
+//        self.updateTrackingAreas()
+//    }
+//    
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
         self.isSelected = true

@@ -12,7 +12,6 @@
 		5411CC48201FC9B800D49258 /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC47201FC9B800D49258 /* SwitchButton.swift */; };
 		5411CC51202537C200D49258 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC4F202537C200D49258 /* DataLoader.swift */; };
 		5411CC52202537C200D49258 /* GitHubLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5411CC50202537C200D49258 /* GitHubLoader.swift */; };
-		546B2F5E202A4BF90027F50D /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546B2F54202A4BC80027F50D /* OAuth2.framework */; };
 		547A10322034D25900ECCDFD /* BasicText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A10312034D25900ECCDFD /* BasicText.swift */; };
 		54915D032048ABA30092FE70 /* TrackedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54915D022048ABA30092FE70 /* TrackedButton.swift */; };
 		54915D05204CA7FE0092FE70 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54915D04204CA7FE0092FE70 /* TextView.swift */; };
@@ -29,6 +28,10 @@
 		54B0A7D5201E7BD300184069 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B0A7D4201E7BD300184069 /* EventMonitor.swift */; };
 		54B5DB182054BA27008F4510 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5DB172054BA27008F4510 /* TextField.swift */; };
 		54B6BE132055ED7C006D791C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B6BE122055ED7C006D791C /* Link.swift */; };
+		54B6BE1D20571F9C006D791C /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546B2F54202A4BC80027F50D /* OAuth2.framework */; };
+		54B6BE1E20571F9C006D791C /* OAuth2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 546B2F54202A4BC80027F50D /* OAuth2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		54B6BE4020573320006D791C /* KRActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B6BE3D20573307006D791C /* KRActivityIndicatorView.framework */; };
+		54B6BE4120573320006D791C /* KRActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54B6BE3D20573307006D791C /* KRActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		54C76CD22044CBC300010441 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C76CD12044CBC300010441 /* TableViewController.swift */; };
 		54C76CD72045EE0B00010441 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C76CD62045EE0B00010441 /* SplitViewController.swift */; };
 		54C76CD92045F36300010441 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C76CD82045F36300010441 /* SplitView.swift */; };
@@ -65,13 +68,6 @@
 			remoteGlobalIDString = EEE209A219427DFE00736F1A;
 			remoteInfo = OAuth2Tests;
 		};
-		546B2F5B202A4BEC0027F50D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 546B2F4C202A4BC80027F50D /* OAuth2.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EEE209461942772800736F1A;
-			remoteInfo = OAuth2macOS;
-		};
 		54ABA0922005E10600FCC1F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 54ABA0772005E10600FCC1F8 /* Project object */;
@@ -86,7 +82,57 @@
 			remoteGlobalIDString = 54ABA07E2005E10600FCC1F8;
 			remoteInfo = Gist;
 		};
+		54B6BE1A20571F8C006D791C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 546B2F4C202A4BC80027F50D /* OAuth2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE209461942772800736F1A;
+			remoteInfo = OAuth2macOS;
+		};
+		54B6BE1F20571F9C006D791C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 546B2F4C202A4BC80027F50D /* OAuth2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE209461942772800736F1A;
+			remoteInfo = OAuth2macOS;
+		};
+		54B6BE3C20573307006D791C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54B6BE3720573307006D791C /* KRActivityIndicatorView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3912CC701E181B60000BF4F0;
+			remoteInfo = KRActivityIndicatorView;
+		};
+		54B6BE3E20573307006D791C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54B6BE3720573307006D791C /* KRActivityIndicatorView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3912CC8E1E181BAB000BF4F0;
+			remoteInfo = KRActivityIndicatorViewDemo;
+		};
+		54B6BE4220573320006D791C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54B6BE3720573307006D791C /* KRActivityIndicatorView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3912CC6F1E181B60000BF4F0;
+			remoteInfo = KRActivityIndicatorView;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		54B6BE2120571F9D006D791C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				54B6BE1E20571F9C006D791C /* OAuth2.framework in Embed Frameworks */,
+				54B6BE4120573320006D791C /* KRActivityIndicatorView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5411CC43201FB11500D49258 /* GistButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistButton.swift; sourceTree = "<group>"; };
@@ -118,6 +164,7 @@
 		54B0A7D4201E7BD300184069 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		54B5DB172054BA27008F4510 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		54B6BE122055ED7C006D791C /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		54B6BE3720573307006D791C /* KRActivityIndicatorView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KRActivityIndicatorView.xcodeproj; path = ../../../../Downloads/KRActivityIndicatorView/KRActivityIndicatorView.xcodeproj; sourceTree = "<group>"; };
 		54C76CD12044CBC300010441 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		54C76CD62045EE0B00010441 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		54C76CD82045F36300010441 /* SplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -130,7 +177,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				546B2F5E202A4BF90027F50D /* OAuth2.framework in Frameworks */,
+				54B6BE1D20571F9C006D791C /* OAuth2.framework in Frameworks */,
+				54B6BE4020573320006D791C /* KRActivityIndicatorView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +220,7 @@
 		54ABA0762005E10600FCC1F8 = {
 			isa = PBXGroup;
 			children = (
+				54B6BE3720573307006D791C /* KRActivityIndicatorView.xcodeproj */,
 				546B2F4C202A4BC80027F50D /* OAuth2.xcodeproj */,
 				54ABA0812005E10600FCC1F8 /* Gist */,
 				54ABA0942005E10600FCC1F8 /* GistTests */,
@@ -201,6 +250,7 @@
 				54ABA08B2005E10600FCC1F8 /* Info.plist */,
 				54ABA08C2005E10600FCC1F8 /* Gist.entitlements */,
 				54C76CE0204770CA00010441 /* Data */,
+				54B6BE22205729D4006D791C /* Controls */,
 				54C76CDE2047708100010441 /* View */,
 				54C76CDF2047709E00010441 /* ViewController */,
 			);
@@ -225,22 +275,38 @@
 			path = GistUITests;
 			sourceTree = "<group>";
 		};
-		54C76CDE2047708100010441 /* View */ = {
+		54B6BE22205729D4006D791C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				54C76CD82045F36300010441 /* SplitView.swift */,
-				54C76CDC2046181A00010441 /* TriangleView.swift */,
 				5411CC43201FB11500D49258 /* GistButton.swift */,
 				54915D08204CCFC00092FE70 /* UsernameButton.swift */,
 				5411CC45201FC59E00D49258 /* BasicButton.swift */,
 				54915D022048ABA30092FE70 /* TrackedButton.swift */,
 				5411CC47201FC9B800D49258 /* SwitchButton.swift */,
+				549B3F52204F3A0100351BAD /* FileButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		54B6BE3820573307006D791C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54B6BE3D20573307006D791C /* KRActivityIndicatorView.framework */,
+				54B6BE3F20573307006D791C /* KRActivityIndicatorViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54C76CDE2047708100010441 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54C76CD82045F36300010441 /* SplitView.swift */,
+				54C76CDC2046181A00010441 /* TriangleView.swift */,
 				547A10312034D25900ECCDFD /* BasicText.swift */,
 				54B5DB172054BA27008F4510 /* TextField.swift */,
 				54915D04204CA7FE0092FE70 /* TextView.swift */,
 				54915D0A204CD9640092FE70 /* Colors.swift */,
 				54915D0C204D0AE70092FE70 /* TableRowView.swift */,
-				549B3F52204F3A0100351BAD /* FileButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,11 +342,14 @@
 				54ABA07B2005E10600FCC1F8 /* Sources */,
 				54ABA07C2005E10600FCC1F8 /* Frameworks */,
 				54ABA07D2005E10600FCC1F8 /* Resources */,
+				54B6BE2120571F9D006D791C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				546B2F5C202A4BEC0027F50D /* PBXTargetDependency */,
+				54B6BE1B20571F8C006D791C /* PBXTargetDependency */,
+				54B6BE2020571F9C006D791C /* PBXTargetDependency */,
+				54B6BE4320573320006D791C /* PBXTargetDependency */,
 			);
 			name = Gist;
 			productName = Gist;
@@ -336,6 +405,11 @@
 					54ABA07E2005E10600FCC1F8 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					54ABA0902005E10600FCC1F8 = {
 						CreatedOnToolsVersion = 9.2;
@@ -361,6 +435,10 @@
 			productRefGroup = 54ABA0802005E10600FCC1F8 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 54B6BE3820573307006D791C /* Products */;
+					ProjectRef = 54B6BE3720573307006D791C /* KRActivityIndicatorView.xcodeproj */;
+				},
 				{
 					ProductGroup = 546B2F4D202A4BC80027F50D /* Products */;
 					ProjectRef = 546B2F4C202A4BC80027F50D /* OAuth2.xcodeproj */;
@@ -402,6 +480,20 @@
 			fileType = wrapper.cfbundle;
 			path = OAuth2Tests.xctest;
 			remoteRef = 546B2F59202A4BC80027F50D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54B6BE3D20573307006D791C /* KRActivityIndicatorView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KRActivityIndicatorView.framework;
+			remoteRef = 54B6BE3C20573307006D791C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54B6BE3F20573307006D791C /* KRActivityIndicatorViewDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = KRActivityIndicatorViewDemo.app;
+			remoteRef = 54B6BE3E20573307006D791C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -481,11 +573,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		546B2F5C202A4BEC0027F50D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OAuth2macOS;
-			targetProxy = 546B2F5B202A4BEC0027F50D /* PBXContainerItemProxy */;
-		};
 		54ABA0932005E10600FCC1F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 54ABA07E2005E10600FCC1F8 /* Gist */;
@@ -495,6 +582,21 @@
 			isa = PBXTargetDependency;
 			target = 54ABA07E2005E10600FCC1F8 /* Gist */;
 			targetProxy = 54ABA09D2005E10600FCC1F8 /* PBXContainerItemProxy */;
+		};
+		54B6BE1B20571F8C006D791C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuth2macOS;
+			targetProxy = 54B6BE1A20571F8C006D791C /* PBXContainerItemProxy */;
+		};
+		54B6BE2020571F9C006D791C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuth2macOS;
+			targetProxy = 54B6BE1F20571F9C006D791C /* PBXContainerItemProxy */;
+		};
+		54B6BE4320573320006D791C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KRActivityIndicatorView;
+			targetProxy = 54B6BE4220573320006D791C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -619,13 +721,14 @@
 		54ABA0A62005E10600FCC1F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Gist/Gist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6VJ9C2YY26;
 				INFOPLIST_FILE = Gist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hawkfalcon.Gist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -635,13 +738,14 @@
 		54ABA0A72005E10600FCC1F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Gist/Gist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6VJ9C2YY26;
 				INFOPLIST_FILE = Gist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hawkfalcon.Gist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

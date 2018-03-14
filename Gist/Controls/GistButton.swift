@@ -30,6 +30,8 @@ class GistButton: TrackedButton, HoverableDelegate {
     
     func hoverStop() {
         self.layer?.backgroundColor = .gistGray
-        self.attributedTitle = whiteTitle
+        if self.isEnabled {
+            self.attributedTitle = whiteTitle
+        }
     }
 }
