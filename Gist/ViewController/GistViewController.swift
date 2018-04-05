@@ -1,5 +1,6 @@
 import Cocoa
 import p2_OAuth2
+import ProgressKit
 
 class GistViewController: NSViewController {
     
@@ -21,8 +22,8 @@ class GistViewController: NSViewController {
     @IBOutlet weak var secretButton: SwitchButton!
     @IBOutlet weak var pasteButton: FileButton!
     @IBOutlet weak var gistButton: GistButton!
-    //@IBOutlet weak var activityIndicator: KRActivityIndicatorView!
-
+    @IBOutlet weak var activityIndicator: ShootingStars!
+    
     @IBOutlet var textView: TextView!
     @IBOutlet var background: NSView!
     
@@ -110,7 +111,7 @@ class GistViewController: NSViewController {
     func createGist() {
         self.gistButton.isEnabled = false
         self.gistButton.title = ""
-        //self.activityIndicator.startAnimating()
+        self.activityIndicator.animate = true
 
         let content = textView.string
         let filename = "gist"
@@ -125,7 +126,7 @@ class GistViewController: NSViewController {
                     self.setClipboard(link: gistUrl, description: description)
                 }
                 
-                //self.activityIndicator.stopAnimating()
+                self.activityIndicator.animate = false
                 self.gistButton.isEnabled = true
                 self.textView.string = ""
                 self.descriptionField.stringValue = ""

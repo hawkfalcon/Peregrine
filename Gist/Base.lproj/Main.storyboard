@@ -147,13 +147,21 @@
                                     <action selector="filebuttonPressed:" target="XfG-lQ-9wD" id="CEm-5h-RCc"/>
                                 </connections>
                             </button>
-                            <customView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ob-R0f" customClass="KRActivityIndicatorView" customModule="KRActivityIndicatorView">
-                                <rect key="frame" x="30" y="7" width="240" height="58"/>
+                            <customView hidden="YES" focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ob-R0f" customClass="Rainbow" customModule="ProgressKit">
+                                <rect key="frame" x="121" y="7" width="58" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="U6f-Ob-R0f" secondAttribute="height" multiplier="1:1" id="7SF-aB-aEa"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallPulse"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="onLightOffDark" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayAfterAnimationEnds" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </customView>
                         </subviews>
@@ -178,7 +186,6 @@
                             <constraint firstItem="fo9-uv-L3A" firstAttribute="height" secondItem="Yfx-df-xK4" secondAttribute="height" multiplier="1.2" id="Tsm-hu-dlt"/>
                             <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="bottom" constant="10" id="fhf-nB-nny"/>
                             <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="hWi-DT-BDI"/>
-                            <constraint firstItem="U6f-Ob-R0f" firstAttribute="width" secondItem="fo9-uv-L3A" secondAttribute="width" multiplier="0.8" id="iQi-p0-UJW"/>
                             <constraint firstItem="U6f-Ob-R0f" firstAttribute="height" secondItem="fo9-uv-L3A" secondAttribute="height" multiplier="0.8" id="mYl-M6-IKZ"/>
                             <constraint firstItem="Yfx-df-xK4" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="pIN-ZE-GnF"/>
                             <constraint firstAttribute="trailing" secondItem="fo9-uv-L3A" secondAttribute="trailing" id="pQm-LY-xdJ"/>
@@ -189,7 +196,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="U6f-Ob-R0f" id="Irn-xh-Rmx"/>
+                        <outlet property="activityIndicator" destination="U6f-Ob-R0f" id="pnu-jA-Dfq"/>
                         <outlet property="background" destination="m2S-Jp-Qdl" id="6Eh-4D-OiJ"/>
                         <outlet property="descriptionField" destination="rSx-P3-cCD" id="8Ht-xz-h1o"/>
                         <outlet property="gistButton" destination="fo9-uv-L3A" id="Juj-nH-AHw"/>
