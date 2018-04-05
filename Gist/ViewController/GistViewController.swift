@@ -17,15 +17,15 @@ class GistViewController: NSViewController {
     
     @IBOutlet weak var username: UsernameButton!
     @IBOutlet weak var loginButton: TrackedButton!
-    @IBOutlet weak var loginLabel: NSTextField!
+    @IBOutlet weak var loginLabel: BasicText!
     
-    @IBOutlet weak var descriptionField: NSTextField!
+    @IBOutlet weak var descriptionField: TextField!
     @IBOutlet weak var secretButton: SwitchButton!
-    @IBOutlet weak var pasteButton: NSButton!
+    @IBOutlet weak var pasteButton: FileButton!
     @IBOutlet weak var gistButton: GistButton!
     @IBOutlet weak var activityIndicator: KRActivityIndicatorView!
 
-    @IBOutlet var textField: NSTextView!
+    @IBOutlet var textView: TextView!
     @IBOutlet var background: NSView!
     
     var loader = GitHubLoader()
@@ -39,7 +39,7 @@ class GistViewController: NSViewController {
     }
 
     override func viewDidLoad() {
-        textField.delegate = self
+        textView.delegate = self
         loginButton.delegate = self
 
         setupView()
@@ -51,14 +51,8 @@ class GistViewController: NSViewController {
     }
     
     func setupView() {
-        loginLabel.stringValue = ""
-        
         background.layer?.backgroundColor = .gistGray
-        pasteButton.layer?.backgroundColor = .gistGray
-        pasteButton.bezelColor = .gistGray
-        
-        textField.font = .systemFont(ofSize: 14)
-        
+
         if loggedIn {
             login()
         }
@@ -84,7 +78,7 @@ class GistViewController: NSViewController {
     
     @IBAction func filebuttonPressed(_ sender: FileButton) {
         sender.layer?.borderColor = .gistGray
-        textField.string = getClipboard()
+        textView.string = getClipboard()
         
         loader.getGists() { dict, error in
             print(dict)
@@ -120,7 +114,7 @@ class GistViewController: NSViewController {
         self.gistButton.title = ""
         self.activityIndicator.startAnimating()
 
-        let content = textField.string
+        let content = textView.string
         let filename = "gist"
         let description = descriptionField.stringValue
         let secret = secretButton.state == .on
@@ -135,7 +129,7 @@ class GistViewController: NSViewController {
                 
                 self.activityIndicator.stopAnimating()
                 self.gistButton.isEnabled = true
-                self.textField.string = ""
+                self.textView.string = ""
                 self.descriptionField.stringValue = ""
                 self.gistButton.attributedTitle = self.gistButton.whiteTitle
         }

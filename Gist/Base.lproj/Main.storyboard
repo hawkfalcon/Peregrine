@@ -197,7 +197,7 @@
                         <outlet property="loginLabel" destination="aGe-6s-phM" id="WUV-6r-oG4"/>
                         <outlet property="pasteButton" destination="Hk9-rn-Tpy" id="Lkf-9c-PUY"/>
                         <outlet property="secretButton" destination="jVV-fY-2uM" id="b6O-3B-ZPL"/>
-                        <outlet property="textField" destination="yuT-Ju-fST" id="wDf-Mp-Q6W"/>
+                        <outlet property="textView" destination="yuT-Ju-fST" id="bFL-Of-LSd"/>
                         <outlet property="username" destination="73E-t4-r88" id="Hl3-H5-KBH"/>
                     </connections>
                 </viewController>

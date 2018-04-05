@@ -15,11 +15,14 @@ class TextView: NSTextView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        placeholderAttributedString = NSAttributedString.createAttributedString(
+        self.font = .systemFont(ofSize: 14)
+        self.placeholderAttributedString =
+            NSAttributedString.createAttributedString(
             color: .gistMediumGray,
             size: size, title: placeholderText,
             alignment: .left)
     }
+    
     override func becomeFirstResponder() -> Bool {
         enteredTextView()
         return super.becomeFirstResponder()
@@ -30,13 +33,13 @@ class TextView: NSTextView {
         return super.resignFirstResponder()
     }
     
-    
     func enteredTextView() {
     }
     
     func exitedTextView() {
     }
     
+    // MARK: key shortcuts
     private let commandKey = NSEvent.ModifierFlags.command.rawValue
     private let commandShiftKey = NSEvent.ModifierFlags.command.rawValue | NSEvent.ModifierFlags.shift.rawValue
     

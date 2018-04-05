@@ -9,6 +9,8 @@ class BasicText: NSTextField, ClearControl {
         super.init(coder: aDecoder)
         
         self.textColor = .white
+        self.stringValue = ""
+        
         applyClear()
     }
     
