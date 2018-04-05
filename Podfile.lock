@@ -1,0 +1,15 @@
+PODS:
+  - p2.OAuth2 (4.0.1)
+  - ProgressKit (0.6.1)
+
+DEPENDENCIES:
+  - p2.OAuth2 (~> 4.0.1)
+  - ProgressKit
+
+SPEC CHECKSUMS:
+  p2.OAuth2: fdc2effef37793a8f775dd4760bc4c1ea906c956
+  ProgressKit: c6c640344bb7512db1c9c7e33dee63c8f663b98f
+
+PODFILE CHECKSUM: fc3a30dc9cb2d208de1fdcfa844ecea090b27b29
+
+COCOAPODS: 1.4.0

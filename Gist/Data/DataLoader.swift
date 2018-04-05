@@ -1,5 +1,5 @@
 import Cocoa
-import OAuth2
+import p2_OAuth2
 
 
 /**
