@@ -38,7 +38,10 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? TableRowView
-        cell?.text.stringValue = self.objects[row].description
+        let object = self.objects[row]
+        let text = object.description != "" ? object.description : "\(object.url.absoluteString.prefix(38))..."
+    
+        cell?.text.stringValue = text
         cell?.button.tag = row
 
         return cell
@@ -56,6 +59,7 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     @objc func addTableViewItem(_ not: Notification) {
         objects = UserDefaults.standard.getList(key: Link.key)
         tableView.reloadData()
+        tableView.selectRowIndexes([0], byExtendingSelection: false)
     }
 }
 

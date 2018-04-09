@@ -79,6 +79,7 @@ class GistViewController: NSViewController {
         sender.layer?.borderColor = .gistGray
         textView.string = getClipboard()
         
+        openTableView()
         loader.getGists() { dict, error in
             print(dict)
             // TODO: Remove my gists...
@@ -130,12 +131,13 @@ class GistViewController: NSViewController {
                 self.gistButton.isEnabled = true
                 self.textView.string = ""
                 self.descriptionField.stringValue = ""
+                self.pasteButton.isHidden = false
                 self.gistButton.attributedTitle = self.gistButton.whiteTitle
         }
     }
     
     func login() {
-        username?.title = "Fetching GitHub"
+        username?.title = "Loading..."
         loginButton?.isEnabled = false
         
         // Configure OAuth2 callback
@@ -216,6 +218,14 @@ class GistViewController: NSViewController {
         }
         else {
             NSLog("Error authorizing: \(error.description)")
+        }
+    }
+    
+    func openTableView() {
+        if let parent = self.parent as? SplitViewController {
+            if let listViewItem = parent.splitViewItems.last {
+                listViewItem.isCollapsed = false
+            }
         }
     }
 }

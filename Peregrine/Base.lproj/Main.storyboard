@@ -19,7 +19,7 @@
                     </connections>
                 </application>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Gist" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Peregrine" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-337" y="495"/>
         </scene>
@@ -27,14 +27,14 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="GistViewController" id="XfG-lQ-9wD" customClass="GistViewController" customModule="Gist" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" focusRingType="none" id="m2S-Jp-Qdl" customClass="TriangleView" customModule="Gist" customModuleProvider="target">
+                <viewController storyboardIdentifier="GistViewController" id="XfG-lQ-9wD" customClass="GistViewController" customModule="Peregrine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" focusRingType="none" id="m2S-Jp-Qdl" customClass="TriangleView" customModule="Peregrine" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Gist" customModuleProvider="target">
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
-                                <buttonCell key="cell" type="square" title="Create Peregrine" bezelStyle="shadowlessSquare" alignment="center" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45">
+                                <buttonCell key="cell" type="square" title="Create Gist" bezelStyle="shadowlessSquare" alignment="center" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -46,9 +46,9 @@
                                 <rect key="frame" x="0.0" y="72" width="300" height="120"/>
                                 <clipView key="contentView" focusRingType="none" copiesOnScroll="NO" id="qSO-ba-55L">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView focusRingType="none" importsGraphics="NO" richText="NO" verticallyResizable="YES" selectionGranularity="word" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST" customClass="TextView" customModule="Gist" customModuleProvider="target">
+                                        <textView focusRingType="none" importsGraphics="NO" richText="NO" verticallyResizable="YES" selectionGranularity="word" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST" customClass="TextView" customModule="Peregrine" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,7 +71,7 @@
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-df-xK4">
                                 <rect key="frame" x="10" y="230" width="280" height="60"/>
                                 <subviews>
-                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8" customClass="TrackedButton" customModule="Gist" customModuleProvider="target">
+                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vGX-hc-rH8" secondAttribute="height" multiplier="1:1" id="GhL-cd-TIZ"/>
@@ -86,7 +86,7 @@
                                             <action selector="login:" target="XfG-lQ-9wD" id="3Hc-eJ-a8O"/>
                                         </connections>
                                     </button>
-                                    <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Gist" customModuleProvider="target">
+                                    <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
                                         <rect key="frame" x="68" y="21" width="138" height="19"/>
                                         <buttonCell key="cell" type="square" title="Log in" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
                                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
@@ -96,7 +96,7 @@
                                             <action selector="usernamePress:" target="XfG-lQ-9wD" id="4bE-y0-zP0"/>
                                         </connections>
                                     </button>
-                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Gist" customModuleProvider="target">
+                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Peregrine" customModuleProvider="target">
                                         <rect key="frame" x="212" y="19" width="70" height="23"/>
                                         <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" alignment="left" focusRingType="none" inset="2" id="qqZ-om-TyV">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -118,7 +118,7 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Gist" customModuleProvider="target">
+                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="10" y="202" width="280" height="18"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" id="9gD-7a-avm">
                                     <font key="font" metaFont="system" size="14"/>
@@ -126,7 +126,7 @@
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Gist" customModuleProvider="target">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="21" y="252" width="39" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="wGE-Ae-Oi8">
                                     <font key="font" metaFont="cellTitle"/>
@@ -134,7 +134,7 @@
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
-                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rn-Tpy" customClass="FileButton" customModule="Gist" customModuleProvider="target">
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rn-Tpy" customClass="FileButton" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="106" y="87" width="89" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Hk9-rn-Tpy" secondAttribute="height" multiplier="1:1" id="Kwj-aP-pFZ"/>
@@ -214,13 +214,13 @@
         <!--Split View Controller-->
         <scene sceneID="D0C-yk-zmK">
             <objects>
-                <splitViewController storyboardIdentifier="SplitViewController" id="LxY-eZ-rf5" customClass="SplitViewController" customModule="Gist" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="SplitViewController" id="LxY-eZ-rf5" customClass="SplitViewController" customModule="Peregrine" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="1000" id="s4E-4V-I5e"/>
                         <splitViewItem holdingPriority="750" id="ZRL-8B-S86"/>
                         <splitViewItem collapsed="YES" holdingPriority="255" behavior="contentList" id="kBN-pM-9he"/>
                     </splitViewItems>
-                    <splitView key="splitView" focusRingType="none" misplaced="YES" dividerStyle="thin" id="kp9-53-Sc1" customClass="SplitView" customModule="Gist" customModuleProvider="target">
+                    <splitView key="splitView" focusRingType="none" misplaced="YES" dividerStyle="thin" id="kp9-53-Sc1" customClass="SplitView" customModule="Peregrine" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -241,12 +241,12 @@
         <!--Collapse View Controller-->
         <scene sceneID="o4Q-aG-xqM">
             <objects>
-                <viewController id="jCX-gl-YfY" customClass="CollapseViewController" customModule="Gist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jCX-gl-YfY" customClass="CollapseViewController" customModule="Peregrine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Vgp-mn-OlZ">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uzu-DR-nqJ" customClass="TrackedButton" customModule="Gist" customModuleProvider="target">
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uzu-DR-nqJ" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="136" y="0.0" width="29" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="buttonCell:Cdf-Xy-IeN:image" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cdf-Xy-IeN">
@@ -267,13 +267,13 @@
         <!--Table View Controller-->
         <scene sceneID="lMK-HY-xqO">
             <objects>
-                <viewController id="ppY-G1-XDF" customClass="TableViewController" customModule="Gist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ppY-G1-XDF" customClass="TableViewController" customModule="Peregrine" customModuleProvider="target" sceneMemberID="viewController">
                     <scrollView key="view" focusRingType="none" borderType="none" horizontalLineScroll="23" horizontalPageScroll="10" verticalLineScroll="23" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="sCE-cb-qeq">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" autoresizesSubviews="NO" focusRingType="none" drawsBackground="NO" copiesOnScroll="NO" id="7Qe-6p-lPT">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView autoresizesSubviews="NO" focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="22" rowSizeStyle="small" viewBased="YES" floatsGroupRows="NO" id="iJf-Kf-G5H">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
@@ -294,7 +294,7 @@
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             </textFieldCell>
                                             <prototypeCellViews>
-                                                <tableCellView identifier="Cell" focusRingType="none" id="c1v-Z4-ctk" customClass="TableRowView" customModule="Gist" customModuleProvider="target">
+                                                <tableCellView identifier="Cell" focusRingType="none" id="c1v-Z4-ctk" customClass="TableRowView" customModule="Peregrine" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -308,7 +308,7 @@
                                                         </textField>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-IB-M6b">
                                                             <rect key="frame" x="249" y="-2" width="47" height="32"/>
-                                                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSShareTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ek9-oP-utJ">
+                                                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSShareTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="Ek9-oP-utJ">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
