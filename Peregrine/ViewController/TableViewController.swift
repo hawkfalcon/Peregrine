@@ -59,7 +59,8 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     @objc func addTableViewItem(_ not: Notification) {
         objects = UserDefaults.standard.getList(key: Link.key)
         tableView.reloadData()
-        tableView.selectRowIndexes([0], byExtendingSelection: false)
+        tableView.rowView(atRow: 0, makeIfNecessary: false)?.isSelected = true
+        //tableView.selectRowIndexes([0], byExtendingSelection: false)
     }
 }
 

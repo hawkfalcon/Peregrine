@@ -23,11 +23,11 @@ class TableRowView: NSTableRowView, Hoverable {
         }
     }
     
-//    override func updateTrackingAreas() {
-//        self.trackHover()
-//        self.updateTrackingAreas()
-//    }
-//    
+    override func updateTrackingAreas() {
+        self.trackHover()
+        super.updateTrackingAreas()
+    }
+    
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
         self.isSelected = true
