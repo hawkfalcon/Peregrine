@@ -11,6 +11,9 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        scrollView.contentView.postsBoundsChangedNotifications = true
+        NotificationCenter.default.addObserver(self, selector: #selector(boundsChange), name: NSView.boundsDidChangeNotification, object: scrollView?.contentView)
     }
     
     @IBAction func shareSheet(_ sender: NSButton) {
@@ -59,8 +62,18 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     @objc func addTableViewItem(_ not: Notification) {
         objects = UserDefaults.standard.getList(key: Link.key)
         tableView.reloadData()
-        tableView.rowView(atRow: 0, makeIfNecessary: false)?.isSelected = true
-        //tableView.selectRowIndexes([0], byExtendingSelection: false)
+        tableView.scrollRowToVisible(0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.tableView.rowView(atRow: 0, makeIfNecessary: false)?.isSelected = true
+        }
+    }
+
+    // Deselect any highlighted row on scrolling
+    @objc func boundsChange() {
+        //TODO make more efficient
+        for row in 0..<objects.count {
+            tableView.rowView(atRow: row, makeIfNecessary: false)?.isSelected = false
+        }
     }
 }
 
