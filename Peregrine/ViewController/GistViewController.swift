@@ -79,7 +79,6 @@ class GistViewController: NSViewController {
         sender.layer?.borderColor = .gistGray
         textView.string = getClipboard()
         
-        openTableView()
         loader.getGists() { dict, error in
             print(dict)
             // TODO: Remove my gists...
@@ -98,8 +97,6 @@ class GistViewController: NSViewController {
         let clipboard = NSPasteboard.general
         clipboard.clearContents()
         clipboard.setString(link, forType: .string)
-        
-        addLinkToTable(link: link, description: description)
     }
     
     func addLinkToTable(link: String, description: String) {
@@ -124,7 +121,8 @@ class GistViewController: NSViewController {
                     self.username?.title = "Error"
                 }
                 else if let gistUrl = dict?["html_url"] as? String {
-                    self.setClipboard(link: gistUrl, description: description)
+                    self.openTableView()
+                    self.addLinkToTable(link: gistUrl, description: description)
                 }
                 
                 self.activityIndicator.animate = false

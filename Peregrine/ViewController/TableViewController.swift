@@ -5,7 +5,7 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     var objects: [Link] = []
     
     @IBOutlet var scrollView: NSScrollView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,13 +17,12 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     }
     
     @IBAction func shareSheet(_ sender: NSButton) {
-        let sharingPicker:NSSharingServicePicker = NSSharingServicePicker.init(items:
-            [
-                objects[sender.tag].description,
-                objects[sender.tag].url
-            ]
-        )
-        sharingPicker.show(relativeTo: sender.bounds, of: sender, preferredEdge: .minY)
+        let object = objects[sender.tag]
+        var text = object.description != "" ? "\(object.description)\n" : ""
+        text += object.url.absoluteString
+        
+        let sharingPicker:NSSharingServicePicker = NSSharingServicePicker(items: [text])
+        sharingPicker.show(relativeTo: NSZeroRect, of: sender, preferredEdge: .minY)
     }
     
     override func viewWillAppear() {

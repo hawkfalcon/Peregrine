@@ -102,6 +102,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system" size="16"/>
                                         </buttonCell>
+                                        <connections>
+                                            <outlet property="nextKeyView" destination="rSx-P3-cCD" id="2sD-5V-uqW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -125,6 +128,9 @@
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="yuT-Ju-fST" id="UMd-jp-kMZ"/>
+                                </connections>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="21" y="252" width="39" height="16"/>
@@ -309,7 +315,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-IB-M6b">
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-IB-M6b" customClass="ShareButton" customModule="Peregrine" customModuleProvider="target">
                                                             <rect key="frame" x="267" y="-2" width="47" height="30"/>
                                                             <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSShareTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="Ek9-oP-utJ">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
