@@ -1,14 +1,6 @@
-//
-//  GistUITests.swift
-//  GistUITests
-//
-//  Created by Tristen Miller on 1/9/18.
-//  Copyright © 2018 Tristen Miller. All rights reserved.
-//
-
 import XCTest
 
-class GistUITests: XCTestCase {
+class PeregrineUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

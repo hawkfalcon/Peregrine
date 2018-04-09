@@ -1,15 +1,7 @@
-//
-//  GistTests.swift
-//  GistTests
-//
-//  Created by Tristen Miller on 1/9/18.
-//  Copyright © 2018 Tristen Miller. All rights reserved.
-//
-
 import XCTest
-@testable import Gist
+@testable import Peregrine
 
-class GistTests: XCTestCase {
+class PeregrineTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
