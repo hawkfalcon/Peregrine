@@ -71,6 +71,14 @@ class GistViewController: NSViewController {
         }
     }
     
+    @IBAction func loginUsername(_ sender: UsernameButton) {
+        if sender.title == "Log In" {
+            login()
+        } else {
+            sender.selected = !sender.selected
+        }
+    }
+    
     @IBAction func usernamePress(_ sender: UsernameButton) {
         sender.selected = !sender.selected
     }

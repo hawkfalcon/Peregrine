@@ -88,12 +88,12 @@
                                     </button>
                                     <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
                                         <rect key="frame" x="68" y="21" width="158" height="19"/>
-                                        <buttonCell key="cell" type="square" title="Log in" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
+                                        <buttonCell key="cell" type="square" title="Log In" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
                                             <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system" size="16"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="usernamePress:" target="XfG-lQ-9wD" id="4bE-y0-zP0"/>
+                                            <action selector="loginUsername:" target="XfG-lQ-9wD" id="k0f-AT-oij"/>
                                         </connections>
                                     </button>
                                     <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Peregrine" customModuleProvider="target">
@@ -208,6 +208,7 @@
                         <outlet property="gistButton" destination="fo9-uv-L3A" id="Juj-nH-AHw"/>
                         <outlet property="loginButton" destination="vGX-hc-rH8" id="qpH-dL-Zy0"/>
                         <outlet property="loginLabel" destination="aGe-6s-phM" id="WUV-6r-oG4"/>
+                        <outlet property="loginUsername" destination="73E-t4-r88" id="q5Q-1p-I36"/>
                         <outlet property="pasteButton" destination="Hk9-rn-Tpy" id="Lkf-9c-PUY"/>
                         <outlet property="secretButton" destination="jVV-fY-2uM" id="b6O-3B-ZPL"/>
                         <outlet property="textView" destination="yuT-Ju-fST" id="bFL-Of-LSd"/>

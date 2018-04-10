@@ -3,9 +3,11 @@ import Cocoa
 class UsernameButton: TrackedButton, HoverableDelegate {
     let size: CGFloat = 18
     lazy var whiteLogInTitle = createAttributedString(color: .white, size: size)
+    let logIn = "Log In"
     
     var selected: Bool = false {
         didSet {
+            if self.title == logIn { return }
             let color: NSColor = selected ? .gistMediumGray : .white
             self.attributedTitle = createAttributedString(color: color, size: size)
             self.imagePosition = selected ? .imageLeft : .noImage
@@ -30,11 +32,13 @@ class UsernameButton: TrackedButton, HoverableDelegate {
     }
     
     func hoverStart() {
+        if self.title == logIn { return }
         self.attributedTitle = createAttributedString(color: .gistLightGray, size: size)
         self.imagePosition = .imageLeft
     }
     
     func hoverStop() {
+        if self.title == logIn { return }
         let color: NSColor = selected ? .gistMediumGray : .white
         self.attributedTitle = createAttributedString(color: color, size: size)
         if !selected {
@@ -44,7 +48,6 @@ class UsernameButton: TrackedButton, HoverableDelegate {
     
     override func updateTrackingAreas() {
         super.updateTrackingAreas()
-        
         self.trackHover()
     }
 }
