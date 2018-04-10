@@ -76,13 +76,14 @@ class GistViewController: NSViewController {
     }
     
     @IBAction func filebuttonPressed(_ sender: FileButton) {
-        sender.layer?.borderColor = .gistGray
-        textView.string = getClipboard()
+        browseFile()
+        //sender.layer?.borderColor = .gistGray
+        //textView.string = getClipboard()
         
-        loader.getGists() { dict, error in
+        /*loader.getGists() { dict, error in
             print(dict)
             // TODO: Remove my gists...
-        }
+        }*/
     }
     
     func getClipboard() -> String {
@@ -225,6 +226,37 @@ class GistViewController: NSViewController {
                 listViewItem.isCollapsed = false
             }
         }
+    }
+    
+    func browseFile() {
+        NotificationCenter.default.post(name: .TogglePopover, object: nil)
+        let dialog = NSOpenPanel()
+        //dialog.level =
+        dialog.orderFrontRegardless()
+        
+        dialog.title = "Choose a file"
+        dialog.showsResizeIndicator = true
+        dialog.showsHiddenFiles = false
+        dialog.canChooseDirectories = false
+        dialog.canCreateDirectories = true
+        dialog.allowsMultipleSelection = false
+        //dialog.allowedFileTypes = ["txt"]
+        
+        if dialog.runModal() == .OK {
+            if let result = dialog.url {
+                do {
+                    let contents = try String(contentsOf: result)
+                    pasteButton.isHidden = true
+                    textView.string = contents
+                }
+                catch _ {
+                    // Error handling
+                }
+            }
+        } else {
+            // Cancelled
+        }
+        NotificationCenter.default.post(name: .TogglePopover, object: nil)
     }
 }
 
