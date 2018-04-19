@@ -61,7 +61,6 @@ class GistViewController: NSViewController {
     @IBAction func login(_ sender: NSButton?) {
         if self.loggedIn {
             forgetTokens()
-            return
         }
         else {
             login()
@@ -69,15 +68,9 @@ class GistViewController: NSViewController {
     }
     
     @IBAction func loginUsername(_ sender: UsernameButton) {
-        if sender.title == "Log In" {
+        if sender.title == sender.logIn {
             login()
-        } else {
-            sender.selected = !sender.selected
         }
-    }
-    
-    @IBAction func usernamePress(_ sender: UsernameButton) {
-        sender.selected = !sender.selected
     }
     
     @IBAction func filebuttonPressed(_ sender: FileButton) {
@@ -122,7 +115,7 @@ class GistViewController: NSViewController {
         let description = descriptionField.stringValue
         let secret = secretButton.state == .on
         loader.postGist(content: content, filename: filename, description: description,
-            secret: secret, oauth: !username.selected) { dict, error in
+            secret: secret) { dict, error in
                 if let _ = error {
                     self.username?.title = "Error"
                 }
@@ -176,7 +169,7 @@ class GistViewController: NSViewController {
         self.loggedIn = false
 
         loader.oauth2.forgetTokens()
-        self.username?.title = "Log In"
+        self.username?.title = username.logIn
         
         loginButton.image = NSImage(named: NSImage.Name("GitHub-White"))
         self.username?.isHidden = false
@@ -277,7 +270,7 @@ extension GistViewController: NSTextViewDelegate {
     }*/
  
     func textDidChange(_ notification: Notification) {
-        guard let textView = notification.object as? TextView else { return }
+        //guard let textView = notification.object as? TextView else { return }
         //pasteButton.isHidden = textView.string != ""
     }
 }

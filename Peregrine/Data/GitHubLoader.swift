@@ -61,7 +61,7 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
         request(path: "gists", body: Data(), type: "GET", callback: callback)
     }
     
-    func postGist(content: String, filename: String, description: String, secret: Bool, oauth: Bool,
+    func postGist(content: String, filename: String, description: String, secret: Bool,
         callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
 
         let params: [String : Any] = [

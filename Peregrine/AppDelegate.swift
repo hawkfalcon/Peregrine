@@ -15,10 +15,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
         popover.contentViewController = SplitViewController.freshController()
-        popover.behavior = .transient
         popover.delegate = self
         popover.appearance = NSAppearance(named: .aqua)
         constructMenu()
+        
+        /* Any clicks outside of the popup close it. */
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
+            if let strongSelf = self, strongSelf.popover.isShown {
+                strongSelf.closePopover()
+            }
+        }
 
         NotificationCenter.default.removeObserver(self, name: .TogglePopover, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(togglePopover), name: .TogglePopover, object: nil)
@@ -44,10 +50,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
+        eventMonitor?.start()
     }
     
     func closePopover() {
         popover.performClose(nil)
+        eventMonitor?.stop()
     }
     
     func constructMenu() {
