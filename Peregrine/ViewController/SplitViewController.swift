@@ -4,6 +4,9 @@ class SplitViewController: NSSplitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.wantsLayer = true
+        view.layer?.backgroundColor = .gistGray
     }
     
     override func splitView(_ splitView: NSSplitView,

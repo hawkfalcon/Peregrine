@@ -50,9 +50,6 @@ class GistViewController: NSViewController {
     }
     
     func setupView() {
-        background.wantsLayer = true
-        background.layer?.backgroundColor = .gistGray
-
         if loggedIn {
             login()
         }

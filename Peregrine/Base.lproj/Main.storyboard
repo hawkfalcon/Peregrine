@@ -28,7 +28,7 @@
             <objects>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="GistViewController" id="XfG-lQ-9wD" customClass="GistViewController" customModule="Peregrine" customModuleProvider="target" sceneMemberID="viewController">
-                    <stackView key="view" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="HuQ-Zj-7xS">
+                    <stackView key="view" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="HuQ-Zj-7xS" customClass="TriangleView" customModule="Peregrine" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="330" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -137,9 +137,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="330" height="80"/>
                                 <subviews>
                                     <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Peregrine" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="35" width="320" height="30"/>
+                                        <rect key="frame" x="20" y="18" width="290" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="Create Gist" bezelStyle="shadowlessSquare" alignment="center" focusRingType="none" inset="2" id="Gtm-3b-r45">
+                                        <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -263,14 +263,14 @@
                                 </connections>
                             </button>
                             <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-MN-sL4" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
-                                <rect key="frame" x="287" y="0.0" width="29" height="28"/>
+                                <rect key="frame" x="289" y="1" width="29" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="GitHub" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="5Y1-4U-cXD">
+                                <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSActionTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Y1-4U-cXD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="collapse:" target="jCX-gl-YfY" id="nd3-sw-Rqo"/>
+                                    <action selector="settings:" target="jCX-gl-YfY" id="5IS-ZZ-yik"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -319,16 +319,19 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03a-SC-Sbf">
-                                                            <rect key="frame" x="5" y="3" width="295" height="23"/>
+                                                            <rect key="frame" x="5" y="8" width="295" height="17"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" title="Text Field" id="OFd-zt-AaS">
                                                                 <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-IB-M6b" customClass="ShareButton" customModule="Peregrine" customModuleProvider="target">
-                                                            <rect key="frame" x="248" y="-2" width="47" height="30"/>
-                                                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSShareTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="Ek9-oP-utJ">
+                                                        <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-IB-M6b" customClass="ShareButton" customModule="Peregrine" customModuleProvider="target">
+                                                            <rect key="frame" x="260" y="5" width="30" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="qut-IM-cPK"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="NSShareTemplate" imagePosition="only" alignment="center" alternateImage="NSShareTemplate" borderStyle="border" focusRingType="none" inset="2" id="Ek9-oP-utJ">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
@@ -338,11 +341,11 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="WG0-IB-M6b" firstAttribute="centerY" secondItem="03a-SC-Sbf" secondAttribute="centerY" id="6cC-4w-3Xv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="WG0-IB-M6b" secondAttribute="trailing" multiplier="1.005" constant="10" id="VmE-mc-gcZ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="03a-SC-Sbf" secondAttribute="bottom" constant="3" id="gop-CT-f5T"/>
-                                                        <constraint firstItem="03a-SC-Sbf" firstAttribute="top" secondItem="c1v-Z4-ctk" secondAttribute="top" constant="2" id="s6Q-oW-QiB"/>
-                                                        <constraint firstItem="WG0-IB-M6b" firstAttribute="top" secondItem="c1v-Z4-ctk" secondAttribute="top" constant="4" id="sxS-ls-o45"/>
+                                                        <constraint firstItem="WG0-IB-M6b" firstAttribute="centerY" secondItem="03a-SC-Sbf" secondAttribute="centerY" id="Gl9-dF-gzQ"/>
+                                                        <constraint firstItem="WG0-IB-M6b" firstAttribute="top" secondItem="c1v-Z4-ctk" secondAttribute="top" constant="2" id="H8A-0i-80J"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WG0-IB-M6b" secondAttribute="trailing" multiplier="1.005" constant="8.5500000000000114" id="VmE-mc-gcZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="WG0-IB-M6b" secondAttribute="bottom" constant="7" id="i93-ED-KzU"/>
+                                                        <constraint firstItem="03a-SC-Sbf" firstAttribute="top" secondItem="c1v-Z4-ctk" secondAttribute="top" constant="3" id="s6Q-oW-QiB"/>
                                                         <constraint firstItem="03a-SC-Sbf" firstAttribute="centerX" secondItem="c1v-Z4-ctk" secondAttribute="centerX" constant="2.5" id="vTR-cw-nNV"/>
                                                         <constraint firstItem="03a-SC-Sbf" firstAttribute="leading" secondItem="c1v-Z4-ctk" secondAttribute="leading" constant="7" id="yUO-bO-uy4"/>
                                                     </constraints>
@@ -378,9 +381,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GitHub" width="32" height="32"/>
         <image name="GitHub-Black" width="120" height="120"/>
         <image name="GitHub-White" width="120" height="120"/>
+        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSShareTemplate" width="11" height="16"/>
         <image name="buttonCell:Cdf-Xy-IeN:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
