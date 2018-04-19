@@ -12,4 +12,3 @@ public protocol DataLoader {
 	/** Call that is supposed to return user data. */
 	func requestUserdata(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void))
 }
-

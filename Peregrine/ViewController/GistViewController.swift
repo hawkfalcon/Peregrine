@@ -25,7 +25,7 @@ class GistViewController: NSViewController {
     @IBOutlet weak var activityIndicator: ShootingStars!
     
     @IBOutlet var textView: TextView!
-    @IBOutlet var background: NSView!
+    @IBOutlet var background: NSStackView!
     
     var loader = GitHubLoader()
         
@@ -50,6 +50,7 @@ class GistViewController: NSViewController {
     }
     
     func setupView() {
+        background.wantsLayer = true
         background.layer?.backgroundColor = .gistGray
 
         if loggedIn {

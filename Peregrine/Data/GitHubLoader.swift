@@ -32,13 +32,12 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
         oauth2.authConfig.authorizeEmbedded = true
 	}
 	
-	
 	/** Perform a request against the GitHub API and return decoded JSON or an NSError. */
-    func request(path: String, body: Data, type: String, oauth: Bool,
+    func request(path: String, body: Data, type: String,
         callback: @escaping ((OAuth2JSON?, Error?) -> Void)) {
         let url = baseURL.appendingPathComponent(path)
-        var request = oauth ? oauth2.request(forURL: url) : URLRequest(url: url)
         
+        var request = oauth2.request(forURL: url)
         request.httpMethod = type
         request.httpBody = body
 		request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
@@ -59,7 +58,7 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 	}
     
     func getGists(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
-        request(path: "gists", body: Data(), type: "GET", oauth: true, callback: callback)
+        request(path: "gists", body: Data(), type: "GET", callback: callback)
     }
     
     func postGist(content: String, filename: String, description: String, secret: Bool, oauth: Bool,
@@ -72,12 +71,11 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
             ]
         let paramsJson = try! JSONSerialization.data(withJSONObject: params, options: [])
        
-        request(path: "gists", body: paramsJson, type: "POST", oauth: oauth, callback: callback)
+        request(path: "gists", body: paramsJson, type: "POST", callback: callback)
     }
 	
 	func requestUserdata(
         callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
-        request(path: "user", body: Data(), type: "GET", oauth: true, callback: callback)
+        request(path: "user", body: Data(), type: "GET", callback: callback)
 	}
 }
-
