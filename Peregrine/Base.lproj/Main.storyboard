@@ -94,9 +94,8 @@
                                         </customSpacing>
                                     </stackView>
                                     <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="298" width="320" height="22"/>
+                                        <rect key="frame" x="10" y="298" width="300" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="JP7-Oa-E76"/>
                                             <constraint firstAttribute="height" constant="22" id="vIV-3T-Fh6"/>
                                         </constraints>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" id="9gD-7a-avm">
@@ -137,24 +136,8 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ym5-J5-R08" userLabel="Buffer">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <subviews>
-                                            <customView hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ob-R0f" customClass="Rainbow" customModule="ProgressKit">
-                                                <rect key="frame" x="214" y="3" width="58" height="58"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallPulse"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="onLightOffDark" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayAfterAnimationEnds" value="NO"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </customView>
-                                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="11" width="290" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Peregrine" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="8" width="300" height="53"/>
                                                 <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -163,10 +146,29 @@
                                                     <action selector="buttonPress:" target="XfG-lQ-9wD" id="rM0-lk-QiM"/>
                                                 </connections>
                                             </button>
+                                            <customView hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ob-R0f" customClass="Rainbow" customModule="ProgressKit">
+                                                <rect key="frame" x="131" y="10" width="58" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallPulse"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="onLightOffDark" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayAfterAnimationEnds" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </customView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="fo9-uv-L3A" secondAttribute="trailing" constant="10" id="12d-Ph-U8T"/>
+                                            <constraint firstAttribute="bottom" secondItem="fo9-uv-L3A" secondAttribute="bottom" constant="10" id="Bre-hI-vKV"/>
+                                            <constraint firstItem="fo9-uv-L3A" firstAttribute="top" secondItem="ym5-J5-R08" secondAttribute="top" constant="10" id="GOQ-yw-Tq9"/>
                                             <constraint firstAttribute="width" constant="320" id="VCQ-kf-7dg"/>
                                             <constraint firstAttribute="height" constant="70" id="c7n-Y0-C6m"/>
+                                            <constraint firstItem="fo9-uv-L3A" firstAttribute="leading" secondItem="ym5-J5-R08" secondAttribute="leading" constant="10" id="jy3-ah-QX7"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
@@ -178,9 +180,11 @@
                                     <constraint firstAttribute="height" constant="400" id="RDU-Ct-ONc"/>
                                     <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="bottom" constant="10" id="WO0-ic-yZg"/>
                                     <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="bId-Xo-otf"/>
-                                    <constraint firstItem="ym5-J5-R08" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" constant="10" id="bhi-YX-8C0"/>
+                                    <constraint firstItem="ym5-J5-R08" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" id="bhi-YX-8C0"/>
                                     <constraint firstItem="ym5-J5-R08" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="fWr-rq-rRb"/>
                                     <constraint firstAttribute="bottom" secondItem="ym5-J5-R08" secondAttribute="bottom" id="gTc-cu-s1g"/>
+                                    <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" constant="10" id="lMo-Oe-zIU"/>
+                                    <constraint firstAttribute="trailing" secondItem="rSx-P3-cCD" secondAttribute="trailing" constant="10" id="lrO-kq-pXX"/>
                                     <constraint firstItem="Yfx-df-xK4" firstAttribute="top" secondItem="HuQ-Zj-7xS" secondAttribute="top" id="pWj-RM-tb7"/>
                                     <constraint firstAttribute="trailing" secondItem="Yfx-df-xK4" secondAttribute="trailing" id="sZe-mK-ODJ"/>
                                     <constraint firstAttribute="width" constant="320" id="y3j-By-Pzn"/>

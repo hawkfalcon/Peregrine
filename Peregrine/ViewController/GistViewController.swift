@@ -128,7 +128,7 @@ class GistViewController: NSViewController {
                 self.gistButton.isEnabled = true
                 self.textView.string = ""
                 self.descriptionField.stringValue = ""
-                self.pasteButton.isHidden = false
+                //self.pasteButton.isHidden = false
                 self.gistButton.attributedTitle = self.gistButton.whiteTitle
         }
     }
