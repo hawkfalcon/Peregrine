@@ -16,7 +16,7 @@ class GistViewController: NSViewController {
     
     @IBOutlet weak var username: UsernameButton!
     @IBOutlet weak var loginButton: TrackedButton!
-    @IBOutlet weak var loginLabel: BasicText!
+    @IBOutlet weak var profile: ProfileButton!
     
     @IBOutlet weak var descriptionField: TextField!
     @IBOutlet weak var secretButton: SwitchButton!
@@ -25,12 +25,12 @@ class GistViewController: NSViewController {
     @IBOutlet weak var activityIndicator: ShootingStars!
     
     @IBOutlet var textView: TextView!
-    @IBOutlet var background: NSStackView!
     
     var loader = GitHubLoader()
         
     var loggedIn = UserDefaults.standard.bool(forKey: "loggedInKey") {
         didSet {
+            profile.logIn = loggedIn
             DispatchQueue.main.async {
                 UserDefaults.standard.set(self.loggedIn, forKey: "loggedInKey")
             }
@@ -39,7 +39,6 @@ class GistViewController: NSViewController {
 
     override func viewDidLoad() {
         textView.delegate = self
-        loginButton.delegate = self
 
         setupView()
         
@@ -182,24 +181,7 @@ class GistViewController: NSViewController {
         loginButton.image = NSImage(named: NSImage.Name("GitHub-White"))
         self.username?.isHidden = false
     }
-    
-    // MARK: - Authorization
-//    @objc func handleRedirect(_ notification: Notification) {
-//        if let url = notification.object as? URL {
-//            self.username?.title = "Loading"
-//            do {
-//                try loader.oauth2.handleRedirectURL(url)
-//            }
-//            catch let error {
-//                show(error)
-//            }
-//        }
-//        else {
-//            show(NSError(domain: NSCocoaErrorDomain, code: 0, userInfo:
-//                [NSLocalizedDescriptionKey: "Invalid URL"]
-//            ))
-//        }
-//    }
+
     
     // MARK: - Error Handling
     
@@ -284,16 +266,6 @@ extension UserDefaults {
     }
 }
 
-extension GistViewController: HoverableDelegate {
-    func hoverStart() {
-        loginLabel.stringValue = "Log " + (loggedIn ? "Out" : "In")
-    }
-    
-    func hoverStop() {
-        loginLabel.stringValue = ""
-    }
-}
-
 extension GistViewController: NSTextViewDelegate {
     /*func textViewDidChangeSelection(_ notification: Notification) {
     }
@@ -306,6 +278,6 @@ extension GistViewController: NSTextViewDelegate {
  
     func textDidChange(_ notification: Notification) {
         guard let textView = notification.object as? TextView else { return }
-        pasteButton.isHidden = textView.string != ""
+        //pasteButton.isHidden = textView.string != ""
     }
 }

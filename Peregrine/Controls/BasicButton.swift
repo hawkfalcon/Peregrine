@@ -29,10 +29,11 @@ class BasicButton: NSButton, ClearControl {
 
 extension ClearControl where Self: NSControl {
     func applyClear() {
-        self.appearance = NSAppearance(named: NSAppearance.Name.aqua)
+        self.appearance = NSAppearance(named: .aqua)
         self.wantsLayer = true
         self.layer?.masksToBounds = true
-        self.layer?.backgroundColor = .clear
+        self.layer?.backgroundColor = .gistGray
+        self.layer?.borderColor = .gistGray
     }
 }
 

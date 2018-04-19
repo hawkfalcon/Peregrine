@@ -28,65 +28,167 @@
             <objects>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="GistViewController" id="XfG-lQ-9wD" customClass="GistViewController" customModule="Peregrine" customModuleProvider="target" sceneMemberID="viewController">
-                    <stackView key="view" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="HuQ-Zj-7xS" customClass="TriangleView" customModule="Peregrine" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="330" height="500"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <customView key="view" focusRingType="none" id="gLG-yF-Q5H" userLabel="Background">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="250.99998474121094" verticalStackHuggingPriority="250.99998474121094" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-df-xK4" userLabel="Horizontal Stack">
-                                <rect key="frame" x="0.0" y="420" width="330" height="80"/>
+                            <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HuQ-Zj-7xS" userLabel="Vertical" customClass="TriangleView" customModule="Peregrine" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                 <subviews>
-                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="5" width="65" height="65"/>
+                                    <stackView focusRingType="none" distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="250.99998474121094" verticalStackHuggingPriority="250.99998474121094" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-df-xK4" userLabel="Horizontal Stack">
+                                        <rect key="frame" x="0.0" y="330" width="320" height="70"/>
+                                        <subviews>
+                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8" customClass="ProfileButton" customModule="Peregrine" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="vGX-hc-rH8" secondAttribute="height" multiplier="1:1" id="PNT-1R-Q5L"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="cOT-6f-USV"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="GitHub-White" imagePosition="overlaps" alignment="center" alternateImage="GitHub-Black" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="FOQ-pK-Cp1">
+                                                    <behavior key="behavior" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="login:" target="XfG-lQ-9wD" id="3Hc-eJ-a8O"/>
+                                                </connections>
+                                            </button>
+                                            <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="749" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
+                                                <rect key="frame" x="78" y="21" width="158" height="19"/>
+                                                <buttonCell key="cell" type="square" title="Log In" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
+                                                    <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system" size="16"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="loginUsername:" target="XfG-lQ-9wD" id="k0f-AT-oij"/>
+                                                </connections>
+                                            </button>
+                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Peregrine" customModuleProvider="target">
+                                                <rect key="frame" x="242" y="21" width="70" height="19"/>
+                                                <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" alignment="left" focusRingType="none" inset="2" id="qqZ-om-TyV">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system" size="16"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <outlet property="nextKeyView" destination="rSx-P3-cCD" id="2sD-5V-uqW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <edgeInsets key="edgeInsets" left="10" right="10" top="10" bottom="10"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="vGX-hc-rH8" secondAttribute="height" multiplier="1:1" id="53T-VA-Dcb"/>
-                                            <constraint firstAttribute="height" constant="65" id="qPV-bm-B4j"/>
+                                            <constraint firstAttribute="bottom" secondItem="vGX-hc-rH8" secondAttribute="bottom" id="47s-gz-VUM"/>
+                                            <constraint firstItem="vGX-hc-rH8" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="top" constant="10" id="KdN-Ql-P4y"/>
+                                            <constraint firstItem="73E-t4-r88" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="TQ0-E9-p3e"/>
+                                            <constraint firstItem="jVV-fY-2uM" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="ifS-NQ-qne"/>
+                                            <constraint firstItem="vGX-hc-rH8" firstAttribute="leading" secondItem="Yfx-df-xK4" secondAttribute="leading" constant="10" id="tUu-Cr-4nL"/>
+                                            <constraint firstAttribute="width" constant="320" id="y3z-KE-coL"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="GitHub-White" imagePosition="overlaps" alignment="center" alternateImage="GitHub-Black" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="FOQ-pK-Cp1">
-                                            <behavior key="behavior" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="login:" target="XfG-lQ-9wD" id="3Hc-eJ-a8O"/>
-                                        </connections>
-                                    </button>
-                                    <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
-                                        <rect key="frame" x="83" y="31" width="120" height="19"/>
-                                        <buttonCell key="cell" type="square" title="Log In" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
-                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system" size="16"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="loginUsername:" target="XfG-lQ-9wD" id="k0f-AT-oij"/>
-                                        </connections>
-                                    </button>
-                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-6s-phM" customClass="BasicText" customModule="Peregrine" customModuleProvider="target">
-                                        <rect key="frame" x="209" y="32" width="39" height="16"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" title="Label" id="wGE-Ae-Oi8">
-                                            <font key="font" metaFont="cellTitle"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="298" width="320" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="JP7-Oa-E76"/>
+                                            <constraint firstAttribute="height" constant="22" id="vIV-3T-Fh6"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" id="9gD-7a-avm">
+                                            <font key="font" metaFont="system" size="14"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </textFieldCell>
-                                    </textField>
-                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Peregrine" customModuleProvider="target">
-                                        <rect key="frame" x="252" y="31" width="70" height="19"/>
-                                        <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" alignment="left" focusRingType="none" inset="2" id="qqZ-om-TyV">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system" size="16"/>
-                                        </buttonCell>
                                         <connections>
-                                            <outlet property="nextKeyView" destination="rSx-P3-cCD" id="2sD-5V-uqW"/>
+                                            <outlet property="nextKeyView" destination="yuT-Ju-fST" id="UMd-jp-kMZ"/>
                                         </connections>
-                                    </button>
+                                    </textField>
+                                    <scrollView focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" ambiguous="YES" verifyAmbiguity="off" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
+                                        <rect key="frame" x="0.0" y="76" width="320" height="212"/>
+                                        <clipView key="contentView" focusRingType="none" ambiguous="YES" copiesOnScroll="NO" id="qSO-ba-55L">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="212"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textView focusRingType="none" ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" selectionGranularity="word" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST" customClass="TextView" customModule="Peregrine" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="212"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="minSize" width="320" height="212"/>
+                                                    <size key="maxSize" width="499" height="10000000"/>
+                                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="dGX-kK-Szz">
+                                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="SaR-Se-0yp">
+                                            <rect key="frame" x="304" y="0.0" width="16" height="212"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ym5-J5-R08" userLabel="Buffer">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                        <subviews>
+                                            <customView hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ob-R0f" customClass="Rainbow" customModule="ProgressKit">
+                                                <rect key="frame" x="214" y="3" width="58" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallPulse"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="onLightOffDark" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="displayAfterAnimationEnds" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </customView>
+                                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Peregrine" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="11" width="290" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="buttonPress:" target="XfG-lQ-9wD" id="rM0-lk-QiM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="VCQ-kf-7dg"/>
+                                            <constraint firstAttribute="height" constant="70" id="c7n-Y0-C6m"/>
+                                        </constraints>
+                                    </customView>
                                 </subviews>
-                                <edgeInsets key="edgeInsets" left="10" right="10" top="10" bottom="10"/>
                                 <constraints>
-                                    <constraint firstItem="vGX-hc-rH8" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="top" constant="10" id="KM5-XX-PZD"/>
-                                    <constraint firstAttribute="bottom" secondItem="vGX-hc-rH8" secondAttribute="bottom" constant="5" id="PVk-0M-OAL"/>
+                                    <constraint firstItem="Yfx-df-xK4" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="0n2-88-FbK"/>
+                                    <constraint firstAttribute="trailing" secondItem="ome-rW-50L" secondAttribute="trailing" id="7YQ-Ar-aIa"/>
+                                    <constraint firstItem="ome-rW-50L" firstAttribute="top" secondItem="rSx-P3-cCD" secondAttribute="bottom" constant="10" id="D0b-jL-aI0"/>
+                                    <constraint firstAttribute="trailing" secondItem="ym5-J5-R08" secondAttribute="trailing" id="HAa-38-uNh"/>
+                                    <constraint firstAttribute="height" constant="400" id="RDU-Ct-ONc"/>
+                                    <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="bottom" constant="10" id="WO0-ic-yZg"/>
+                                    <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="bId-Xo-otf"/>
+                                    <constraint firstItem="ym5-J5-R08" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" constant="10" id="bhi-YX-8C0"/>
+                                    <constraint firstItem="ym5-J5-R08" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="fWr-rq-rRb"/>
+                                    <constraint firstAttribute="bottom" secondItem="ym5-J5-R08" secondAttribute="bottom" id="gTc-cu-s1g"/>
+                                    <constraint firstItem="Yfx-df-xK4" firstAttribute="top" secondItem="HuQ-Zj-7xS" secondAttribute="top" id="pWj-RM-tb7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yfx-df-xK4" secondAttribute="trailing" id="sZe-mK-ODJ"/>
+                                    <constraint firstAttribute="width" constant="320" id="y3j-By-Pzn"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
-                                    <integer value="1000"/>
-                                    <real value="950"/>
+                                    <real value="999"/>
+                                    <real value="999"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
@@ -96,126 +198,30 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
-                                <rect key="frame" x="5" y="394" width="320" height="18"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" id="9gD-7a-avm">
-                                    <font key="font" metaFont="system" size="14"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </textFieldCell>
-                                <connections>
-                                    <outlet property="nextKeyView" destination="yuT-Ju-fST" id="UMd-jp-kMZ"/>
-                                </connections>
-                            </textField>
-                            <scrollView focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
-                                <rect key="frame" x="0.0" y="88" width="330" height="298"/>
-                                <clipView key="contentView" focusRingType="none" copiesOnScroll="NO" id="qSO-ba-55L">
-                                    <rect key="frame" x="0.0" y="0.0" width="330" height="298"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView focusRingType="none" importsGraphics="NO" richText="NO" verticallyResizable="YES" selectionGranularity="word" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="yuT-Ju-fST" customClass="TextView" customModule="Peregrine" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="330" height="298"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="330" height="298"/>
-                                            <size key="maxSize" width="499" height="10000000"/>
-                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </textView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="dGX-kK-Szz">
-                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="SaR-Se-0yp">
-                                    <rect key="frame" x="314" y="0.0" width="16" height="298"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ym5-J5-R08" userLabel="Buffer">
-                                <rect key="frame" x="0.0" y="0.0" width="330" height="80"/>
-                                <subviews>
-                                    <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Peregrine" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="18" width="290" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="buttonPress:" target="XfG-lQ-9wD" id="rM0-lk-QiM"/>
-                                        </connections>
-                                    </button>
-                                    <customView hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ob-R0f" customClass="Rainbow" customModule="ProgressKit">
-                                        <rect key="frame" x="131" y="15" width="58" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <button hidden="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hk9-rn-Tpy" customClass="FileButton" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="-16" y="-16" width="89" height="90"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="document-gray" imagePosition="overlaps" alignment="center" alternateImage="document-medium-gray" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="j3J-4S-fno">
-                                                    <behavior key="behavior" lightByContents="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="filebuttonPressed:" target="XfG-lQ-9wD" id="CEm-5h-RCc"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="BallPulse"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="onLightOffDark" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="displayAfterAnimationEnds" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </customView>
-                                </subviews>
-                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ome-rW-50L" firstAttribute="top" secondItem="rSx-P3-cCD" secondAttribute="bottom" priority="999" constant="10" id="ETe-j1-Y99"/>
-                            <constraint firstAttribute="trailing" secondItem="rSx-P3-cCD" secondAttribute="trailing" constant="5" id="JaD-fn-THd"/>
-                            <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" constant="5" id="PFI-tx-4jP"/>
-                            <constraint firstItem="ym5-J5-R08" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" priority="999" constant="10" id="VrO-Jv-Tdu"/>
-                            <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="bottom" priority="999" constant="5" id="gbc-v6-JT2"/>
-                            <constraint firstItem="ym5-J5-R08" firstAttribute="height" secondItem="Yfx-df-xK4" secondAttribute="height" id="pFC-fq-ZaK"/>
-                            <constraint firstAttribute="trailing" secondItem="ym5-J5-R08" secondAttribute="trailing" id="vjD-w5-Ygm"/>
+                            <constraint firstItem="HuQ-Zj-7xS" firstAttribute="top" secondItem="gLG-yF-Q5H" secondAttribute="top" id="18F-Mx-O9E"/>
+                            <constraint firstAttribute="trailing" secondItem="HuQ-Zj-7xS" secondAttribute="trailing" id="PNd-ox-S4q"/>
+                            <constraint firstAttribute="bottom" secondItem="HuQ-Zj-7xS" secondAttribute="bottom" id="cTx-KV-0Lj"/>
+                            <constraint firstItem="HuQ-Zj-7xS" firstAttribute="leading" secondItem="gLG-yF-Q5H" secondAttribute="leading" id="dQT-Ye-yEo"/>
                         </constraints>
-                        <visibilityPriorities>
-                            <integer value="1000"/>
-                            <integer value="1000"/>
-                            <integer value="1000"/>
-                            <integer value="1000"/>
-                        </visibilityPriorities>
-                        <customSpacing>
-                            <real value="3.4028234663852886e+38"/>
-                            <real value="3.4028234663852886e+38"/>
-                            <real value="3.4028234663852886e+38"/>
-                            <real value="3.4028234663852886e+38"/>
-                        </customSpacing>
-                    </stackView>
+                    </customView>
                     <connections>
                         <outlet property="activityIndicator" destination="U6f-Ob-R0f" id="pnu-jA-Dfq"/>
                         <outlet property="background" destination="HuQ-Zj-7xS" id="vZE-xh-HpH"/>
                         <outlet property="descriptionField" destination="rSx-P3-cCD" id="8Ht-xz-h1o"/>
                         <outlet property="gistButton" destination="fo9-uv-L3A" id="Juj-nH-AHw"/>
                         <outlet property="loginButton" destination="vGX-hc-rH8" id="qpH-dL-Zy0"/>
-                        <outlet property="loginLabel" destination="aGe-6s-phM" id="WUV-6r-oG4"/>
                         <outlet property="loginUsername" destination="73E-t4-r88" id="q5Q-1p-I36"/>
-                        <outlet property="pasteButton" destination="Hk9-rn-Tpy" id="Lkf-9c-PUY"/>
+                        <outlet property="profile" destination="vGX-hc-rH8" id="Tfe-up-Aei"/>
                         <outlet property="secretButton" destination="jVV-fY-2uM" id="b6O-3B-ZPL"/>
                         <outlet property="textView" destination="yuT-Ju-fST" id="bFL-Of-LSd"/>
+                        <outlet property="topstack" destination="Yfx-df-xK4" id="01U-3W-MiM"/>
                         <outlet property="username" destination="73E-t4-r88" id="Hl3-H5-KBH"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="12" y="319"/>
+            <point key="canvasLocation" x="10" y="193"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="D0C-yk-zmK">
@@ -515,7 +521,5 @@ BRwKHBgcHBwjHCgcNRw4HEUcShxSHFUcWhxiHGUcdxx6HH8AAAAAAAACAQAAAAAAAABZAAAAAAAAAAAA
 AAAAAAAcgQ
 </mutableData>
         </image>
-        <image name="document-gray" width="30" height="30"/>
-        <image name="document-medium-gray" width="30" height="30"/>
     </resources>
 </document>

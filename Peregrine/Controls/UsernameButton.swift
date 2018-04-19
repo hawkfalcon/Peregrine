@@ -7,10 +7,10 @@ class UsernameButton: TrackedButton, HoverableDelegate {
     
     var selected: Bool = false {
         didSet {
-            if self.title == logIn { return }
-            let color: NSColor = selected ? .gistMediumGray : .white
-            self.attributedTitle = createAttributedString(color: color, size: size)
-            self.imagePosition = selected ? .imageLeft : .noImage
+//            if self.title == logIn { return }
+//            let color: NSColor = selected ? .gistMediumGray : .white
+//            self.attributedTitle = createAttributedString(color: color, size: size)
+//            self.imagePosition = selected ? .imageLeft : .noImage
         }
     }
     
@@ -33,17 +33,16 @@ class UsernameButton: TrackedButton, HoverableDelegate {
     
     func hoverStart() {
         if self.title == logIn { return }
-        self.attributedTitle = createAttributedString(color: .gistLightGray, size: size)
-        self.imagePosition = .imageLeft
+        self.attributedTitle = createAttributedString(color: .lightGray, size: size)
+        //self.imagePosition = .imageLeft
     }
     
     func hoverStop() {
         if self.title == logIn { return }
-        let color: NSColor = selected ? .gistMediumGray : .white
-        self.attributedTitle = createAttributedString(color: color, size: size)
-        if !selected {
-            self.imagePosition = .noImage
-        }
+        self.attributedTitle = createAttributedString(color: .white, size: size)
+//        if !selected {
+//            self.imagePosition = .noImage
+//        }
     }
     
     override func updateTrackingAreas() {
