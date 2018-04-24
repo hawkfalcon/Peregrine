@@ -19,7 +19,7 @@ class GistViewController: NSViewController {
     @IBOutlet weak var profile: ProfileButton!
     
     @IBOutlet weak var descriptionField: TextField!
-    @IBOutlet weak var secretButton: SwitchButton!
+    @IBOutlet weak var secretButton: SegmentButton!
     @IBOutlet weak var pasteButton: FileButton!
     @IBOutlet weak var gistButton: GistButton!
     @IBOutlet weak var activityIndicator: ShootingStars!
@@ -113,7 +113,7 @@ class GistViewController: NSViewController {
         let content = textView.string
         let filename = "gist"
         let description = descriptionField.stringValue
-        let secret = secretButton.state == .on
+        let secret = secretButton.selectedSegment == 0
         loader.postGist(content: content, filename: filename, description: description,
             secret: secret) { dict, error in
                 if let _ = error {

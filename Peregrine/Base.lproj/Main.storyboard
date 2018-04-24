@@ -53,7 +53,7 @@
                                                 </connections>
                                             </button>
                                             <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="749" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="78" y="21" width="158" height="19"/>
+                                                <rect key="frame" x="78" y="21" width="124" height="19"/>
                                                 <buttonCell key="cell" type="square" title="Log In" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system" size="16"/>
@@ -62,23 +62,23 @@
                                                     <action selector="loginUsername:" target="XfG-lQ-9wD" id="k0f-AT-oij"/>
                                                 </connections>
                                             </button>
-                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jVV-fY-2uM" customClass="SwitchButton" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="242" y="21" width="70" height="19"/>
-                                                <buttonCell key="cell" type="check" title="Secret" bezelStyle="regularSquare" imagePosition="left" alignment="left" focusRingType="none" inset="2" id="qqZ-om-TyV">
-                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="system" size="16"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <outlet property="nextKeyView" destination="rSx-P3-cCD" id="2sD-5V-uqW"/>
-                                                </connections>
-                                            </button>
+                                            <segmentedControl focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iiX-jg-YAv" customClass="SegmentButton" customModule="Peregrine" customModuleProvider="target">
+                                                <rect key="frame" x="210" y="18" width="100" height="23"/>
+                                                <segmentedCell key="cell" borderStyle="border" focusRingType="none" alignment="left" style="texturedRounded" trackingMode="selectOne" id="cT3-FO-ckW">
+                                                    <font key="font" metaFont="system"/>
+                                                    <segments>
+                                                        <segment toolTip="Secret" image="invisible"/>
+                                                        <segment toolTip="Public" image="globe" selected="YES" tag="1"/>
+                                                    </segments>
+                                                </segmentedCell>
+                                            </segmentedControl>
                                         </subviews>
                                         <edgeInsets key="edgeInsets" left="10" right="10" top="10" bottom="10"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="vGX-hc-rH8" secondAttribute="bottom" id="47s-gz-VUM"/>
                                             <constraint firstItem="vGX-hc-rH8" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="top" constant="10" id="KdN-Ql-P4y"/>
+                                            <constraint firstItem="iiX-jg-YAv" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="SFZ-g0-itZ"/>
                                             <constraint firstItem="73E-t4-r88" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="TQ0-E9-p3e"/>
-                                            <constraint firstItem="jVV-fY-2uM" firstAttribute="centerY" secondItem="vGX-hc-rH8" secondAttribute="centerY" id="ifS-NQ-qne"/>
                                             <constraint firstItem="vGX-hc-rH8" firstAttribute="leading" secondItem="Yfx-df-xK4" secondAttribute="leading" constant="10" id="tUu-Cr-4nL"/>
                                             <constraint firstAttribute="width" constant="320" id="y3z-KE-coL"/>
                                         </constraints>
@@ -93,45 +93,64 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-NZ-qyS" userLabel="DescriptionStack">
-                                        <rect key="frame" x="10" y="300" width="300" height="22"/>
+                                    <splitView ambiguous="YES" arrangesAllSubviews="NO" dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="YBm-7H-4pL" customClass="SplitView" customModule="Peregrine" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="280" width="320" height="50"/>
                                         <subviews>
-                                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="271" height="22"/>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="9" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" id="c7O-NZ-qyS" userLabel="DescriptionStack">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <subviews>
+                                                    <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="14" width="270" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="22" id="vIV-3T-Fh6"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" usesSingleLineMode="YES" id="9gD-7a-avm">
+                                                            <font key="font" metaFont="system" size="14"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <outlet property="nextKeyView" destination="ome-rW-50L" id="i4V-7V-Q9b"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fx-ec-hHI" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
+                                                        <rect key="frame" x="285" y="11" width="29" height="26"/>
+                                                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="dFR-wf-kYp">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="edgeInsets" left="10" right="10" top="0.0" bottom="0.0"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="vIV-3T-Fh6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7Fx-ec-hHI" secondAttribute="trailing" constant="10" id="2bg-j3-7Xf"/>
+                                                    <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="c7O-NZ-qyS" secondAttribute="leading" constant="10" id="SHq-kL-Nud"/>
                                                 </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" usesSingleLineMode="YES" id="9gD-7a-avm">
-                                                    <font key="font" metaFont="system" size="14"/>
-                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </textFieldCell>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
                                                 <connections>
-                                                    <outlet property="nextKeyView" destination="ome-rW-50L" id="i4V-7V-Q9b"/>
+                                                    <outlet property="nextKeyView" destination="yuT-Ju-fST" id="m1s-DH-NSs"/>
                                                 </connections>
-                                            </textField>
-                                            <button focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fx-ec-hHI" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="275" y="-2" width="29" height="26"/>
-                                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="dFR-wf-kYp">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                            </button>
+                                            </stackView>
+                                            <customView hidden="YES" fixedFrame="YES" id="Jll-AS-RnC">
+                                                <rect key="frame" x="0.0" y="38" width="320" height="12"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </customView>
                                         </subviews>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                        <connections>
-                                            <outlet property="nextKeyView" destination="yuT-Ju-fST" id="m1s-DH-NSs"/>
-                                        </connections>
-                                    </stackView>
+                                        <holdingPriorities>
+                                            <real value="250"/>
+                                            <real value="250"/>
+                                        </holdingPriorities>
+                                    </splitView>
                                     <scrollView focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" ambiguous="YES" verifyAmbiguity="off" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
-                                        <rect key="frame" x="0.0" y="80" width="320" height="212"/>
+                                        <rect key="frame" x="0.0" y="70" width="320" height="212"/>
                                         <clipView key="contentView" focusRingType="none" ambiguous="YES" copiesOnScroll="NO" id="qSO-ba-55L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="212"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,19 +216,19 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Yfx-df-xK4" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="0n2-88-FbK"/>
-                                    <constraint firstItem="c7O-NZ-qyS" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" constant="10" id="1pa-Fn-CSa"/>
                                     <constraint firstAttribute="trailing" secondItem="ome-rW-50L" secondAttribute="trailing" id="7YQ-Ar-aIa"/>
+                                    <constraint firstItem="YBm-7H-4pL" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="bottom" id="8FH-vY-3CU"/>
+                                    <constraint firstItem="ome-rW-50L" firstAttribute="top" secondItem="YBm-7H-4pL" secondAttribute="bottom" id="8VN-6C-mn6"/>
                                     <constraint firstAttribute="trailing" secondItem="ym5-J5-R08" secondAttribute="trailing" id="HAa-38-uNh"/>
-                                    <constraint firstAttribute="trailing" secondItem="c7O-NZ-qyS" secondAttribute="trailing" constant="10" id="NYU-oV-vdT"/>
-                                    <constraint firstItem="c7O-NZ-qyS" firstAttribute="top" secondItem="Yfx-df-xK4" secondAttribute="bottom" priority="999" constant="10" id="Pif-2h-Qqq"/>
+                                    <constraint firstItem="YBm-7H-4pL" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="M3b-Ir-02z"/>
                                     <constraint firstAttribute="height" constant="400" id="RDU-Ct-ONc"/>
+                                    <constraint firstAttribute="trailing" secondItem="YBm-7H-4pL" secondAttribute="trailing" id="UbR-1T-vht"/>
                                     <constraint firstItem="ome-rW-50L" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="bId-Xo-otf"/>
                                     <constraint firstItem="ym5-J5-R08" firstAttribute="top" secondItem="ome-rW-50L" secondAttribute="bottom" id="bhi-YX-8C0"/>
                                     <constraint firstItem="ym5-J5-R08" firstAttribute="leading" secondItem="HuQ-Zj-7xS" secondAttribute="leading" id="fWr-rq-rRb"/>
                                     <constraint firstAttribute="bottom" secondItem="ym5-J5-R08" secondAttribute="bottom" id="gTc-cu-s1g"/>
                                     <constraint firstItem="Yfx-df-xK4" firstAttribute="top" secondItem="HuQ-Zj-7xS" secondAttribute="top" id="pWj-RM-tb7"/>
                                     <constraint firstAttribute="trailing" secondItem="Yfx-df-xK4" secondAttribute="trailing" id="sZe-mK-ODJ"/>
-                                    <constraint firstItem="ome-rW-50L" firstAttribute="top" secondItem="c7O-NZ-qyS" secondAttribute="bottom" priority="999" constant="10" id="sai-VM-QGK"/>
                                     <constraint firstAttribute="width" constant="320" id="y3j-By-Pzn"/>
                                 </constraints>
                                 <visibilityPriorities>
@@ -239,7 +258,6 @@
                         <outlet property="gistButton" destination="fo9-uv-L3A" id="Juj-nH-AHw"/>
                         <outlet property="loginButton" destination="vGX-hc-rH8" id="qpH-dL-Zy0"/>
                         <outlet property="profile" destination="vGX-hc-rH8" id="Tfe-up-Aei"/>
-                        <outlet property="secretButton" destination="jVV-fY-2uM" id="b6O-3B-ZPL"/>
                         <outlet property="textView" destination="yuT-Ju-fST" id="bFL-Of-LSd"/>
                         <outlet property="username" destination="73E-t4-r88" id="Hl3-H5-KBH"/>
                     </connections>
@@ -545,5 +563,7 @@ BRwKHBgcHBwjHCgcNRw4HEUcShxSHFUcWhxiHGUcdxx6HH8AAAAAAAACAQAAAAAAAABZAAAAAAAAAAAA
 AAAAAAAcgQ
 </mutableData>
         </image>
+        <image name="globe" width="30" height="30"/>
+        <image name="invisible" width="30" height="30"/>
     </resources>
 </document>

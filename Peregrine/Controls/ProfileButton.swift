@@ -3,12 +3,12 @@ import Cocoa
 class ProfileButton: TrackedButton, HoverableDelegate {
     var logIn = false {
         didSet {
-            size = logIn ? 14 : 16
+            size = logIn ? 16 : 12
             hoverTitle = logIn ? "Log Out" : "Log In"
         }
     }
   
-    var size: CGFloat = 14
+    var size: CGFloat = 12
     var hoverTitle = "Log In"
     
     override var title: String {
