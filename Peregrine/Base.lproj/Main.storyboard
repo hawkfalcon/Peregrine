@@ -101,18 +101,18 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="vIV-3T-Fh6"/>
                                                 </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" id="9gD-7a-avm">
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Type a description..." drawsBackground="YES" usesSingleLineMode="YES" id="9gD-7a-avm">
                                                     <font key="font" metaFont="system" size="14"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </textFieldCell>
                                                 <connections>
-                                                    <outlet property="nextKeyView" destination="yuT-Ju-fST" id="UMd-jp-kMZ"/>
+                                                    <outlet property="nextKeyView" destination="ome-rW-50L" id="i4V-7V-Q9b"/>
                                                 </connections>
                                             </textField>
-                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fx-ec-hHI" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
+                                            <button focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fx-ec-hHI" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
                                                 <rect key="frame" x="275" y="-2" width="29" height="26"/>
-                                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dFR-wf-kYp">
+                                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="dFR-wf-kYp">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
@@ -126,6 +126,9 @@
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
+                                        <connections>
+                                            <outlet property="nextKeyView" destination="yuT-Ju-fST" id="m1s-DH-NSs"/>
+                                        </connections>
                                     </stackView>
                                     <scrollView focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" ambiguous="YES" verifyAmbiguity="off" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
                                         <rect key="frame" x="0.0" y="80" width="320" height="212"/>
@@ -167,7 +170,7 @@
                                                 </connections>
                                             </button>
                                             <customView hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ob-R0f" customClass="Rainbow" customModule="ProgressKit">
-                                                <rect key="frame" x="131" y="10" width="58" height="50"/>
+                                                <rect key="frame" x="131" y="12" width="54" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
@@ -232,15 +235,12 @@
                     </customView>
                     <connections>
                         <outlet property="activityIndicator" destination="U6f-Ob-R0f" id="pnu-jA-Dfq"/>
-                        <outlet property="background" destination="HuQ-Zj-7xS" id="vZE-xh-HpH"/>
                         <outlet property="descriptionField" destination="rSx-P3-cCD" id="8Ht-xz-h1o"/>
                         <outlet property="gistButton" destination="fo9-uv-L3A" id="Juj-nH-AHw"/>
                         <outlet property="loginButton" destination="vGX-hc-rH8" id="qpH-dL-Zy0"/>
-                        <outlet property="loginUsername" destination="73E-t4-r88" id="q5Q-1p-I36"/>
                         <outlet property="profile" destination="vGX-hc-rH8" id="Tfe-up-Aei"/>
                         <outlet property="secretButton" destination="jVV-fY-2uM" id="b6O-3B-ZPL"/>
                         <outlet property="textView" destination="yuT-Ju-fST" id="bFL-Of-LSd"/>
-                        <outlet property="topstack" destination="Yfx-df-xK4" id="01U-3W-MiM"/>
                         <outlet property="username" destination="73E-t4-r88" id="Hl3-H5-KBH"/>
                     </connections>
                 </viewController>

@@ -13,6 +13,6 @@ class TextField: NSTextField {
     
     override func textDidEndEditing(_ notification: Notification) {
         self.textColor = .black
-        self.nextKeyView?.becomeFirstResponder()
+        self.nextKeyView?.nextKeyView?.becomeFirstResponder()
     }
 }
