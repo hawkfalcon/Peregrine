@@ -24,8 +24,13 @@ class GistViewController: NSViewController {
     @IBOutlet weak var gistButton: GistButton!
     @IBOutlet weak var activityIndicator: ShootingStars!
     
+    @IBOutlet weak var filestack: NSStackView!
+    @IBOutlet weak var field: TextField!
     @IBOutlet var textView: TextView!
     
+    @IBAction func toggle(_ sender: TrackedButton) {
+        filestack.isHidden = !filestack.isHidden
+    }
     var loader = GitHubLoader()
         
     var loggedIn = UserDefaults.standard.bool(forKey: "loggedInKey") {
@@ -39,6 +44,7 @@ class GistViewController: NSViewController {
 
     override func viewDidLoad() {
         textView.delegate = self
+        filestack.isHidden = true
 
         setupView()
         
