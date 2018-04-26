@@ -203,20 +203,22 @@ class GistViewController: NSViewController {
     }
     
     func browseFile() {
-        NotificationCenter.default.post(name: .TogglePopover, object: nil)
-        let dialog = NSOpenPanel()
-        dialog.orderFrontRegardless()
+        //NotificationCenter.default.post(name: .TogglePopover, object: nil)
+        let panel = NSOpenPanel()
+        //panel.orderFrontRegardless()
         
-        dialog.title = "Choose a file"
-        dialog.showsResizeIndicator = true
-        dialog.showsHiddenFiles = false
-        dialog.canChooseDirectories = false
-        dialog.canCreateDirectories = true
-        dialog.allowsMultipleSelection = false
+        panel.title = "Choose a file"
+        panel.showsResizeIndicator = true
+        panel.showsHiddenFiles = false
+        panel.canChooseDirectories = false
+        panel.canCreateDirectories = true
+        panel.allowsMultipleSelection = false
         //dialog.allowedFileTypes = ["txt"]
         
-        if dialog.runModal() == .OK {
-            if let result = dialog.url {
+        let window = self.view.window!
+        panel.beginSheetModal(for: window) { (response) in
+            if response == .OK {
+            if let result = panel.url {
                 do {
                     let contents = try String(contentsOf: result)
                     self.textView.string = contents
@@ -230,7 +232,8 @@ class GistViewController: NSViewController {
         } else {
             // Cancelled
         }
-        NotificationCenter.default.post(name: .TogglePopover, object: nil)
+        //NotificationCenter.default.post(name: .TogglePopover, object: nil)
+        }
     }
 }
 
