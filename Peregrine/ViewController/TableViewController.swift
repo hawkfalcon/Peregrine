@@ -21,7 +21,9 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         var text = object.description != "" ? "\(object.description)\n" : ""
         text += object.url.absoluteString
         
-        let sharingPicker:NSSharingServicePicker = NSSharingServicePicker(items: [text])
+        let sharingPicker = NSSharingServicePicker(items: [text])
+        sharingPicker.delegate = self
+
         sharingPicker.show(relativeTo: NSZeroRect, of: sender, preferredEdge: .minY)
     }
     
@@ -74,6 +76,31 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
             tableView.rowView(atRow: row, makeIfNecessary: false)?.isSelected = false
         }
     }
+    
+    func setClipboard(text: String) {
+        let clipboard = NSPasteboard.general
+        clipboard.clearContents()
+        clipboard.setString(text, forType: .string)
+    }
+}
+
+extension TableViewController: NSSharingServicePickerDelegate {
+    func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, sharingServicesForItems items: [Any], proposedSharingServices proposedServices: [NSSharingService]) -> [NSSharingService] {
+        var share = proposedServices
+        if let image = NSImage(named: NSImage.Name.copy) {
+            let customService = NSSharingService(title: "Copy Gist Link", image: image, alternateImage: image, handler: {
+                if let text = items.first as? String {
+                    self.setClipboard(text: text)
+                }
+            })
+            share.insert(customService, at: 0)
+        }
+        return share
+    }
+}
+
+extension NSImage.Name {
+    static let copy = NSImage.Name("copy")
 }
 
 extension Notification.Name {

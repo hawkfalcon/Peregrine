@@ -80,22 +80,6 @@ class GistViewController: NSViewController {
         browseFile()
     }
     
-/* TODO: Remove?
-    func getClipboard() -> String {
-        let clipboard = NSPasteboard.general
-        guard let content = clipboard.string(forType: .string) else {
-            return ""
-        }
-        return content
-    }
-    
-    func setClipboard(link: String, description: String) {
-        let clipboard = NSPasteboard.general
-        clipboard.clearContents()
-        clipboard.setString(link, forType: .string)
-    }
- */
-    
     func addLinkToTable(link: String, description: String, filename: String) {
         var desc = description
         if description == "" && filename != "" {
