@@ -80,6 +80,7 @@ class GistViewController: NSViewController {
         browseFile()
     }
     
+/* TODO: Remove?
     func getClipboard() -> String {
         let clipboard = NSPasteboard.general
         guard let content = clipboard.string(forType: .string) else {
@@ -93,9 +94,14 @@ class GistViewController: NSViewController {
         clipboard.clearContents()
         clipboard.setString(link, forType: .string)
     }
+ */
     
-    func addLinkToTable(link: String, description: String) {
-        let link = Link(url: URL(string: link)!, description: description)
+    func addLinkToTable(link: String, description: String, filename: String) {
+        var desc = description
+        if description == "" && filename != "" {
+            desc = filename
+        }
+        let link = Link(url: URL(string: link)!, description: desc)
 
         UserDefaults.standard.addToList(key: Link.key, value: link)
         NotificationCenter.default.post(name: .AddItem, object: nil)
@@ -107,7 +113,7 @@ class GistViewController: NSViewController {
         self.activityIndicator.animate = true
 
         let content = textView.string
-        let filename = "gist"
+        let filename = fileField.stringValue
         let description = descriptionField.stringValue
         let secret = secretButton.selectedSegment == 0
         loader.postGist(content: content, filename: filename, description: description,
@@ -117,7 +123,7 @@ class GistViewController: NSViewController {
                 }
                 else if let gistUrl = dict?["html_url"] as? String {
                     self.openTableView()
-                    self.addLinkToTable(link: gistUrl, description: description)
+                    self.addLinkToTable(link: gistUrl, description: description, filename: filename)
                 }
                 
                 self.activityIndicator.animate = false
@@ -203,11 +209,9 @@ class GistViewController: NSViewController {
     }
     
     func browseFile() {
-        //NotificationCenter.default.post(name: .TogglePopover, object: nil)
         let panel = NSOpenPanel()
-        //panel.orderFrontRegardless()
         
-        panel.title = "Choose a file"
+        panel.title = "Choose a file to import"
         panel.showsResizeIndicator = true
         panel.showsHiddenFiles = false
         panel.canChooseDirectories = false
@@ -232,7 +236,6 @@ class GistViewController: NSViewController {
         } else {
             // Cancelled
         }
-        //NotificationCenter.default.post(name: .TogglePopover, object: nil)
         }
     }
 }
