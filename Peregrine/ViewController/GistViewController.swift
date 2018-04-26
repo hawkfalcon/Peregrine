@@ -20,12 +20,12 @@ class GistViewController: NSViewController {
     
     @IBOutlet weak var descriptionField: TextField!
     @IBOutlet weak var secretButton: SegmentButton!
-    @IBOutlet weak var pasteButton: FileButton!
+    @IBOutlet weak var importButton: TrackedButton!
     @IBOutlet weak var gistButton: GistButton!
     @IBOutlet weak var activityIndicator: ShootingStars!
     
     @IBOutlet weak var filestack: NSStackView!
-    @IBOutlet weak var field: TextField!
+    @IBOutlet weak var fileField: TextField!
     @IBOutlet var textView: TextView!
     
     @IBAction func toggle(_ sender: TrackedButton) {
@@ -76,7 +76,7 @@ class GistViewController: NSViewController {
         }
     }
     
-    @IBAction func filebuttonPressed(_ sender: FileButton) {
+    @IBAction func filebuttonPressed(_ sender: NSButton) {
         browseFile()
     }
     
@@ -121,9 +121,9 @@ class GistViewController: NSViewController {
                 }
                 
                 self.activityIndicator.animate = false
-                self.gistButton.isEnabled = true
                 self.textView.string = ""
                 self.descriptionField.stringValue = ""
+                self.fileField.stringValue = ""
                 self.gistButton.attributedTitle = self.gistButton.blackTitle
         }
     }
@@ -219,8 +219,9 @@ class GistViewController: NSViewController {
             if let result = dialog.url {
                 do {
                     let contents = try String(contentsOf: result)
-                    pasteButton.isHidden = true
-                    textView.string = contents
+                    self.textView.string = contents
+                    self.fileField.stringValue = result.lastPathComponent
+                    self.gistButton.isEnabled =  true
                 }
                 catch _ {
                     // Error handling
@@ -262,7 +263,6 @@ extension GistViewController: NSTextViewDelegate {
     }*/
  
     func textDidChange(_ notification: Notification) {
-        //guard let textView = notification.object as? TextView else { return }
         gistButton.isEnabled = textView.string != ""
     }
 }

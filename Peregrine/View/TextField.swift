@@ -10,9 +10,4 @@ class TextField: NSTextField {
 
         self.textColor = .black
     }
-    
-    override func textDidEndEditing(_ notification: Notification) {
-        self.textColor = .black
-        self.nextKeyView?.nextKeyView?.becomeFirstResponder()
-    }
 }
