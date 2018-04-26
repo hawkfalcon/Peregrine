@@ -35,7 +35,7 @@
                             <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HuQ-Zj-7xS" userLabel="Vertical" customClass="TriangleView" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                 <subviews>
-                                    <stackView focusRingType="none" distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="250.99998474121094" verticalStackHuggingPriority="250.99998474121094" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-df-xK4" userLabel="Horizontal Stack">
+                                    <stackView focusRingType="none" distribution="fill" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="250.99998474121094" verticalStackHuggingPriority="250.99998474121094" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-df-xK4" userLabel="Horizontal Stack">
                                         <rect key="frame" x="0.0" y="330" width="320" height="70"/>
                                         <subviews>
                                             <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-hc-rH8" customClass="ProfileButton" customModule="Peregrine" customModuleProvider="target">
@@ -53,7 +53,7 @@
                                                 </connections>
                                             </button>
                                             <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="749" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="78" y="21" width="124" height="19"/>
+                                                <rect key="frame" x="80" y="21" width="120" height="19"/>
                                                 <buttonCell key="cell" type="square" title="Log In" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system" size="16"/>
@@ -115,7 +115,7 @@
                                                     </textField>
                                                     <button focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fx-ec-hHI" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
                                                         <rect key="frame" x="285" y="-2" width="29" height="26"/>
-                                                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="dFR-wf-kYp">
+                                                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" refusesFirstResponder="YES" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="dFR-wf-kYp">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -131,6 +131,7 @@
                                                     <constraint firstItem="rSx-P3-cCD" firstAttribute="leading" secondItem="c7O-NZ-qyS" secondAttribute="leading" constant="10" id="SHq-kL-Nud"/>
                                                     <constraint firstItem="rSx-P3-cCD" firstAttribute="top" secondItem="c7O-NZ-qyS" secondAttribute="top" id="SeU-Vk-65W"/>
                                                     <constraint firstItem="7Fx-ec-hHI" firstAttribute="leading" secondItem="rSx-P3-cCD" secondAttribute="trailing" constant="10" id="iFK-8n-zNI"/>
+                                                    <constraint firstItem="7Fx-ec-hHI" firstAttribute="centerY" secondItem="rSx-P3-cCD" secondAttribute="centerY" id="vY4-6G-laj"/>
                                                 </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
@@ -147,12 +148,12 @@
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="9" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqc-F4-6A4" userLabel="FileStack">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
                                                 <subviews>
-                                                    <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVd-Fx-bq4" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="0.0" width="221" height="22"/>
+                                                    <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVd-Fx-bq4" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="0.0" width="197" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="IhO-ap-hIJ"/>
                                                         </constraints>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Test" drawsBackground="YES" usesSingleLineMode="YES" id="oHs-Qw-6Gu">
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="Filename and extension..." drawsBackground="YES" usesSingleLineMode="YES" id="oHs-Qw-6Gu">
                                                             <font key="font" metaFont="system" size="14"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -162,8 +163,8 @@
                                                         </connections>
                                                     </textField>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xzt-KT-Uhg">
-                                                        <rect key="frame" x="235" y="-6" width="81" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3Q-Ys-eSi">
+                                                        <rect key="frame" x="211" y="-6" width="105" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Import File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3Q-Ys-eSi">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
@@ -173,6 +174,7 @@
                                                 <constraints>
                                                     <constraint firstItem="xzt-KT-Uhg" firstAttribute="leading" secondItem="BVd-Fx-bq4" secondAttribute="trailing" constant="10" id="7iK-9N-ZVl"/>
                                                     <constraint firstAttribute="trailing" secondItem="xzt-KT-Uhg" secondAttribute="trailing" constant="10" id="BPx-We-79s"/>
+                                                    <constraint firstItem="xzt-KT-Uhg" firstAttribute="centerY" secondItem="BVd-Fx-bq4" secondAttribute="centerY" id="Kpa-B2-qMk"/>
                                                     <constraint firstItem="BVd-Fx-bq4" firstAttribute="leading" secondItem="Rqc-F4-6A4" secondAttribute="leading" constant="10" id="c2a-DW-3fT"/>
                                                 </constraints>
                                                 <visibilityPriorities>

@@ -2,7 +2,6 @@ import Cocoa
 
 class GistButton: TrackedButton, HoverableDelegate {
     
-    lazy var whiteTitle = createAttributedString(color: .white, size: 24)
     lazy var blackTitle = createAttributedString(color: .black, size: 24)
     lazy var grayTitle = createAttributedString(color: .gistGray, size: 24)
 

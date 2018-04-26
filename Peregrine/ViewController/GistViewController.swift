@@ -44,17 +44,14 @@ class GistViewController: NSViewController {
 
     override func viewDidLoad() {
         textView.delegate = self
-        filestack.isHidden = true
-
         setupView()
         
         super.viewDidLoad()
     }
-    
-    override func viewWillAppear() {
-    }
-    
+
     func setupView() {
+        filestack.isHidden = true
+        gistButton.isEnabled = false
         if loggedIn {
             login()
         }
@@ -81,13 +78,6 @@ class GistViewController: NSViewController {
     
     @IBAction func filebuttonPressed(_ sender: FileButton) {
         browseFile()
-        //sender.layer?.borderColor = .gistGray
-        //textView.string = getClipboard()
-        
-        /*loader.getGists() { dict, error in
-            print(dict)
-            // TODO: Remove my gists...
-        }*/
     }
     
     func getClipboard() -> String {
@@ -134,8 +124,7 @@ class GistViewController: NSViewController {
                 self.gistButton.isEnabled = true
                 self.textView.string = ""
                 self.descriptionField.stringValue = ""
-                //self.pasteButton.isHidden = false
-                self.gistButton.attributedTitle = self.gistButton.whiteTitle
+                self.gistButton.attributedTitle = self.gistButton.blackTitle
         }
     }
     
@@ -143,11 +132,9 @@ class GistViewController: NSViewController {
         username?.title = "Loading..."
         loginButton?.isEnabled = false
         
-        // Configure OAuth2 callback
+        // Configure OAuth2 window
         loader.oauth2.authConfig.authorizeContext = view.window
-//        NotificationCenter.default.removeObserver(self, name: .OAuthCallback, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(handleRedirect(_:)), name: .OAuthCallback, object: nil)
-//
+        
         // Request user data
         loader.requestUserdata() { dict, error in
             if let error = error {
@@ -218,7 +205,6 @@ class GistViewController: NSViewController {
     func browseFile() {
         NotificationCenter.default.post(name: .TogglePopover, object: nil)
         let dialog = NSOpenPanel()
-        //dialog.level =
         dialog.orderFrontRegardless()
         
         dialog.title = "Choose a file"
@@ -277,6 +263,6 @@ extension GistViewController: NSTextViewDelegate {
  
     func textDidChange(_ notification: Notification) {
         //guard let textView = notification.object as? TextView else { return }
-        //pasteButton.isHidden = textView.string != ""
+        gistButton.isEnabled = textView.string != ""
     }
 }

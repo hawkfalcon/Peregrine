@@ -6,7 +6,7 @@ class TextView: NSTextView {
     @objc var placeholderAttributedString: NSAttributedString?
 
     let size: CGFloat = 14
-    let placeholderText = "Type or paste text to share..."
+    let placeholderText = "Type or paste text/code..."
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
