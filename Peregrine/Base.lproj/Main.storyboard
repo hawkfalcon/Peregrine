@@ -149,7 +149,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
                                                 <subviews>
                                                     <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVd-Fx-bq4" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="0.0" width="197" height="22"/>
+                                                        <rect key="frame" x="10" y="0.0" width="211" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="IhO-ap-hIJ"/>
                                                         </constraints>
@@ -162,9 +162,9 @@
                                                             <outlet property="nextKeyView" destination="ome-rW-50L" id="Esv-Mh-FG0"/>
                                                         </connections>
                                                     </textField>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xzt-KT-Uhg" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
-                                                        <rect key="frame" x="211" y="-6" width="105" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Import File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3Q-Ys-eSi">
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xzt-KT-Uhg" customClass="FileButton" customModule="Peregrine" customModuleProvider="target">
+                                                        <rect key="frame" x="231" y="-2" width="79" height="25"/>
+                                                        <buttonCell key="cell" type="roundTextured" title="Import File" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3Q-Ys-eSi">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>

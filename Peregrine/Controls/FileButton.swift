@@ -1,41 +1,29 @@
 import Cocoa
 
-class FileButton: BasicButton {
+class FileButton: TrackedButton, HoverableDelegate {
+    
+    lazy var blackTitle = createAttributedString(color: .black, size: 13)
+    lazy var grayTitle = createAttributedString(color: .gistGray, size: 13)
+    
     override func customize() {
+        self.attributedTitle = blackTitle
+        self.delegate = self
+        
         super.customize()
-
-        setupHover()
-        self.wantsLayer = false
     }
     
-    override func mouseEntered(with event: NSEvent) {
-        if !self.isHighlighted {
-            self.image = NSImage(named: .documentLightGray)
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+    }
+    
+    func hoverStart() {
+        self.attributedTitle = grayTitle
+    }
+    
+    func hoverStop() {
+        if self.isEnabled {
+            self.attributedTitle = blackTitle
         }
     }
-    
-    override func mouseExited(with event: NSEvent) {
-        self.image = NSImage(named: .documentGray)
-    }
-    
-    override func mouseMoved(with event: NSEvent) {
-        cursorUpdate(with: event)
-    }
-    
-    override func resetCursorRects() {
-        discardCursorRects()
-        self.addCursorRect(self.bounds, cursor: .pointingHand)
-    }
-    
-    func setupHover() {
-        let area = NSTrackingArea.init(rect: self.bounds,
-            options: [.mouseMoved, .mouseEnteredAndExited, .activeAlways],
-            owner: self, userInfo: nil)
-        self.addTrackingArea(area)
-    }
 }
 
-extension NSImage.Name {
-    static let documentLightGray = NSImage.Name("document-light-gray")
-    static let documentGray = NSImage.Name("document-gray")
-}
