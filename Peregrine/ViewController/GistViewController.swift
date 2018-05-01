@@ -6,36 +6,32 @@ class GistViewController: NSViewController {
     
 /* TODO:
      - better failure states
-     - add file / drag
-     - file dropdown
-        - set filename
-        - filetype
-     - open share on gist
      - settings
+     - Onboarding
  */
     
-    @IBOutlet weak var username: UsernameButton!
-    @IBOutlet weak var loginButton: TrackedButton!
-    @IBOutlet weak var profile: ProfileButton!
-    
-    @IBOutlet weak var descriptionField: TextField!
+    /* Top login section */
+    @IBOutlet weak var usernameButton: UsernameButton!
+    @IBOutlet weak var profileButton: ProfileButton!
     @IBOutlet weak var secretButton: SegmentButton!
+    @IBOutlet weak var descriptionField: TextField!
+    
+    /* File collapsible section */
+    @IBOutlet weak var fileSection: NSStackView!
+    @IBOutlet weak var filenameField: TextField!
     @IBOutlet weak var importButton: TrackedButton!
+    
+    @IBOutlet var textView: TextView!
+    
+    /* Gist section */
     @IBOutlet weak var gistButton: GistButton!
     @IBOutlet weak var activityIndicator: ShootingStars!
     
-    @IBOutlet weak var filestack: NSStackView!
-    @IBOutlet weak var fileField: TextField!
-    @IBOutlet var textView: TextView!
-    
-    @IBAction func toggle(_ sender: TrackedButton) {
-        filestack.isHidden = !filestack.isHidden
-    }
     var loader = GitHubLoader()
-        
+    
     var loggedIn = UserDefaults.standard.bool(forKey: "loggedInKey") {
         didSet {
-            profile.logIn = loggedIn
+            self.profileButton.logIn = self.loggedIn
             DispatchQueue.main.async {
                 UserDefaults.standard.set(self.loggedIn, forKey: "loggedInKey")
             }
@@ -43,25 +39,21 @@ class GistViewController: NSViewController {
     }
 
     override func viewDidLoad() {
-        textView.delegate = self
+        self.textView.delegate = self
         setupView()
         
         super.viewDidLoad()
     }
 
     func setupView() {
-        filestack.isHidden = true
-        gistButton.isEnabled = false
-        if loggedIn {
+        self.fileSection.isHidden = true
+        self.gistButton.isEnabled = false
+        if self.loggedIn {
             login()
         }
     }
     
-    @IBAction func buttonPress(_ sender: NSButton) {
-        createGist()
-    }
-    
-    @IBAction func login(_ sender: NSButton?) {
+    @IBAction func profileButtonPress(_ sender: NSButton) {
         if self.loggedIn {
             forgetTokens()
         }
@@ -70,14 +62,22 @@ class GistViewController: NSViewController {
         }
     }
     
-    @IBAction func loginUsername(_ sender: UsernameButton) {
+    @IBAction func usernameButtonPress(_ sender: UsernameButton) {
         if sender.title == sender.logIn {
             login()
         }
     }
     
-    @IBAction func filebuttonPressed(_ sender: NSButton) {
+    @IBAction func toggleFileSection(_ sender: NSButton) {
+        self.fileSection.isHidden = !self.fileSection.isHidden
+    }
+    
+    @IBAction func importButtonPressed(_ sender: NSButton) {
         browseFile()
+    }
+    
+    @IBAction func gistButtonPress(_ sender: NSButton) {
+        createGist()
     }
     
     func addLinkToTable(link: String, description: String, filename: String) {
@@ -96,15 +96,17 @@ class GistViewController: NSViewController {
         self.gistButton.title = ""
         self.activityIndicator.animate = true
 
-        let content = textView.string
-        let filename = fileField.stringValue
-        let description = descriptionField.stringValue
-        let secret = secretButton.selectedSegment == 0
+        let content = self.textView.string
+        let filename = self.filenameField.stringValue
+        let description = self.descriptionField.stringValue
+        let secret = self.secretButton.selectedSegment == 0
         loader.postGist(content: content, filename: filename, description: description,
             secret: secret) { dict, error in
                 if let _ = error {
-                    self.username?.title = "Error"
+                    self.usernameButton.title = "Error"
+                    //TODO ERROR
                 }
+                //TODO magic string
                 else if let gistUrl = dict?["html_url"] as? String {
                     self.openTableView()
                     self.addLinkToTable(link: gistUrl, description: description, filename: filename)
@@ -113,77 +115,52 @@ class GistViewController: NSViewController {
                 self.activityIndicator.animate = false
                 self.textView.string = ""
                 self.descriptionField.stringValue = ""
-                self.fileField.stringValue = ""
+                self.filenameField.stringValue = ""
                 self.gistButton.attributedTitle = self.gistButton.blackTitle
         }
     }
     
     func login() {
-        username?.title = "Loading..."
-        loginButton?.isEnabled = false
+        usernameButton.title = "Loading..."
+        profileButton.isEnabled = false
         
         // Configure OAuth2 window
         loader.oauth2.authConfig.authorizeContext = view.window
         
         // Request user data
         loader.requestUserdata() { dict, error in
-            if let error = error {
-                self.username?.title = "Error"
-                self.show(error)
+            if let _ = error {
+                self.usernameButton.title = "Error"
+                //TODO ERROR
             }
             else {
+                //TODO magic string
                 if let imgURL = dict?["avatar_url"] as? String {
                     if let url = URL(string: imgURL), let data = try? Data(contentsOf: url) {
-                        self.loginButton.image = NSImage(data: data)
+                        self.profileButton.image = NSImage(data: data)
                     }
                 }
+                //TODO magic string
                 if let username = dict?["name"] as? String {
-                    self.username?.title = "\(username)"
+                    self.usernameButton.title = "\(username)"
                 }
                 
                 self.loggedIn = true
-                self.loginButton?.isEnabled = true
-                self.username?.isHidden = false
+                self.profileButton?.isEnabled = true
             }
         }
     }
     
     func forgetTokens() {
         self.loggedIn = false
-
         loader.oauth2.forgetTokens()
-        self.username?.title = username.logIn
         
-        loginButton.image = NSImage(named: NSImage.Name("GitHub-White"))
-        self.username?.isHidden = false
+        self.usernameButton.title = self.usernameButton.logIn
+        self.profileButton.title = ""
+        //TODO magic string
+        self.profileButton.image = NSImage(named: NSImage.Name("GitHub-White"))
     }
 
-    
-    // MARK: - Error Handling
-    
-    // Create error to display
-    func show(_ error: Error) {
-        if let error = error as? OAuth2Error {
-            let err = NSError(domain: "OAuth2Error", code: 0, userInfo:
-                [NSLocalizedDescriptionKey: error.description]
-            )
-            display(err)
-        }
-        else {
-            display(error as NSError)
-        }
-    }
-    
-    // Alert or log the given NSError
-    func display(_ error: NSError) {
-        if let window = self.view.window {
-            NSAlert(error: error).beginSheetModal(for: window, completionHandler: nil)
-        }
-        else {
-            NSLog("Error authorizing: \(error.description)")
-        }
-    }
-    
     func openTableView() {
         if let parent = self.parent as? SplitViewController {
             if let listViewItem = parent.splitViewItems.last {
@@ -195,7 +172,7 @@ class GistViewController: NSViewController {
     func browseFile() {
         let panel = NSOpenPanel()
         
-        panel.title = "Choose a file to import"
+        panel.title = "Choose a file"
         panel.showsResizeIndicator = true
         panel.showsHiddenFiles = false
         panel.canChooseDirectories = false
@@ -203,18 +180,19 @@ class GistViewController: NSViewController {
         panel.allowsMultipleSelection = false
         //dialog.allowedFileTypes = ["txt"]
         
+        //TODO unwrap
         let window = self.view.window!
         panel.beginSheetModal(for: window) { (response) in
             if response == .OK {
             if let result = panel.url {
                 do {
                     let contents = try String(contentsOf: result)
+                    self.filenameField.stringValue = result.lastPathComponent
                     self.textView.string = contents
-                    self.fileField.stringValue = result.lastPathComponent
-                    self.gistButton.isEnabled =  true
+                    self.gistButton.isEnabled = true
                 }
                 catch _ {
-                    // Error handling
+                    //TODO ERROR
                 }
             }
         } else {
@@ -243,15 +221,6 @@ extension UserDefaults {
 }
 
 extension GistViewController: NSTextViewDelegate {
-    /*func textViewDidChangeSelection(_ notification: Notification) {
-    }
-
-    func textDidBeginEditing(_ notification: Notification) {
-    }
- 
-    func textDidEndEditing(_ notification: Notification) {
-    }*/
- 
     func textDidChange(_ notification: Notification) {
         gistButton.isEnabled = textView.string != ""
     }

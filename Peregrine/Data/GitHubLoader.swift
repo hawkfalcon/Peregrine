@@ -23,8 +23,8 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 			"client_secret": "59579575178c862303e560c84f16813decfbb1c6",
 			"authorize_uri": "https://github.com/login/oauth/authorize",
 			"token_uri": "https://github.com/login/oauth/access_token",
-			"scope": "read:user gist",
-			"redirect_uris": ["owl://oauth/callback"], // app has registered this scheme
+            "scope": "gist",
+			"redirect_uris": ["peregrine://authorize"], // app has registered this scheme
 			"secret_in_body": true,
 			"verbose": true,
 		])
