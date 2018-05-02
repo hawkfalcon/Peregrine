@@ -62,7 +62,7 @@
                                                     <action selector="usernameButtonPress:" target="XfG-lQ-9wD" id="N68-EU-I4v"/>
                                                 </connections>
                                             </button>
-                                            <segmentedControl focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iiX-jg-YAv" customClass="SegmentButton" customModule="Peregrine" customModuleProvider="target">
+                                            <segmentedControl focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iiX-jg-YAv" customClass="SegmentedControl" customModule="Peregrine" customModuleProvider="target">
                                                 <rect key="frame" x="210" y="18" width="100" height="23"/>
                                                 <segmentedCell key="cell" borderStyle="border" focusRingType="none" alignment="left" style="texturedRounded" trackingMode="selectOne" id="cT3-FO-ckW">
                                                     <font key="font" metaFont="system"/>
@@ -162,7 +162,7 @@
                                                             <outlet property="nextKeyView" destination="ome-rW-50L" id="Esv-Mh-FG0"/>
                                                         </connections>
                                                     </textField>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xzt-KT-Uhg" customClass="FileButton" customModule="Peregrine" customModuleProvider="target">
+                                                    <button verticalHuggingPriority="750" tag="13" translatesAutoresizingMaskIntoConstraints="NO" id="xzt-KT-Uhg" customClass="TexturedButton" customModule="Peregrine" customModuleProvider="target">
                                                         <rect key="frame" x="231" y="-2" width="79" height="25"/>
                                                         <buttonCell key="cell" type="roundTextured" title="Import File" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3Q-Ys-eSi">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -208,7 +208,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <scrollView focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="180" verifyAmbiguity="off" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
-                                        <rect key="frame" x="0.0" y="80" width="320" height="180"/>
+                                        <rect key="frame" x="0.0" y="76" width="320" height="180"/>
                                         <clipView key="contentView" focusRingType="none" copiesOnScroll="NO" id="qSO-ba-55L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,9 +236,9 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ym5-J5-R08" userLabel="GistSection">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <subviews>
-                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="GistButton" customModule="Peregrine" customModuleProvider="target">
+                                            <button focusRingType="none" verticalHuggingPriority="750" tag="24" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="TexturedButton" customModule="Peregrine" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="8" width="300" height="53"/>
-                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45">
+                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45" customClass="ButtonCell" customModule="Peregrine" customModuleProvider="target">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>

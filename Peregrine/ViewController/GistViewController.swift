@@ -13,7 +13,7 @@ class GistViewController: NSViewController {
     /* Top login section */
     @IBOutlet weak var usernameButton: UsernameButton!
     @IBOutlet weak var profileButton: ProfileButton!
-    @IBOutlet weak var secretButton: SegmentButton!
+    @IBOutlet weak var secretButton: SegmentedControl!
     @IBOutlet weak var descriptionField: TextField!
     
     /* File collapsible section */
@@ -24,7 +24,7 @@ class GistViewController: NSViewController {
     @IBOutlet var textView: TextView!
     
     /* Gist section */
-    @IBOutlet weak var gistButton: GistButton!
+    @IBOutlet weak var gistButton: TexturedButton!
     @IBOutlet weak var activityIndicator: ShootingStars!
     
     var loader = GitHubLoader()
@@ -63,7 +63,7 @@ class GistViewController: NSViewController {
     }
     
     @IBAction func usernameButtonPress(_ sender: UsernameButton) {
-        if sender.title == sender.logIn {
+        if sender.title == Constants.logIn {
             login()
         }
     }
@@ -116,7 +116,7 @@ class GistViewController: NSViewController {
                 self.textView.string = ""
                 self.descriptionField.stringValue = ""
                 self.filenameField.stringValue = ""
-                self.gistButton.attributedTitle = self.gistButton.blackTitle
+                self.gistButton.reset()
         }
     }
     
@@ -146,7 +146,7 @@ class GistViewController: NSViewController {
                 }
                 
                 self.loggedIn = true
-                self.profileButton?.isEnabled = true
+                self.profileButton.isEnabled = true
             }
         }
     }
@@ -155,7 +155,7 @@ class GistViewController: NSViewController {
         self.loggedIn = false
         loader.oauth2.forgetTokens()
         
-        self.usernameButton.title = self.usernameButton.logIn
+        self.usernameButton.title = Constants.logIn
         self.profileButton.title = ""
         //TODO magic string
         self.profileButton.image = NSImage(named: NSImage.Name("GitHub-White"))
@@ -222,6 +222,6 @@ extension UserDefaults {
 
 extension GistViewController: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
-        gistButton.isEnabled = textView.string != ""
+        self.gistButton.isEnabled = textView.string != ""
     }
 }

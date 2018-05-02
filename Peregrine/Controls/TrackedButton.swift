@@ -4,31 +4,27 @@ protocol Hoverable {
     func trackHover()
 }
 
-protocol HoverableDelegate {
-    func hoverStart()
-    func hoverStop()
-}
-
 class TrackedButton: BasicButton, Hoverable {
-    var delegate: HoverableDelegate?
-    var trackingArea: NSTrackingArea?
-    
-    override func customize() {
-        trackHover()
-    }
-    
-    override func mouseEntered(with event: NSEvent) {
-        delegate?.hoverStart()
-    }
-    
-    override func mouseExited(with event: NSEvent) {
-        delegate?.hoverStop()
+    override func updateTrackingAreas() {
+        super.updateTrackingAreas()
+        self.trackHover()
     }
     
     override func resetCursorRects() {
-        discardCursorRects()
+        self.discardCursorRects()
         self.addCursorRect(self.bounds, cursor: .pointingHand)
     }
+    
+    override func mouseEntered(with event: NSEvent) {
+        hoverStart()
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        hoverStop()
+    }
+    
+    func hoverStart() {}
+    func hoverStop() {}
 }
 
 extension Hoverable where Self: NSView {

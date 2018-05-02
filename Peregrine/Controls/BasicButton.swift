@@ -1,22 +1,22 @@
 import Cocoa
 
 class BasicButton: NSButton {
-
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        customize()
+    }
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        customize()
+    }
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        customize()
-    }
-    
-    func createAttributedString(color: NSColor, size: CGFloat, title: String) -> NSAttributedString {
-        return NSAttributedString.create(color: color, size: size, title: title, alignment: self.alignment)
-    }
-    
     func createAttributedString(color: NSColor, size: CGFloat) -> NSAttributedString {
-        return createAttributedString(color: color, size: size, title: self.title)
+        return NSAttributedString.create(color: color, size: size, title: self.title, alignment: self.alignment)
     }
     
     func customize() {}

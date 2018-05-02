@@ -1,38 +1,27 @@
 import Cocoa
 
-class ProfileButton: TrackedButton, HoverableDelegate {
+class ProfileButton: TrackedButton {
     var logIn = false {
         didSet {
             size = logIn ? 16 : 12
-            hoverTitle = logIn ? "Log Out" : "Log In"
+            hoverTitle = logIn ? Constants.logOut : Constants.logIn
         }
     }
   
     var size: CGFloat = 12
-    var hoverTitle = "Log In"
+    var hoverTitle = Constants.logIn
     
     override var title: String {
         didSet {
-            self.attributedTitle = createAttributedString(color: .white, size: size, title: title)
+            self.attributedTitle = NSAttributedString.create(color: .white, size: size, title: title, alignment: .center)
         }
     }
     
-    override func customize() {
-        self.delegate = self
-        
-        super.customize()
+    override func hoverStart() {
+        self.title = hoverTitle
     }
     
-    func hoverStart() {
-        title = hoverTitle
-    }
-    
-    func hoverStop() {
-        title = ""
-    }
-    
-    override func updateTrackingAreas() {
-        super.updateTrackingAreas()
-        self.trackHover()
+    override func hoverStop() {
+        self.title = ""
     }
 }

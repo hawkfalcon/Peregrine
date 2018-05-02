@@ -14,3 +14,8 @@ extension UserDefaults {
         static let loggedIn = "loggedInKey"
     }
 }
+
+struct Constants {
+    static let logIn = "Log In"
+    static let logOut = "Log Out"
+}

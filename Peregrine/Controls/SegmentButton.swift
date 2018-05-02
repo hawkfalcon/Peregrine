@@ -1,13 +1,13 @@
 import Cocoa
 
-class SegmentButton: NSSegmentedControl, Hoverable {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+class SegmentedControl: NSSegmentedControl, Hoverable {
+    
+    override func awakeFromNib() {
         trackHover()
     }
     
     override func resetCursorRects() {
-        discardCursorRects()
+        self.discardCursorRects()
         self.addCursorRect(self.bounds, cursor: .pointingHand)
     }
 }

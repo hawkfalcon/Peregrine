@@ -1,9 +1,8 @@
 import Cocoa
 
-class ShareButton: NSButton {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+class ShareButton: TrackedButton {
+    
+    override func customize() {
         self.sendAction(on: .leftMouseDown)
     }
 }
