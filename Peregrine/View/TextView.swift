@@ -23,22 +23,6 @@ class TextView: NSTextView {
             alignment: .left)
     }
     
-    override func becomeFirstResponder() -> Bool {
-        enteredTextView()
-        return super.becomeFirstResponder()
-    }
-    
-    override func resignFirstResponder() -> Bool {
-        exitedTextView()
-        return super.resignFirstResponder()
-    }
-    
-    func enteredTextView() {
-    }
-    
-    func exitedTextView() {
-    }
-    
     // MARK: key shortcuts
     override func performKeyEquivalent(with event: NSEvent) -> Bool {
         guard event.type == .keyDown else { return false }

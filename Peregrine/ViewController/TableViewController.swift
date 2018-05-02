@@ -71,8 +71,8 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
 
     // Deselect any highlighted row on scrolling
     @objc func boundsChange() {
-        //TODO make more efficient
-        for row in 0..<self.links.count {
+        let range = tableView.rows(in: tableView.visibleRect)
+        for row in range.location..<(range.location + range.length) {
             tableView.rowView(atRow: row, makeIfNecessary: false)?.isSelected = false
         }
     }

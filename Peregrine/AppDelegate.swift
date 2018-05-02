@@ -2,7 +2,6 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    let icon = NSImage.Name("GitHub")
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let popover = NSPopover()
     let menu = NSMenu()
@@ -10,12 +9,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-            button.image = NSImage(named: icon)
+            button.image = NSImage(named: .icon)
             button.action = #selector(clickMenuBar(_:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
-        popover.contentViewController = SplitViewController.freshController()
-        popover.delegate = self
+        popover.contentViewController = createViewController()
         popover.appearance = NSAppearance(named: .aqua)
         constructMenu()
         
@@ -32,14 +30,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func clickMenuBar(_ sender: NSButton) {
         NSApplication.shared.activate(ignoringOtherApps: true)
-        let event = NSApp.currentEvent!
-        
-        if event.type == NSEvent.EventType.rightMouseUp {
-            statusItem.popUpMenu(menu)
+        if let event = NSApp.currentEvent {
+            if event.type == NSEvent.EventType.rightMouseUp {
+                statusItem.popUpMenu(menu)
+            }
+            else {
+                togglePopover()
+            }
         }
-        else {
-            togglePopover()
-        }
+    }
+    
+    func createViewController() -> NSViewController {
+        let storyboard = NSStoryboard(name: .main, bundle: nil)
+        return storyboard.instantiateController(withIdentifier: .splitViewController) as! NSViewController
+    }
+    
+    func constructMenu() {
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Clear", action: #selector(clearLinks), keyEquivalent: ""))
+    }
+    
+    @objc func clearLinks() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: UserDefaults.Key.links)
     }
     
     @objc func togglePopover() {
@@ -57,34 +70,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.performClose(nil)
         eventMonitor?.stop()
     }
-    
-    func constructMenu() {
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Clear", action: #selector(clearLinks), keyEquivalent: ""))
-    }
-    
-    @objc func clearLinks() {
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: UserDefaults.Key.links)
-    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 }
 
+/* Potential future update: detachable popover:
+ 
 extension AppDelegate: NSPopoverDelegate {
     func popoverShouldDetach(_ popover: NSPopover) -> Bool {
         return true
     }
-    
-//    func detachableWindow(for popover: NSPopover) -> NSWindow? {
-//
-//    }
 }
-
-extension Notification.Name {
-    static let OAuthCallback = Notification.Name("OAuthCallback")
-    static let TogglePopover = Notification.Name("TogglePopover")
-}
+ */

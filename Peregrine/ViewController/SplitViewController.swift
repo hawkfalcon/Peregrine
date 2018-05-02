@@ -20,15 +20,3 @@ class SplitViewController: NSSplitViewController {
         return true
     }
 }
-
-extension SplitViewController {
-    // MARK: Storyboard instantiation
-    static func freshController() -> NSViewController {
-        //todo remove magic names
-        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier("SplitViewController")
-        
-        return storyboard.instantiateController(withIdentifier: identifier) as! NSViewController
-    }
-}
-
