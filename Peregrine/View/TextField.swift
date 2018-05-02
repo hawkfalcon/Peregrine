@@ -6,7 +6,7 @@ class TextField: NSTextField {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        self.placeholderAttributedString = NSAttributedString.createAttributedString(color: .gistMediumGray, size: size, title: self.placeholderString!, alignment: .left)
+        self.placeholderAttributedString = NSAttributedString.create(color: .gistLightGray, size: size, title: self.placeholderString!, alignment: .left)
 
         self.textColor = .black
     }

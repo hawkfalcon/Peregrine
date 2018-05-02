@@ -17,8 +17,8 @@ class TextView: NSTextView {
         
         self.font = .systemFont(ofSize: 14)
         self.placeholderAttributedString =
-            NSAttributedString.createAttributedString(
-            color: .gistMediumGray,
+            NSAttributedString.create(
+            color: .gistLightGray,
             size: size, title: placeholderText,
             alignment: .left)
     }

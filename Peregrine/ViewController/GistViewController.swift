@@ -5,9 +5,9 @@ import ProgressKit
 class GistViewController: NSViewController {
     
 /* TODO:
-     - better failure states
-     - settings
+     - Better failure states
      - Onboarding
+     - Tests
  */
     
     /* Top login section */
@@ -29,11 +29,11 @@ class GistViewController: NSViewController {
     
     var loader = GitHubLoader()
     
-    var loggedIn = UserDefaults.standard.bool(forKey: "loggedInKey") {
+    var loggedIn = UserDefaults.standard.bool(forKey: UserDefaults.Key.loggedIn) {
         didSet {
             self.profileButton.logIn = self.loggedIn
             DispatchQueue.main.async {
-                UserDefaults.standard.set(self.loggedIn, forKey: "loggedInKey")
+                UserDefaults.standard.set(self.loggedIn, forKey: UserDefaults.Key.loggedIn)
             }
         }
     }
@@ -87,7 +87,7 @@ class GistViewController: NSViewController {
         }
         let link = Link(url: URL(string: link)!, description: desc)
 
-        UserDefaults.standard.addToList(key: Link.key, value: link)
+        UserDefaults.standard.addToList(key: UserDefaults.Key.links, value: link)
         NotificationCenter.default.post(name: .AddItem, object: nil)
     }
     

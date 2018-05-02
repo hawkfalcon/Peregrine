@@ -10,10 +10,6 @@ class CollapseViewController: NSViewController {
         }
     }
     
-    @IBAction func settings(_ sender: Any) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -6,7 +6,7 @@ class GistButton: TrackedButton, HoverableDelegate {
     lazy var grayTitle = createAttributedString(color: .gistGray, size: 24)
 
     override func customize() {
-        self.attributedTitle = blackTitle
+        self.attributedTitle = grayTitle
         self.delegate = self
 
         super.customize()
@@ -17,12 +17,12 @@ class GistButton: TrackedButton, HoverableDelegate {
     }
     
     func hoverStart() {
-        self.attributedTitle = grayTitle
+        self.attributedTitle = blackTitle
     }
     
     func hoverStop() {
         if self.isEnabled {
-            self.attributedTitle = blackTitle
+            self.attributedTitle = grayTitle
         }
     }
 }

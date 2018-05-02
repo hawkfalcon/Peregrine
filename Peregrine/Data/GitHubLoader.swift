@@ -13,7 +13,7 @@ import p2_OAuth2
 /**
 	Simple class handling authorization and data requests with GitHub.
  */
-class GitHubLoader: OAuth2DataLoader, DataLoader {
+class GitHubLoader: OAuth2DataLoader {
 	
 	let baseURL = URL(string: "https://api.github.com")!
 	
@@ -57,10 +57,6 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
 		}
 	}
     
-    func getGists(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
-        request(path: "gists", body: Data(), type: "GET", callback: callback)
-    }
-    
     func postGist(content: String, filename: String, description: String, secret: Bool,
         callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
 
@@ -74,8 +70,7 @@ class GitHubLoader: OAuth2DataLoader, DataLoader {
         request(path: "gists", body: paramsJson, type: "POST", callback: callback)
     }
 	
-	func requestUserdata(
-        callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
+	func requestUserdata(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
         request(path: "user", body: Data(), type: "GET", callback: callback)
 	}
 }

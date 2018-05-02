@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func clearLinks() {
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: Link.key)
+        defaults.removeObject(forKey: UserDefaults.Key.links)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
