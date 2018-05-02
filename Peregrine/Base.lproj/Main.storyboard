@@ -53,10 +53,10 @@
                                                 </connections>
                                             </button>
                                             <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="749" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
-                                                <rect key="frame" x="80" y="21" width="120" height="19"/>
+                                                <rect key="frame" x="80" y="18" width="120" height="24"/>
                                                 <buttonCell key="cell" type="square" title="Log In" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="system" size="16"/>
+                                                    <font key="font" metaFont="system" size="20"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="usernameButtonPress:" target="XfG-lQ-9wD" id="N68-EU-I4v"/>
@@ -94,7 +94,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zmy-eh-OAd" userLabel="OptionsSection">
-                                        <rect key="frame" x="0.0" y="266" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="270" width="320" height="54"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="9" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-NZ-qyS" userLabel="DescriptionSection">
                                                 <rect key="frame" x="0.0" y="32" width="320" height="22"/>
@@ -208,7 +208,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <scrollView focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="180" verifyAmbiguity="off" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
-                                        <rect key="frame" x="0.0" y="76" width="320" height="180"/>
+                                        <rect key="frame" x="0.0" y="80" width="320" height="180"/>
                                         <clipView key="contentView" focusRingType="none" copiesOnScroll="NO" id="qSO-ba-55L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,9 +238,9 @@
                                         <subviews>
                                             <button focusRingType="none" verticalHuggingPriority="750" tag="24" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="TexturedButton" customModule="Peregrine" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="8" width="300" height="53"/>
-                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45" customClass="ButtonCell" customModule="Peregrine" customModuleProvider="target">
+                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" enabled="NO" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45" customClass="ButtonCell" customModule="Peregrine" customModuleProvider="target">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" metaFont="system" size="24"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="gistButtonPress:" target="XfG-lQ-9wD" id="c2a-Ul-JIH"/>

@@ -86,15 +86,18 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
 
 extension TableViewController: NSSharingServicePickerDelegate {
     func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, sharingServicesForItems items: [Any], proposedSharingServices proposedServices: [NSSharingService]) -> [NSSharingService] {
-        var share = proposedServices
-        if let image = NSImage(named: NSImage.Name.copy) {
-            let customService = NSSharingService(title: "Copy Gist Link", image: image, alternateImage: image, handler: {
-                if let text = items.first as? String {
-                    self.setClipboard(text: text)
-                }
-            })
-            share.insert(customService, at: 0)
+        guard let image = NSImage(named: NSImage.Name.copy) else {
+            return proposedServices
         }
+        
+        var share = proposedServices
+        let customService = NSSharingService(title: "Copy Gist Link", image: image, alternateImage: image, handler: {
+            if let text = items.first as? String {
+                self.setClipboard(text: text)
+            }
+        })
+        share.insert(customService, at: 0)
+        
         return share
     }
 }

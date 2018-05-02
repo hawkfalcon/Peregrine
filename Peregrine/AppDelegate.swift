@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func clickMenuBar(_ sender: NSButton) {
         NSApplication.shared.activate(ignoringOtherApps: true)
         if let event = NSApp.currentEvent {
-            if event.type == NSEvent.EventType.rightMouseUp {
+            if event.type == .rightMouseUp {
                 statusItem.popUpMenu(menu)
             }
             else {
@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func showPopover() {
         if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         }
         eventMonitor?.start()
     }

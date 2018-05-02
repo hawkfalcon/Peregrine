@@ -4,12 +4,12 @@ class ProfileButton: TrackedButton {
     var logIn = false {
         didSet {
             size = logIn ? 16 : 12
-            hoverTitle = logIn ? Constants.logOut : Constants.logIn
+            hoverTitle = logIn ? Constants.Labels.logOut : Constants.Labels.logIn
         }
     }
   
     var size: CGFloat = 12
-    var hoverTitle = Constants.logIn
+    var hoverTitle = Constants.Labels.logIn
     
     override var title: String {
         didSet {

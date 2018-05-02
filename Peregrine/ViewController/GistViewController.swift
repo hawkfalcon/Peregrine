@@ -63,7 +63,7 @@ class GistViewController: NSViewController {
     }
     
     @IBAction func usernameButtonPress(_ sender: UsernameButton) {
-        if sender.title == Constants.logIn {
+        if sender.title == Constants.Labels.logIn {
             login()
         }
     }
@@ -93,7 +93,7 @@ class GistViewController: NSViewController {
     
     func createGist() {
         self.gistButton.isEnabled = false
-        self.gistButton.title = ""
+        self.gistButton.title = Constants.empty
         self.activityIndicator.animate = true
 
         let content = self.textView.string
@@ -102,26 +102,26 @@ class GistViewController: NSViewController {
         let secret = self.secretButton.selectedSegment == 0
         loader.postGist(content: content, filename: filename, description: description,
             secret: secret) { dict, error in
-                if let _ = error {
-                    self.usernameButton.title = "Error"
-                    //TODO ERROR
-                }
-                //TODO magic string
-                else if let gistUrl = dict?["html_url"] as? String {
-                    self.openTableView()
-                    self.addLinkToTable(link: gistUrl, description: description, filename: filename)
-                }
-                
-                self.activityIndicator.animate = false
-                self.textView.string = ""
-                self.descriptionField.stringValue = ""
-                self.filenameField.stringValue = ""
-                self.gistButton.reset()
+            if let _ = error {
+                self.usernameButton.title = "Error"
+                //TODO ERROR
+            }
+            //TODO magic string
+            else if let url = dict?[Constants.ResponseKey.url] as? String {
+                self.openTableView()
+                self.addLinkToTable(link: url, description: description, filename: filename)
+            }
+            
+            self.activityIndicator.animate = false
+            self.textView.string = Constants.empty
+            self.descriptionField.stringValue = Constants.empty
+            self.filenameField.stringValue = Constants.empty
+            self.gistButton.reset()
         }
     }
     
     func login() {
-        usernameButton.title = "Loading..."
+        usernameButton.title = Constants.Labels.loading
         profileButton.isEnabled = false
         
         // Configure OAuth2 window
@@ -135,19 +135,20 @@ class GistViewController: NSViewController {
             }
             else {
                 //TODO magic string
-                if let imgURL = dict?["avatar_url"] as? String {
-                    if let url = URL(string: imgURL), let data = try? Data(contentsOf: url) {
+                if let profileUrl = dict?[Constants.ResponseKey.profile] as? String {
+                    if let url = URL(string: profileUrl), let data = try? Data(contentsOf: url) {
                         self.profileButton.image = NSImage(data: data)
                     }
                 }
                 //TODO magic string
-                if let username = dict?["name"] as? String {
-                    self.usernameButton.title = "\(username)"
+                if let username = dict?[Constants.ResponseKey.username] as? String {
+                    self.usernameButton.title = username
                 }
                 
                 self.loggedIn = true
-                self.profileButton.isEnabled = true
             }
+            
+            self.profileButton.isEnabled = true
         }
     }
     
@@ -155,10 +156,9 @@ class GistViewController: NSViewController {
         self.loggedIn = false
         loader.oauth2.forgetTokens()
         
-        self.usernameButton.title = Constants.logIn
-        self.profileButton.title = ""
-        //TODO magic string
-        self.profileButton.image = NSImage(named: NSImage.Name("GitHub-White"))
+        self.usernameButton.title = Constants.Labels.logIn
+        self.profileButton.title = Constants.empty
+        self.profileButton.image = NSImage(named: .defaultProfile)
     }
 
     func openTableView() {
@@ -172,7 +172,7 @@ class GistViewController: NSViewController {
     func browseFile() {
         let panel = NSOpenPanel()
         
-        panel.title = "Choose a file"
+        panel.title = Constants.Labels.panel
         panel.showsResizeIndicator = true
         panel.showsHiddenFiles = false
         panel.canChooseDirectories = false
@@ -180,10 +180,13 @@ class GistViewController: NSViewController {
         panel.allowsMultipleSelection = false
         //dialog.allowedFileTypes = ["txt"]
         
-        //TODO unwrap
-        let window = self.view.window!
+        guard let window = self.view.window else {
+            return
+        }
         panel.beginSheetModal(for: window) { (response) in
-            if response == .OK {
+            if response != .OK {
+                return // Cancelled
+            }
             if let result = panel.url {
                 do {
                     let contents = try String(contentsOf: result)
@@ -195,9 +198,6 @@ class GistViewController: NSViewController {
                     //TODO ERROR
                 }
             }
-        } else {
-            // Cancelled
-        }
         }
     }
 }
