@@ -32,9 +32,7 @@ class GistViewController: NSViewController {
     var loggedIn = UserDefaults.standard.bool(forKey: UserDefaults.Key.loggedIn) {
         didSet {
             self.profileButton.logIn = self.loggedIn
-            DispatchQueue.main.async {
-                UserDefaults.standard.set(self.loggedIn, forKey: UserDefaults.Key.loggedIn)
-            }
+            UserDefaults.standard.set(self.loggedIn, forKey: UserDefaults.Key.loggedIn)
         }
     }
 
@@ -46,7 +44,10 @@ class GistViewController: NSViewController {
     }
 
     func setupView() {
-        self.fileSection.isHidden = true
+        self.fileSection.isHidden =
+            !UserDefaults.standard.bool(forKey: UserDefaults.Key.fileSectionCollapsed)
+        self.secretButton.setSelected(true, forSegment:
+            UserDefaults.standard.integer(forKey: UserDefaults.Key.secretButtonState))
         if self.loggedIn {
             login()
         }
@@ -69,6 +70,7 @@ class GistViewController: NSViewController {
     
     @IBAction func toggleFileSection(_ sender: NSButton) {
         self.fileSection.isHidden = !self.fileSection.isHidden
+        UserDefaults.standard.set(!self.fileSection.isHidden, forKey: UserDefaults.Key.fileSectionCollapsed)
     }
     
     @IBAction func importButtonPressed(_ sender: NSButton) {
@@ -78,6 +80,11 @@ class GistViewController: NSViewController {
     @IBAction func gistButtonPress(_ sender: NSButton) {
         createGist()
     }
+    
+    @IBAction func secretButtonPressed(_ sender: SegmentedControl) {
+        UserDefaults.standard.set(sender.selectedSegment, forKey: UserDefaults.Key.secretButtonState)
+    }
+    
     
     func addLinkToTable(link: String, description: String, filename: String) {
         var desc = description

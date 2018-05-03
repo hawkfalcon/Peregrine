@@ -71,6 +71,9 @@
                                                         <segment toolTip="Public" image="globe" selected="YES" tag="1"/>
                                                     </segments>
                                                 </segmentedCell>
+                                                <connections>
+                                                    <action selector="secretButtonPressed:" target="XfG-lQ-9wD" id="oIc-vJ-VXg"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <edgeInsets key="edgeInsets" left="10" right="10" top="10" bottom="10"/>
