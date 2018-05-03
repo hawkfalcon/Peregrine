@@ -47,7 +47,6 @@ class GistViewController: NSViewController {
 
     func setupView() {
         self.fileSection.isHidden = true
-        self.gistButton.isEnabled = false
         if self.loggedIn {
             login()
         }

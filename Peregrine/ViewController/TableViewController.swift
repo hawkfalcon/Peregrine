@@ -31,19 +31,19 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? TableRowView
-        let object = self.links[row]
-        let text = object.description != "" ? object.description : "\(object.url.absoluteString.prefix(38))..."
+        let link = self.links[row]
+        let text = link.description != "" ? link.description : link.url.absoluteString
     
-        cell?.text.stringValue = text
+        cell?.text.stringValue = "\(text.prefix(38))..."
         cell?.button.tag = row
 
         return cell
     }
     
     @IBAction func shareSheet(_ sender: NSButton) {
-        let object = self.links[sender.tag]
-        var text = object.description != "" ? "\(object.description)\n" : ""
-        text += object.url.absoluteString
+        let link = self.links[sender.tag]
+        var text = link.description != "" ? "\(link.description)\n" : ""
+        text += link.url.absoluteString
         
         let sharingPicker = NSSharingServicePicker(items: [text])
         sharingPicker.delegate = self

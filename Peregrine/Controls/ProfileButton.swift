@@ -22,6 +22,6 @@ class ProfileButton: TrackedButton {
     }
     
     override func hoverStop() {
-        self.title = ""
+        self.title = Constants.empty
     }
 }
