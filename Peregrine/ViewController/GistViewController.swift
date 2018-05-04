@@ -4,12 +4,6 @@ import ProgressKit
 
 class GistViewController: NSViewController {
     
-/* TODO:
-     - Better failure states
-     - Onboarding
-     - Tests
- */
-    
     /* Top login section */
     @IBOutlet weak var usernameButton: UsernameButton!
     @IBOutlet weak var profileButton: ProfileButton!
@@ -66,7 +60,7 @@ class GistViewController: NSViewController {
     }
     
     @IBAction func usernameButtonPress(_ sender: UsernameButton) {
-        if sender.title == Constants.Labels.logIn {
+        if !self.loggedIn {
             login()
         }
     }
@@ -87,7 +81,6 @@ class GistViewController: NSViewController {
     @IBAction func secretButtonPressed(_ sender: SegmentedControl) {
         UserDefaults.standard.set(sender.selectedSegment, forKey: UserDefaults.Key.secretButtonState)
     }
-    
     
     func addLinkToTable(link: String, description: String, filename: String) {
         var desc = description
@@ -112,20 +105,22 @@ class GistViewController: NSViewController {
         loader.postGist(content: content, filename: filename, description: description,
             secret: secret) { dict, error in
             if let _ = error {
-                self.usernameButton.title = "Error"
-                //TODO ERROR
+                self.gistButton.title = Constants.Errors.gistError
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                    self.gistButton.isEnabled = self.textView.string != ""
+                }
             }
-            //TODO magic string
             else if let url = dict?[Constants.ResponseKey.url] as? String {
                 self.openTableView()
                 self.addLinkToTable(link: url, description: description, filename: filename)
+                
+                self.textView.string = Constants.empty
+                self.descriptionField.stringValue = Constants.empty
+                self.filenameField.stringValue = Constants.empty
+                self.gistButton.attributedTitle = self.gistButton.grayTitle
             }
             
             self.activityIndicator.animate = false
-            self.textView.string = Constants.empty
-            self.descriptionField.stringValue = Constants.empty
-            self.filenameField.stringValue = Constants.empty
-            self.gistButton.reset()
         }
     }
     
@@ -139,17 +134,15 @@ class GistViewController: NSViewController {
         // Request user data
         loader.requestUserdata() { dict, error in
             if let _ = error {
-                self.usernameButton.title = "Error"
-                //TODO ERROR
+                self.usernameButton.title = Constants.Errors.logInError
+                self.loggedIn = false
             }
             else {
-                //TODO magic string
                 if let profileUrl = dict?[Constants.ResponseKey.profile] as? String {
                     if let url = URL(string: profileUrl), let data = try? Data(contentsOf: url) {
                         self.profileButton.image = NSImage(data: data)
                     }
                 }
-                //TODO magic string
                 if let username = dict?[Constants.ResponseKey.username] as? String {
                     self.usernameButton.title = username
                 }
@@ -207,7 +200,7 @@ class GistViewController: NSViewController {
                     self.gistButton.isEnabled = true
                 }
                 catch _ {
-                    //TODO ERROR
+                    self.filenameField.stringValue = Constants.Errors.fileError
                 }
             }
         }
@@ -234,6 +227,6 @@ extension UserDefaults {
 
 extension GistViewController: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
-        self.gistButton.isEnabled = loggedIn && textView.string != ""
+        self.gistButton.isEnabled = self.loggedIn && self.textView.string != ""
     }
 }

@@ -16,10 +16,12 @@ class TrackedButton: BasicButton, Hoverable {
     }
     
     override func mouseEntered(with event: NSEvent) {
+        super.mouseEntered(with: event)
         hoverStart()
     }
     
     override func mouseExited(with event: NSEvent) {
+        super.mouseExited(with: event)
         hoverStop()
     }
     

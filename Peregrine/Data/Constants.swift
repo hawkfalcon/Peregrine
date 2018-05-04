@@ -43,6 +43,12 @@ struct Constants {
         static let gist = "Create Gist"
     }
     
+    struct Errors {
+        static let logInError = "Try again? 😣"
+        static let gistError = "Something is wrong 😰"
+        static let fileError = "Invalid file 👾"
+    }
+    
     struct ResponseKey {
         static let username = "name"
         static let profile = "avatar_url"

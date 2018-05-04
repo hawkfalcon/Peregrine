@@ -97,12 +97,12 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zmy-eh-OAd" userLabel="OptionsSection">
-                                        <rect key="frame" x="0.0" y="266" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="270" width="320" height="54"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="9" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-NZ-qyS" userLabel="DescriptionSection">
                                                 <rect key="frame" x="0.0" y="32" width="320" height="22"/>
                                                 <subviews>
-                                                    <textField focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="269" placeholderIntrinsicHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
+                                                    <textField focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="269" placeholderIntrinsicHeight="22" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-P3-cCD" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="0.0" width="269" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="vIV-3T-Fh6"/>
@@ -116,12 +116,13 @@
                                                             <outlet property="nextKeyView" destination="ome-rW-50L" id="i4V-7V-Q9b"/>
                                                         </connections>
                                                     </textField>
-                                                    <button focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fx-ec-hHI" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
+                                                    <button identifier="Expand Filename Section" toolTip="Expand Filename Section" focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Fx-ec-hHI" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
                                                         <rect key="frame" x="285" y="-2" width="29" height="26"/>
                                                         <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" refusesFirstResponder="YES" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="dFR-wf-kYp">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <accessibility description="Expand Filename Section"/>
                                                         <connections>
                                                             <action selector="toggleFileSection:" target="XfG-lQ-9wD" id="XT3-yc-K4K"/>
                                                         </connections>
@@ -151,7 +152,7 @@
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="9" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqc-F4-6A4" userLabel="FileSection">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
                                                 <subviews>
-                                                    <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVd-Fx-bq4" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
+                                                    <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="22" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BVd-Fx-bq4" customClass="TextField" customModule="Peregrine" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="0.0" width="211" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="IhO-ap-hIJ"/>
@@ -365,12 +366,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="28"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uzu-DR-nqJ" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
+                            <button identifier="Expand History Section" toolTip="Expand History Section" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uzu-DR-nqJ" customClass="TrackedButton" customModule="Peregrine" customModuleProvider="target">
                                 <rect key="frame" x="146" y="0.0" width="29" height="26"/>
                                 <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="buttonCell:Cdf-Xy-IeN:image" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cdf-Xy-IeN">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <accessibility description="Expand History Section"/>
                                 <connections>
                                     <action selector="collapse:" target="jCX-gl-YfY" id="vzq-13-TKL"/>
                                 </connections>
@@ -439,7 +441,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-IB-M6b" customClass="ShareButton" customModule="Peregrine" customModuleProvider="target">
+                                                        <button toolTip="Share" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-IB-M6b" customClass="ShareButton" customModule="Peregrine" customModuleProvider="target">
                                                             <rect key="frame" x="260" y="5" width="30" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="qut-IM-cPK"/>

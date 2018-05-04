@@ -20,8 +20,4 @@ class TexturedButton: TrackedButton {
             self.attributedTitle = grayTitle
         }
     }
-    
-    func reset() {
-        self.attributedTitle = grayTitle
-    }
 }
