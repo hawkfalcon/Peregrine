@@ -39,6 +39,8 @@ struct Constants {
         static let logIn = "Log In"
         static let logOut = "Log Out"
         static let panel = "Choose a file"
+        static let notLoggedIn = "Please Log In First 😊"
+        static let gist = "Create Gist"
     }
     
     struct ResponseKey {

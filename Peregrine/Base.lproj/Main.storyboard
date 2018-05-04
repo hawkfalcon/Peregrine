@@ -97,7 +97,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zmy-eh-OAd" userLabel="OptionsSection">
-                                        <rect key="frame" x="0.0" y="270" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="266" width="320" height="54"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="9" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-NZ-qyS" userLabel="DescriptionSection">
                                                 <rect key="frame" x="0.0" y="32" width="320" height="22"/>
@@ -239,11 +239,11 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ym5-J5-R08" userLabel="GistSection">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <subviews>
-                                            <button focusRingType="none" verticalHuggingPriority="750" tag="24" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="TexturedButton" customModule="Peregrine" customModuleProvider="target">
+                                            <button focusRingType="none" verticalHuggingPriority="750" tag="28" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="TexturedButton" customModule="Peregrine" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="8" width="300" height="53"/>
-                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" enabled="NO" borderStyle="border" focusRingType="none" inset="2" id="Gtm-3b-r45" customClass="ButtonCell" customModule="Peregrine" customModuleProvider="target">
+                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" enabled="NO" borderStyle="border" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45" customClass="ButtonCell" customModule="Peregrine" customModuleProvider="target">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system" size="24"/>
+                                                    <font key="font" metaFont="system" size="28"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="gistButtonPress:" target="XfG-lQ-9wD" id="c2a-Ul-JIH"/>

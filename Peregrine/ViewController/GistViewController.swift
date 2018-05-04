@@ -51,6 +51,9 @@ class GistViewController: NSViewController {
         if self.loggedIn {
             login()
         }
+        else {
+            self.gistButton.title = Constants.Labels.notLoggedIn
+        }
     }
     
     @IBAction func profileButtonPress(_ sender: NSButton) {
@@ -152,6 +155,8 @@ class GistViewController: NSViewController {
                 }
                 
                 self.loggedIn = true
+                self.gistButton.title = Constants.Labels.gist
+                self.profileButton.title = Constants.empty
             }
             
             self.profileButton.isEnabled = true
@@ -165,6 +170,7 @@ class GistViewController: NSViewController {
         self.usernameButton.title = Constants.Labels.logIn
         self.profileButton.title = Constants.empty
         self.profileButton.image = NSImage(named: .defaultProfile)
+        self.gistButton.title = Constants.Labels.notLoggedIn
     }
 
     func openTableView() {
@@ -228,6 +234,6 @@ extension UserDefaults {
 
 extension GistViewController: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
-        self.gistButton.isEnabled = textView.string != ""
+        self.gistButton.isEnabled = loggedIn && textView.string != ""
     }
 }
