@@ -32,9 +32,12 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         let cell = tableView.makeView(withIdentifier: .init("Cell"), owner: nil) as? TableRowView
         let link = self.links[row]
-        let text = link.description != "" ? link.description : link.url.absoluteString
+        var text = link.description != "" ? link.description : link.url.absoluteString
+        if text.count >= Constants.maxStringLength {
+            text = "\(text.prefix(Constants.maxStringLength))..."
+        }
     
-        cell?.text.stringValue = "\(text.prefix(38))..."
+        cell?.text.stringValue = text
         cell?.button.tag = row
 
         return cell
