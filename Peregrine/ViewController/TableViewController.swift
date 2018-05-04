@@ -45,10 +45,8 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     
     @IBAction func shareSheet(_ sender: NSButton) {
         let link = self.links[sender.tag]
-        var text = link.description != "" ? "\(link.description)\n" : ""
-        text += link.url.absoluteString
-        
-        let sharingPicker = NSSharingServicePicker(items: [text])
+
+        let sharingPicker = NSSharingServicePicker(items: [link.url])
         sharingPicker.delegate = self
         
         sharingPicker.show(relativeTo: NSZeroRect, of: sender, preferredEdge: .minY)
@@ -95,8 +93,8 @@ extension TableViewController: NSSharingServicePickerDelegate {
         
         var share = proposedServices
         let customService = NSSharingService(title: "Copy Gist Link", image: image, alternateImage: image, handler: {
-            if let text = items.first as? String {
-                self.setClipboard(text: text)
+            if let link = items.first as? URL {
+                self.setClipboard(text: link.absoluteString)
             }
         })
         share.insert(customService, at: 0)
