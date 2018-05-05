@@ -160,6 +160,14 @@ class GistViewController: NSViewController {
         self.loggedIn = false
         loader.oauth2.forgetTokens()
         
+        /* Eat cookies on log out */
+        let storage = HTTPCookieStorage.shared
+        if let cookies = storage.cookies {
+            for cookie in cookies {
+                storage.deleteCookie(cookie)
+            }
+        }
+        
         self.usernameButton.title = Constants.Labels.logIn
         self.profileButton.title = Constants.empty
         self.profileButton.image = NSImage(named: .defaultProfile)

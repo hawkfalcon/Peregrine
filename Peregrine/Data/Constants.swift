@@ -50,7 +50,7 @@ struct Constants {
     }
     
     struct ResponseKey {
-        static let username = "name"
+        static let username = "login"
         static let profile = "avatar_url"
         static let url = "html_url"
     }
