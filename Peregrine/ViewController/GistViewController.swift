@@ -37,6 +37,14 @@ class GistViewController: NSViewController {
         
         super.viewDidLoad()
     }
+    
+    override func viewWillDisappear() {
+        if loader.oauth2.isAuthorizing {
+            loader.oauth2.abortAuthorization()
+        }
+        
+        super.viewWillDisappear()
+    }
 
     func setupView() {
         // Restore previous state
