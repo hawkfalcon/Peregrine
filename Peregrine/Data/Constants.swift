@@ -32,26 +32,27 @@ extension NSStoryboard.SceneIdentifier {
 
 struct Constants {
     static let maxStringLength = 38
+}
+
+struct Labels {
     static let empty = ""
-    
-    struct Labels {
-        static let loading = "Loading..."
-        static let logIn = "Log In"
-        static let logOut = "Log Out"
-        static let panel = "Choose a file"
-        static let notLoggedIn = "Please Log In First 😊"
-        static let gist = "Create Gist"
-    }
-    
-    struct Errors {
-        static let logInError = "Try again? 😣"
-        static let gistError = "Something is wrong 😰"
-        static let fileError = "Invalid file 👾"
-    }
-    
-    struct ResponseKey {
-        static let username = "login"
-        static let profile = "avatar_url"
-        static let url = "html_url"
-    }
+    static let loading = "Loading..."
+    static let logIn = "Log In"
+    static let logOut = "Log Out"
+    static let panel = "Choose a file"
+    static let notLoggedIn = "Please Log In First 😊"
+    static let gist = "Create Gist"
+    static let defaultUsername = "Username"
+}
+
+struct Errors {
+    static let logInError = "Try again? 😣"
+    static let gistError = "Something is wrong 😰"
+    static let fileError = "Invalid file 👾"
+}
+
+struct ResponseKey {
+    static let username = "login"
+    static let profile = "avatar_url"
+    static let url = "html_url"
 }

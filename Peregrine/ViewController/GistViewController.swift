@@ -46,7 +46,7 @@ class GistViewController: NSViewController {
             login()
         }
         else {
-            self.gistButton.title = Constants.Labels.notLoggedIn
+            self.gistButton.title = Labels.notLoggedIn
         }
     }
     
@@ -100,7 +100,7 @@ class GistViewController: NSViewController {
     
     func createGist() {
         self.gistButton.isEnabled = false
-        self.gistButton.title = Constants.empty
+        self.gistButton.title = Labels.empty
         self.activityIndicator.animate = true
 
         let content = self.textView.string
@@ -110,19 +110,19 @@ class GistViewController: NSViewController {
         loader.postGist(content: content, filename: filename, description: description,
             secret: secret) { dict, error in
             if let _ = error {
-                self.gistButton.title = Constants.Errors.gistError
+                self.gistButton.title = Errors.gistError
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                     self.gistButton.isEnabled = self.textView.string != ""
                 }
             }
-            else if let url = dict?[Constants.ResponseKey.url] as? String {
+            else if let url = dict?[ResponseKey.url] as? String {
                 self.openTableView()
                 self.addLinkToTable(link: url, description: description, filename: filename)
                 
-                self.textView.string = Constants.empty
-                self.descriptionField.stringValue = Constants.empty
-                self.filenameField.stringValue = Constants.empty
-                self.gistButton.title = Constants.Labels.gist
+                self.textView.string = Labels.empty
+                self.descriptionField.stringValue = Labels.empty
+                self.filenameField.stringValue = Labels.empty
+                self.gistButton.title = Labels.gist
             }
             
             self.activityIndicator.animate = false
@@ -130,7 +130,7 @@ class GistViewController: NSViewController {
     }
     
     func login() {
-        usernameButton.title = Constants.Labels.loading
+        usernameButton.title = Labels.loading
         profileButton.isEnabled = false
         
         // Configure OAuth2 window
@@ -139,23 +139,21 @@ class GistViewController: NSViewController {
         // Request user data
         loader.requestUserdata() { dict, error in
             if let _ = error {
-                self.usernameButton.title = Constants.Errors.logInError
                 self.loggedIn = false
+                self.usernameButton.title = Errors.logInError
             }
             else {
-                if let profileUrl = dict?[Constants.ResponseKey.profile] as? String {
+                self.loggedIn = true
+                let username = dict?[ResponseKey.username] as? String ?? Labels.defaultUsername
+                var profileImage = NSImage(named: .defaultProfile)
+                
+                if let profileUrl = dict?[ResponseKey.profile] as? String {
                     if let url = URL(string: profileUrl), let data = try? Data(contentsOf: url) {
-                        self.profileButton.image = NSImage(data: data)
+                        profileImage = NSImage(data: data)
                     }
                 }
-                if let username = dict?[Constants.ResponseKey.username] as? String {
-                    self.usernameButton.title = username
-                }
-                
-                self.loggedIn = true
-                self.gistButton.title = Constants.Labels.gist
-                self.profileButton.title = Constants.empty
-                self.gistButton.isEnabled = self.textView.string != ""
+
+                self.loginView(username: username, image: profileImage)
             }
             
             self.profileButton.isEnabled = true
@@ -174,10 +172,26 @@ class GistViewController: NSViewController {
             }
         }
         
-        self.usernameButton.title = Constants.Labels.logIn
-        self.profileButton.title = Constants.empty
+        self.resetView()
+    }
+    
+    func loginView(username: String, image: NSImage?) {
+        self.usernameButton.title = username
+        self.usernameButton.untrackHover()
+        self.usernameButton.isHoverCursorHand = false
+        self.profileButton.title = Labels.empty
+        self.profileButton.image = image
+        self.gistButton.title = Labels.gist
+        self.gistButton.isEnabled = self.textView.string != ""
+    }
+    
+    func resetView() {
+        self.usernameButton.title = Labels.logIn
+        self.usernameButton.trackHover()
+        self.usernameButton.isHoverCursorHand = true
+        self.profileButton.title = Labels.empty
         self.profileButton.image = NSImage(named: .defaultProfile)
-        self.gistButton.title = Constants.Labels.notLoggedIn
+        self.gistButton.title = Labels.notLoggedIn
     }
 
     func openTableView() {
@@ -191,7 +205,7 @@ class GistViewController: NSViewController {
     func browseFile() {
         let panel = NSOpenPanel()
         
-        panel.title = Constants.Labels.panel
+        panel.title = Labels.panel
         panel.showsResizeIndicator = true
         panel.showsHiddenFiles = false
         panel.canChooseDirectories = false
@@ -214,7 +228,7 @@ class GistViewController: NSViewController {
                     self.gistButton.isEnabled = true
                 }
                 catch _ {
-                    self.filenameField.stringValue = Constants.Errors.fileError
+                    self.filenameField.stringValue = Errors.fileError
                 }
             }
         }

@@ -5,15 +5,31 @@ protocol Hoverable {
 }
 
 class TrackedButton: BasicButton, Hoverable {
+    var isHoverCursorHand = true {
+        didSet {
+            // Remove hand cursor for disabled buttons
+            self.window?.invalidateCursorRects(for: self)
+        }
+    }
     
+    override var isEnabled: Bool {
+        didSet {
+            isHoverCursorHand = isEnabled
+        }
+    }
+        
+    // Swich to hand cursor over button
+    override func resetCursorRects() {
+        if isHoverCursorHand {
+            self.discardCursorRects()
+            self.addCursorRect(self.bounds, cursor: .pointingHand)
+        }
+    }
+    
+    // Recalculate tracking bounds if frame changes
     override func updateTrackingAreas() {
         super.updateTrackingAreas()
         self.trackHover()
-    }
-    
-    override func resetCursorRects() {
-        self.discardCursorRects()
-        self.addCursorRect(self.bounds, cursor: .pointingHand)
     }
     
     override func mouseEntered(with event: NSEvent) {
@@ -31,10 +47,14 @@ class TrackedButton: BasicButton, Hoverable {
 }
 
 extension Hoverable where Self: NSView {
-    func trackHover() {
+    func untrackHover() {
         if let trackingArea = self.trackingAreas.first {
             self.removeTrackingArea(trackingArea)
         }
+    }
+    
+    func trackHover() {
+        untrackHover()
         
         let area = NSTrackingArea.init(rect: self.bounds,
             options: [.mouseEnteredAndExited, .activeInKeyWindow],

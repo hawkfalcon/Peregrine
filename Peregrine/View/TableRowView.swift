@@ -15,7 +15,14 @@ class TableRowView: NSTableRowView, Hoverable {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
-    
+
+/*  Uncomment to show hand cursor
+    override func resetCursorRects() {
+        self.discardCursorRects()
+        self.addCursorRect(self.bounds, cursor: .pointingHand)
+    }
+ */
+ 
     override var isEmphasized: Bool {
         set {}
         get {
