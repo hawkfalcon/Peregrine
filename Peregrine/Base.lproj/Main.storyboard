@@ -52,12 +52,20 @@
                                                     <action selector="profileButtonPress:" target="XfG-lQ-9wD" id="qs3-Am-neJ"/>
                                                 </connections>
                                             </button>
-                                            <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="749" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="UsernameButton" customModule="Peregrine" customModuleProvider="target">
+                                            <button focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="749" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="73E-t4-r88" customClass="HoverTextButton" customModule="Peregrine" customModuleProvider="target">
                                                 <rect key="frame" x="80" y="18" width="120" height="24"/>
                                                 <buttonCell key="cell" type="square" title="Log In" bezelStyle="shadowlessSquare" alignment="left" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="m17-aJ-2IZ">
                                                     <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system" size="20"/>
                                                 </buttonCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="baseColor">
+                                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="usernameButtonPress:" target="XfG-lQ-9wD" id="N68-EU-I4v"/>
                                                 </connections>
@@ -97,7 +105,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zmy-eh-OAd" userLabel="OptionsSection">
-                                        <rect key="frame" x="0.0" y="270" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="266" width="320" height="54"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="9" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7O-NZ-qyS" userLabel="DescriptionSection">
                                                 <rect key="frame" x="0.0" y="32" width="320" height="22"/>
@@ -166,12 +174,20 @@
                                                             <outlet property="nextKeyView" destination="ome-rW-50L" id="Esv-Mh-FG0"/>
                                                         </connections>
                                                     </textField>
-                                                    <button verticalHuggingPriority="750" tag="13" translatesAutoresizingMaskIntoConstraints="NO" id="xzt-KT-Uhg" customClass="TexturedButton" customModule="Peregrine" customModuleProvider="target">
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xzt-KT-Uhg" customClass="HoverTextButton" customModule="Peregrine" customModuleProvider="target">
                                                         <rect key="frame" x="231" y="-2" width="79" height="25"/>
                                                         <buttonCell key="cell" type="roundTextured" title="Import File" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g3Q-Ys-eSi">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="hoverColor">
+                                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="importButtonPressed:" target="XfG-lQ-9wD" id="8OS-j3-tVT"/>
                                                         </connections>
@@ -240,12 +256,20 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ym5-J5-R08" userLabel="GistSection">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <subviews>
-                                            <button focusRingType="none" verticalHuggingPriority="750" tag="28" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="TexturedButton" customModule="Peregrine" customModuleProvider="target">
+                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-uv-L3A" customClass="HoverTextButton" customModule="Peregrine" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="8" width="300" height="53"/>
-                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" enabled="NO" borderStyle="border" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45" customClass="ButtonCell" customModule="Peregrine" customModuleProvider="target">
+                                                <buttonCell key="cell" type="squareTextured" title="Create Gist" bezelStyle="texturedSquare" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyUpOrDown" inset="2" id="Gtm-3b-r45" customClass="ButtonCell" customModule="Peregrine" customModuleProvider="target">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system" size="28"/>
                                                 </buttonCell>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                        <real key="value" value="28"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="hoverColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="gistButtonPress:" target="XfG-lQ-9wD" id="c2a-Ul-JIH"/>
                                                 </connections>

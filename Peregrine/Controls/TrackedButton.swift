@@ -5,6 +5,7 @@ protocol Hoverable {
 }
 
 class TrackedButton: BasicButton, Hoverable {
+    
     override func updateTrackingAreas() {
         super.updateTrackingAreas()
         self.trackHover()

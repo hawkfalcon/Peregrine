@@ -5,7 +5,7 @@ import ProgressKit
 class GistViewController: NSViewController {
     
     /* Top login section */
-    @IBOutlet weak var usernameButton: UsernameButton!
+    @IBOutlet weak var usernameButton: HoverTextButton!
     @IBOutlet weak var profileButton: ProfileButton!
     @IBOutlet weak var secretButton: SegmentedControl!
     @IBOutlet weak var descriptionField: TextField!
@@ -18,7 +18,7 @@ class GistViewController: NSViewController {
     @IBOutlet var textView: TextView!
     
     /* Gist section */
-    @IBOutlet weak var gistButton: TexturedButton!
+    @IBOutlet weak var gistButton: HoverTextButton!
     @IBOutlet weak var activityIndicator: ShootingStars!
     
     var loader = GitHubLoader()
@@ -59,7 +59,7 @@ class GistViewController: NSViewController {
         }
     }
     
-    @IBAction func usernameButtonPress(_ sender: UsernameButton) {
+    @IBAction func usernameButtonPress(_ sender: HoverTextButton) {
         if !self.loggedIn {
             login()
         }
@@ -75,7 +75,12 @@ class GistViewController: NSViewController {
     }
     
     @IBAction func gistButtonPress(_ sender: NSButton) {
-        createGist()
+        if loggedIn {
+            createGist()
+        }
+        else {
+            login()
+        }
     }
     
     @IBAction func secretButtonPressed(_ sender: SegmentedControl) {
@@ -117,7 +122,7 @@ class GistViewController: NSViewController {
                 self.textView.string = Constants.empty
                 self.descriptionField.stringValue = Constants.empty
                 self.filenameField.stringValue = Constants.empty
-                self.gistButton.attributedTitle = self.gistButton.grayTitle
+                self.gistButton.title = Constants.Labels.gist
             }
             
             self.activityIndicator.animate = false
@@ -150,6 +155,7 @@ class GistViewController: NSViewController {
                 self.loggedIn = true
                 self.gistButton.title = Constants.Labels.gist
                 self.profileButton.title = Constants.empty
+                self.gistButton.isEnabled = self.textView.string != ""
             }
             
             self.profileButton.isEnabled = true
