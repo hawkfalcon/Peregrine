@@ -1,6 +1,7 @@
 import Cocoa
 
 class SplitViewController: NSSplitViewController {
+    lazy var tableItem = self.splitViewItems.last
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,4 +20,11 @@ class SplitViewController: NSSplitViewController {
     override func splitView(_ splitView: NSSplitView, shouldHideDividerAt dividerIndex: Int) -> Bool {
         return true
     }
+    
+    func setCollapseToggleOn() {
+        if let collapse = self.childViewControllers[1] as? CollapseViewController {
+            collapse.collapseToggle.state = .on
+        }
+    }
 }
+

@@ -1,26 +1,22 @@
 import Cocoa
 
 class CollapseViewController: NSViewController {
-    func listViewItem() -> NSSplitViewItem? {
-        if let parent = self.parent as? SplitViewController {
-            if let listViewItem = parent.splitViewItems.last {
-                return listViewItem
-            }
-        }
-        return nil
-    }
+    @IBOutlet weak var collapseToggle: TrackedButton!
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        if let collapsible = listViewItem() {
-            collapsible.isCollapsed = !UserDefaults.standard.bool(forKey: UserDefaults.Key.tableViewExpanded)
+        if let split = self.parent as? SplitViewController, let collapsable = split.tableItem {
+            collapsable.isCollapsed = !UserDefaults.standard.bool(forKey: UserDefaults.Key.tableViewExpanded)
+            if collapsable.isCollapsed {
+                collapseToggle.state = .off
+            }
         }
     }
     
     @IBAction func collapse(_ sender: Any) {
-        if let collapsible = listViewItem() {
-            collapsible.isCollapsed = !collapsible.isCollapsed
-            UserDefaults.standard.set(!collapsible.isCollapsed, forKey: UserDefaults.Key.tableViewExpanded)
+        if let split = self.parent as? SplitViewController, let collapsable = split.tableItem {
+            collapsable.isCollapsed = !collapsable.isCollapsed
+            UserDefaults.standard.set(!collapsable.isCollapsed, forKey: UserDefaults.Key.tableViewExpanded)
         }
     }
 }

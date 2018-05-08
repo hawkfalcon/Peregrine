@@ -16,7 +16,7 @@ extension UserDefaults {
     struct Key {
         static let links = "linksKey"
         static let loggedIn = "loggedInKey"
-        static let fileSectionCollapsed = "fileSectionCollapsedKey"
+        static let fileSectionExpanded = "fileSectionExpandedKey"
         static let secretButtonState = "secretButtonStateKey"
         static let tableViewExpanded = "tableViewExpandedKey"
     }

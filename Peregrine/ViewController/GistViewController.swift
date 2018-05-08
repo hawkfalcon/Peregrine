@@ -12,6 +12,7 @@ class GistViewController: NSViewController {
     
     /* File collapsible section */
     @IBOutlet weak var fileSection: NSStackView!
+    @IBOutlet weak var fileSectionToggle: TrackedButton!
     @IBOutlet weak var filenameField: TextField!
     @IBOutlet weak var importButton: TrackedButton!
     
@@ -38,15 +39,19 @@ class GistViewController: NSViewController {
     }
 
     func setupView() {
-        self.fileSection.isHidden =
-            !UserDefaults.standard.bool(forKey: UserDefaults.Key.fileSectionCollapsed)
+        // Restore previous state
+        let fileSectionExpanded = UserDefaults.standard.bool(forKey: UserDefaults.Key.fileSectionExpanded)
+        self.fileSection.isHidden = !fileSectionExpanded
+        if fileSectionExpanded {
+            self.fileSectionToggle.state = .on
+        }
         self.secretButton.setSelected(true, forSegment:
             UserDefaults.standard.integer(forKey: UserDefaults.Key.secretButtonState))
+        
+        self.usernameButton.title = Labels.logIn
+        self.gistButton.title = Labels.notLoggedIn
         if self.loggedIn {
             login()
-        }
-        else {
-            self.gistButton.title = Labels.notLoggedIn
         }
     }
     
@@ -67,7 +72,7 @@ class GistViewController: NSViewController {
     
     @IBAction func toggleFileSection(_ sender: NSButton) {
         self.fileSection.isHidden = !self.fileSection.isHidden
-        UserDefaults.standard.set(!self.fileSection.isHidden, forKey: UserDefaults.Key.fileSectionCollapsed)
+        UserDefaults.standard.set(!self.fileSection.isHidden, forKey: UserDefaults.Key.fileSectionExpanded)
     }
     
     @IBAction func importButtonPressed(_ sender: NSButton) {
@@ -130,9 +135,6 @@ class GistViewController: NSViewController {
     }
     
     func login() {
-        usernameButton.title = Labels.loading
-        profileButton.isEnabled = false
-        
         // Configure OAuth2 window
         loader.oauth2.authConfig.authorizeContext = view.window
         
@@ -155,8 +157,6 @@ class GistViewController: NSViewController {
 
                 self.loginView(username: username, image: profileImage)
             }
-            
-            self.profileButton.isEnabled = true
         }
     }
     
@@ -192,13 +192,13 @@ class GistViewController: NSViewController {
         self.profileButton.title = Labels.empty
         self.profileButton.image = NSImage(named: .defaultProfile)
         self.gistButton.title = Labels.notLoggedIn
+        self.gistButton.isEnabled = true
     }
 
     func openTableView() {
-        if let parent = self.parent as? SplitViewController {
-            if let listViewItem = parent.splitViewItems.last {
-                listViewItem.isCollapsed = false
-            }
+        if let split = self.parent as? SplitViewController, let tableItem = split.tableItem {
+            tableItem.isCollapsed = false
+            split.setCollapseToggleOn()
         }
     }
     
@@ -255,6 +255,8 @@ extension UserDefaults {
 
 extension GistViewController: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
-        self.gistButton.isEnabled = self.loggedIn && self.textView.string != ""
+        if self.loggedIn {
+            self.gistButton.isEnabled = self.textView.string != ""
+        }
     }
 }

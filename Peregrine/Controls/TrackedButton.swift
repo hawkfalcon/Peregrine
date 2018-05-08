@@ -28,8 +28,10 @@ class TrackedButton: BasicButton, Hoverable {
     
     // Recalculate tracking bounds if frame changes
     override func updateTrackingAreas() {
-        super.updateTrackingAreas()
-        self.trackHover()
+        if isHoverCursorHand {
+            super.updateTrackingAreas()
+            self.trackHover()
+        }
     }
     
     override func mouseEntered(with event: NSEvent) {
