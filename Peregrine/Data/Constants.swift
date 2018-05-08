@@ -36,13 +36,13 @@ struct Constants {
 
 struct Labels {
     static let empty = ""
-    static let loading = "Loading..."
     static let logIn = "Log In"
     static let logOut = "Log Out"
+    static let defaultUsername = "Username"
     static let panel = "Choose a file"
     static let notLoggedIn = "Please Log In First 😊"
     static let gist = "Create Gist"
-    static let defaultUsername = "Username"
+    static let noText = "Write Anything 🖋"
 }
 
 struct Errors {

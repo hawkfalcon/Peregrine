@@ -80,7 +80,7 @@ class GistViewController: NSViewController {
     }
     
     @IBAction func gistButtonPress(_ sender: NSButton) {
-        if loggedIn {
+        if self.loggedIn {
             createGist()
         }
         else {
@@ -117,7 +117,7 @@ class GistViewController: NSViewController {
             if let _ = error {
                 self.gistButton.title = Errors.gistError
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                    self.gistButton.isEnabled = self.textView.string != ""
+                    self.updateGistButtonState()
                 }
             }
             else if let url = dict?[ResponseKey.url] as? String {
@@ -127,7 +127,7 @@ class GistViewController: NSViewController {
                 self.textView.string = Labels.empty
                 self.descriptionField.stringValue = Labels.empty
                 self.filenameField.stringValue = Labels.empty
-                self.gistButton.title = Labels.gist
+                self.updateGistButtonState()
             }
             
             self.activityIndicator.animate = false
@@ -181,8 +181,7 @@ class GistViewController: NSViewController {
         self.usernameButton.isHoverCursorHand = false
         self.profileButton.title = Labels.empty
         self.profileButton.image = image
-        self.gistButton.title = Labels.gist
-        self.gistButton.isEnabled = self.textView.string != ""
+        self.updateGistButtonState()
     }
     
     func resetView() {
@@ -233,6 +232,17 @@ class GistViewController: NSViewController {
             }
         }
     }
+    
+    func updateGistButtonState() {
+        if self.textView.string == "" {
+            self.gistButton.isEnabled = false
+            self.gistButton.title = Labels.noText
+        }
+        else {
+            self.gistButton.isEnabled = true
+            self.gistButton.title = Labels.gist
+        }
+    }
 }
 
 extension UserDefaults {
@@ -256,7 +266,7 @@ extension UserDefaults {
 extension GistViewController: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
         if self.loggedIn {
-            self.gistButton.isEnabled = self.textView.string != ""
+            self.updateGistButtonState()
         }
     }
 }
