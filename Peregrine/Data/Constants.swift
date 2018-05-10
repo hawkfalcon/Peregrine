@@ -32,6 +32,7 @@ extension NSStoryboard.SceneIdentifier {
 
 struct Constants {
     static let maxStringLength = 38
+    static let waitTime = 1.5
 }
 
 struct Labels {

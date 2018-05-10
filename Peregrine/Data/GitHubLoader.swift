@@ -9,9 +9,8 @@
 import Foundation
 import p2_OAuth2
 
-
 /**
-	Simple class handling authorization and data requests with GitHub.
+    Simple class handling authorization and data requests with GitHub.
  */
 class GitHubLoader: OAuth2DataLoader {
 	
@@ -23,7 +22,7 @@ class GitHubLoader: OAuth2DataLoader {
 			"client_secret": "59579575178c862303e560c84f16813decfbb1c6",
 			"authorize_uri": "https://github.com/login/oauth/authorize",
 			"token_uri": "https://github.com/login/oauth/access_token",
-            "scope": "gist",
+            "scope": "gist", // as little scope as currently possible
 			"redirect_uris": ["peregrine://authorize"], // app has registered this scheme
 			"secret_in_body": true,
 			"verbose": true,
@@ -57,6 +56,7 @@ class GitHubLoader: OAuth2DataLoader {
 		}
 	}
     
+    /* Post a gist */
     func postGist(content: String, filename: String, description: String, secret: Bool,
         callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
 
@@ -70,6 +70,7 @@ class GitHubLoader: OAuth2DataLoader {
         request(path: "gists", body: paramsJson, type: "POST", callback: callback)
     }
 	
+    /* Retrieve username and profile picture */
 	func requestUserdata(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
         request(path: "user", body: Data(), type: "GET", callback: callback)
 	}

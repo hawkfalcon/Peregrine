@@ -124,7 +124,7 @@ class GistViewController: NSViewController {
             secret: secret) { dict, error in
             if let _ = error {
                 self.gistButton.title = Errors.gistError
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Constants.waitTime) {
                     self.updateGistButtonState()
                 }
             }

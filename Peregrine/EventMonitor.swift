@@ -1,6 +1,8 @@
 import Cocoa
 
-/* From RayWenderlich */
+/**
+    From RayWenderlich, used to monitor for external clicks
+*/
 
 public class EventMonitor {
     private var monitor: Any?

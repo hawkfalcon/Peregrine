@@ -2,8 +2,8 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let popover = NSPopover()
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let menu = NSMenu()
     var eventMonitor: EventMonitor?
     
@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(clickMenuBar(_:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
+        /* Constrct our popover at the menu location */
         popover.contentViewController = createViewController()
         popover.appearance = NSAppearance(named: .aqua)
         constructMenu()
