@@ -2,7 +2,7 @@ import Cocoa
 
 extension NSImage.Name {
     //TODO: Update Image
-    static let icon = NSImage.Name("GitHub")
+    static let icon = NSImage.Name("peregrine-logo")
     static let defaultProfile = NSImage.Name("GitHub-White")
     static let copy = NSImage.Name("copy")
 }
