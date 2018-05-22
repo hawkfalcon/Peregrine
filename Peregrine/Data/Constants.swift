@@ -43,7 +43,8 @@ struct Labels {
     static let panel = "Choose a file"
     static let notLoggedIn = "Please Log In First 😊"
     static let gist = "Create Gist"
-    static let noText = "Write Anything 🖋"
+    static let noText = "Start Writing Above 🖋"
+    static let noLinks = "Gists will appear here 👻"
 }
 
 struct Errors {

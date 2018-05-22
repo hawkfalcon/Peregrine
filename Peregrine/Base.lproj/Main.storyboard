@@ -229,7 +229,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <scrollView focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="180" verifyAmbiguity="off" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ome-rW-50L">
-                                        <rect key="frame" x="0.0" y="80" width="320" height="180"/>
+                                        <rect key="frame" x="0.0" y="76" width="320" height="180"/>
                                         <clipView key="contentView" focusRingType="none" copiesOnScroll="NO" id="qSO-ba-55L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

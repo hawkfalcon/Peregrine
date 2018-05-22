@@ -58,6 +58,7 @@ class GistViewController: NSViewController {
         
         self.usernameButton.title = Labels.logIn
         self.gistButton.title = Labels.notLoggedIn
+        // This is correct, it loads from default first
         if self.loggedIn {
             login()
         }

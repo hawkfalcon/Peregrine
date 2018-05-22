@@ -5,6 +5,7 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
     @IBOutlet weak var scrollView: NSScrollView!
 
     var links: [Link] = []
+    var noLinks: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,13 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         
         self.links = UserDefaults.standard.getList(key: UserDefaults.Key.links)
         tableView.reloadData()
+        
+        if self.links.count == 0 {
+            if #available(OSX 10.12, *) {
+                noLinks = NSTextField(labelWithAttributedString: NSAttributedString.create(color: .white, size: 20, title: Labels.noLinks, alignment: .center))
+                self.view.addSubview(noLinks)
+            }
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.addTableViewItem(_:)), name: .AddItem, object: nil)
     }
@@ -65,6 +73,10 @@ class TableViewController: NSViewController, NSTableViewDelegate, NSTableViewDat
         self.links = UserDefaults.standard.getList(key: UserDefaults.Key.links)
         tableView.reloadData()
         tableView.scrollRowToVisible(0)
+        if self.links.count > 0 && noLinks != nil {
+            self.noLinks.removeFromSuperview()
+            self.noLinks = nil
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.tableView.rowView(atRow: 0, makeIfNecessary: false)?.isSelected = true
         }
