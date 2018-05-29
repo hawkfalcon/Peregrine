@@ -7,7 +7,9 @@ It is written in Swift 4 and uses Apple's Cocoa API.
 
 Created for my Senior Project @ Cal Poly SLO
 
-[CustomSharingService - Medium article coming soon](https://github.com/hawkfalcon/CustomSharingService)
+[CustomSharingService](https://github.com/hawkfalcon/CustomSharingService)
+
+[Medium Article](https://medium.com/@hawkfalcon/creating-a-custom-macos-sharing-service-in-swift-e7e0e46cbdd3)
 
 ## Features
 * Create Gists from the menubar
