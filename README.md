@@ -16,6 +16,16 @@ Created for my Senior Project @ Cal Poly SLO
 * Make gists public or secret
 * Import files
 
+## Design
+<p float="left">
+   <img src="images/login.png" width="400" />
+   <img src="images/creategist.png" width="400" />
+</p>
+<p float="left">
+   <img src="images/expanded.png" width="400" /> 
+   <img src="images/share.png" width="400" align="top"/>
+</p>
+
 ## Contributing
 Feel free to contibute by submitting a [pull request](https://github.com/hawkfalcon/Peregrine/pulls)
 
